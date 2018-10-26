@@ -1,29 +1,23 @@
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<!--[if ie 6]><![endif]-->
+<html lang="ja">
 
 <head>
-	<meta charset="utf-8" />
-	<title>{$title} - {$name}</title> 
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>{if isset($title)}{$title} - {/if}Leadme</title>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Mono:400,400italic' rel='stylesheet' type='text/css'>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+</head>
 
-	<style type="text/css">
-	{literal}
-		body {background-color: #fff; color: #000; width: 800px; font-family: 'Roboto Mono', 'courier', 'courier new', monotype;}
-		h1, h2 {background-color: #fff; color: #999; font-family: 'Roboto Slab', 'Times New Roman', Georgia, serif;}
-		h1 {font-size: 2em;}
-		h2 {font-size: 1.5em;}
-		em {border: solid #000 1px; padding: 0 5px; font-style: normal;}
-		label {display: inline-block; width: 10em; text-align: right;}
-		input[type="submit"] {margin: 1em 0 0 10em;}
-		.error {background-color: #ff0; color: #c00;}
-		.message {background-color: #fff; color: #0c0;}
-	{/literal}
-	</style>
-</head> 
 <body>
+<div class="container">
