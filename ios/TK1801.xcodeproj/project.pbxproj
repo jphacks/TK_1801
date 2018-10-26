@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		AF9591C4ACD399BBFDFDA475 /* Pods_TK1801.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC9A8F8F1A3987B44316658C /* Pods_TK1801.framework */; };
 		DB6A57392182EC7500CF8172 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A57382182EC7500CF8172 /* AppDelegate.swift */; };
-		DB6A573B2182EC7500CF8172 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A573A2182EC7500CF8172 /* ViewController.swift */; };
+		DB6A573B2182EC7500CF8172 /* WebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A573A2182EC7500CF8172 /* WebVC.swift */; };
 		DB6A57402182EC7600CF8172 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB6A573F2182EC7600CF8172 /* Assets.xcassets */; };
 		DB6A57432182EC7600CF8172 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB6A57412182EC7600CF8172 /* LaunchScreen.storyboard */; };
+		DBDD696121834D7600894ED9 /* RootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDD696021834D7600894ED9 /* RootVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +21,11 @@
 		AC9A8F8F1A3987B44316658C /* Pods_TK1801.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TK1801.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6A57352182EC7500CF8172 /* TK1801.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TK1801.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6A57382182EC7500CF8172 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DB6A573A2182EC7500CF8172 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DB6A573A2182EC7500CF8172 /* WebVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebVC.swift; sourceTree = "<group>"; };
 		DB6A573F2182EC7600CF8172 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB6A57422182EC7600CF8172 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB6A57442182EC7600CF8172 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBDD696021834D7600894ED9 /* RootVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +70,8 @@
 			isa = PBXGroup;
 			children = (
 				DB6A57382182EC7500CF8172 /* AppDelegate.swift */,
-				DB6A573A2182EC7500CF8172 /* ViewController.swift */,
+				DB6A573A2182EC7500CF8172 /* WebVC.swift */,
+				DBDD696021834D7600894ED9 /* RootVC.swift */,
 				DB6A573F2182EC7600CF8172 /* Assets.xcassets */,
 				DB6A57412182EC7600CF8172 /* LaunchScreen.storyboard */,
 				DB6A57442182EC7600CF8172 /* Info.plist */,
@@ -204,7 +207,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB6A573B2182EC7500CF8172 /* ViewController.swift in Sources */,
+				DBDD696121834D7600894ED9 /* RootVC.swift in Sources */,
+				DB6A573B2182EC7500CF8172 /* WebVC.swift in Sources */,
 				DB6A57392182EC7500CF8172 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
