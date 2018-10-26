@@ -1,5 +1,5 @@
 <?php
-class Call_review extends CI_Model {
+class Guidance extends CI_Model {
 
 	function __construct()
 	{
@@ -7,49 +7,49 @@ class Call_review extends CI_Model {
 	}
 
 	/**
-	 * レビューの件数を取得
+	 * ガイド依頼の件数を取得
 	 *
 	 * @param array 検索条件
-	 * @return int レビューの件数
+	 * @return int ガイド依頼の件数
 	 */
 	public function count($wheres = array()) {
-		$this->db->from('call_reviews');
+		$this->db->from('guidances');
 		$this->db->where($wheres);
 		return $this->db->count_all_results();
 	}
 
 	/**
-	 * レビューを1件取得
+	 * ガイド依頼を1件取得
 	 *
-	 * @param string 取得カラム(カンマ区切り, エスケープしないのでレビューからの入力は直接入れないこと)
+	 * @param string 取得カラム(カンマ区切り, エスケープしないのでガイド依頼からの入力は直接入れないこと)
 	 * @param array 検索条件
 	 * @param string ソート対象のカラム名
 	 * @param string ソート順序(ASC/DESC)
 	 * @param int 取得開始位置
-	 * @return array|bool レビュー情報(見つからなかった場合はfalseが返る)
+	 * @return array|bool ガイド依頼情報(見つからなかった場合はfalseが返る)
 	 */
 	public function get($select = '*', $wheres, $order_by = null, $sort_order = 'ASC', $offset = null) {
-		$call_reviews = $this->search($select, $wheres, $order_by, $sort_order, 1, $offset);
-		if (!isset($call_reviews[0])) {
+		$guidances = $this->search($select, $wheres, $order_by, $sort_order, 1, $offset);
+		if (!isset($guidances[0])) {
 			return false;
 		}
-		return $call_reviews[0];
+		return $guidances[0];
 	}
 
 	/**
-	 * レビューを検索
+	 * ガイド依頼を検索
 	 *
-	 * @param string 取得カラム(カンマ区切り, エスケープしないのでレビューからの入力は直接入れないこと)
+	 * @param string 取得カラム(カンマ区切り, エスケープしないのでガイド依頼からの入力は直接入れないこと)
 	 * @param array 検索条件の連想配列
 	 * @param string ソート対象のカラム名
 	 * @param string ソート順序(ASC/DESC)
 	 * @param int 取得するデータ数
 	 * @param int 取得開始位置
-	 * @return array レビュー情報の配列
+	 * @return array ガイド依頼情報の配列
 	 */
 	public function search($select = '*', $wheres = array(), $order_by = null, $sort_order = 'ASC', $limit = null, $offset = null) {
 		$this->db->select($select, false);
-		$this->db->from('call_reviews');
+		$this->db->from('guidances');
 		$this->db->where($wheres);
 		if ($order_by) {
 			$this->db->order_by($order_by, $sort_order);
@@ -67,29 +67,29 @@ class Call_review extends CI_Model {
 	}
 
 	/**
-	 * レビューを登録
+	 * ガイド依頼を登録
 	 *
-	 * @param array 登録するレビュー情報
-	 * @return bool 成功時は登録されたレビューのid, 失敗時はfalseが返る
+	 * @param array 登録するガイド依頼情報
+	 * @return bool 成功時は登録されたガイド依頼のid, 失敗時はfalseが返る
 	 */
 	public function register($values) {
-		return $this->db->insert('call_reviews', $values) ? $this->db->insert_id() : false;
+		return $this->db->insert('guidances', $values) ? $this->db->insert_id() : false;
 	}
 
 	/**
-	 * レビューを更新
+	 * ガイド依頼を更新
 	 *
 	 * @param array 更新条件
-	 * @param array 更新するレビュー情報
+	 * @param array 更新するガイド依頼情報
 	 * @return bool 成功時はtrue, 失敗時はfalseが返る
 	 */
 	public function update($wheres, $values) {
 		$this->db->where($wheres);
-		return $this->db->update('call_reviews', $values);
+		return $this->db->update('guidances', $values);
 	}
 
 	/**
-	 * レビューを削除
+	 * ガイド依頼を削除
 	 *
 	 * @param array 削除条件
 	 * @return bool 成功時はtrue, 失敗時はfalseが返る
@@ -101,7 +101,7 @@ class Call_review extends CI_Model {
 		}
 
 		$this->db->where($wheres);
-		$this->db->delete('call_reviews');
+		$this->db->delete('guidances');
 
 		return true;
 	}
