@@ -19,7 +19,7 @@
 		50EE46FDC6240691D4739295 /* Pods-TK1801.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TK1801.release.xcconfig"; path = "Pods/Target Support Files/Pods-TK1801/Pods-TK1801.release.xcconfig"; sourceTree = "<group>"; };
 		85A7DDB84AE9553EC9ABE2E5 /* Pods-TK1801.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TK1801.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TK1801/Pods-TK1801.debug.xcconfig"; sourceTree = "<group>"; };
 		AC9A8F8F1A3987B44316658C /* Pods_TK1801.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TK1801.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DB6A57352182EC7500CF8172 /* TK1801.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TK1801.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB6A57352182EC7500CF8172 /* Leadme.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Leadme.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB6A57382182EC7500CF8172 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB6A573A2182EC7500CF8172 /* WebVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebVC.swift; sourceTree = "<group>"; };
 		DB6A573F2182EC7600CF8172 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -61,7 +61,7 @@
 		DB6A57362182EC7500CF8172 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DB6A57352182EC7500CF8172 /* TK1801.app */,
+				DB6A57352182EC7500CF8172 /* Leadme.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -107,7 +107,7 @@
 			);
 			name = TK1801;
 			productName = TK1801;
-			productReference = DB6A57352182EC7500CF8172 /* TK1801.app */;
+			productReference = DB6A57352182EC7500CF8172 /* Leadme.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -278,7 +278,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -333,7 +333,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -357,7 +357,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = nakarin.TK1801;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Leadme;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -377,7 +377,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = nakarin.TK1801;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Leadme;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
