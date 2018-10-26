@@ -28,7 +28,7 @@ class RootVC: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if let url = URL(string: "http://www.cas.hc.uec.ac.jp/") {
+        if let url = URL(string: "http://leadme.mz-kb.com/register") {
             self.present(WebVC(url), animated: false)
         } else {
             self.setupViews()
