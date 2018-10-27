@@ -1,7 +1,5 @@
 {include file="header.tpl" title="Send Reviews"}
 
-<h1>Send Reviews</h1>
-
 <!--add the special style sheet of this page here!-->
 <style media="screen">
   .u-pd-lr30{

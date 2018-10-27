@@ -1,7 +1,5 @@
 {include file="header.tpl" title="My Page"}
 
-<h1>マイページ</h1>
-
 <!--add the special style sheet of this page here!-->
 <style media="screen">
   .u-pd-lr30{
