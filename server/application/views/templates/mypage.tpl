@@ -23,35 +23,41 @@
   }
 </style>
 
-<script type="text/javascript">
-  function showReviews(reviews){
-    let reviews = reviews; //this is the reviews list
-    reviews.forEach(function(review){
-      document.write("<ul>\n");
-      document.write("<li>");
-      document.write(review); //this is sentense of review
-      document.write("</li>");
-      document.write("</ul>\n");
-    });
-  }
-  </script>
-
 <!--section part / it contain the main parts-->
 <section class="u-pd-lr30 text-center">
+
   <!--Title-->
   <h2 class="u-pt100 u-color-gray">My Page</h1>
+
   <!--Picture-->
   <image src="" class="" name="profielImage">
+
   <!--User's Name-->
   <span class="u-pt100" name="name" value=""></span>
-  <!--My Profiel(if this is user, this part is not needed)-->
+
+  <!--My Profiel-->
   <span class="u-pt30" name="profiel" value="">test sentenses "fdisahg;dsihsdfk;jskvjdfokvgjsknvhfslbvfuislvjfnvskjdfnsbdfjnkdn"</span>
-  <!--Reviews part-->
-  <span>
-    <script type="text/javascript">
-      showReviews(); //put the reviews
-    </script>
-  </span>
+  
+  <!--If part-->
+  <span>{$point}</span>
+  {if $type == "guide"}
+    <span>
+      <ul>
+        {foreach $reviews as $review}
+          <li>{$review}</li>
+        {/foreach}
+      </ul>
+    <span>
+  {else}
+    <span>
+      <ul>
+        {foreach $histories as $history}
+          <li>{$histories}</li>
+        {/foreach}
+      </ul>
+    </span>
+  {/if}
+
   <!--Order button-->
   <div class="u-pt30">
     <button class="p-button-main" type="button" name="button">Order!!</button>
