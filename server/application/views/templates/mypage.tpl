@@ -57,7 +57,6 @@
   	</span>
   	<div class="media-body u-pl30">
   		<h3 class="">{$user['name']|escape}</h3>
-        <div class="u-pt10 rateit"></div>
   	</div>
   </div>
 
