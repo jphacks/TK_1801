@@ -57,7 +57,8 @@
   	</span>
   	<div class="media-body u-pl30">
   		<h3 class="">{$user['name']|escape}</h3>
-        <h4 class="text">hogehogeo</h4>
+        <h4 class="u-p130">POINT:{$user['point']}</h4>
+        <h4 class="u-p130">INFO :hogehogeo</h4>
   	</div>
   </div>
 
