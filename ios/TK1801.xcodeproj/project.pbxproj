@@ -12,6 +12,7 @@
 		DB6A573B2182EC7500CF8172 /* WebVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB6A573A2182EC7500CF8172 /* WebVC.swift */; };
 		DB6A57402182EC7600CF8172 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB6A573F2182EC7600CF8172 /* Assets.xcassets */; };
 		DB6A57432182EC7600CF8172 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB6A57412182EC7600CF8172 /* LaunchScreen.storyboard */; };
+		DB964D382183EE0F00D18464 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB964D372183EE0F00D18464 /* Constant.swift */; };
 		DBDD696121834D7600894ED9 /* RootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDD696021834D7600894ED9 /* RootVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +26,7 @@
 		DB6A573F2182EC7600CF8172 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB6A57422182EC7600CF8172 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB6A57442182EC7600CF8172 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB964D372183EE0F00D18464 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		DBDD696021834D7600894ED9 /* RootVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,6 +77,7 @@
 				DB6A573F2182EC7600CF8172 /* Assets.xcassets */,
 				DB6A57412182EC7600CF8172 /* LaunchScreen.storyboard */,
 				DB6A57442182EC7600CF8172 /* Info.plist */,
+				DB964D372183EE0F00D18464 /* Constant.swift */,
 			);
 			path = TK1801;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -176,6 +180,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -210,6 +215,7 @@
 				DBDD696121834D7600894ED9 /* RootVC.swift in Sources */,
 				DB6A573B2182EC7500CF8172 /* WebVC.swift in Sources */,
 				DB6A57392182EC7500CF8172 /* AppDelegate.swift in Sources */,
+				DB964D382183EE0F00D18464 /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
