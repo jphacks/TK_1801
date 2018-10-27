@@ -5,11 +5,20 @@
   .u-pd-lr30{
     padding: 0 30px;
   }
+  .u-pt10{
+    padding-top: 10px;
+  }
   .u-pt30{
     padding-top: 30px;
   }
+  .u-pl30{
+    padding-left: 30px;
+  }
   .u-pt100{
     padding-top: 100px;
+  }
+  .u-pt50{
+    padding-top: 50px;
   }
   .p-button-main{
     width: 100%;
@@ -21,6 +30,21 @@
   .input-group-addon{
 
   }
+  p,h1,h2,h3,h4{
+    color: gray;
+  }
+
+  div.circle button.rateit-reset {
+    display: none;
+    width:50px;
+    height:50px;
+}
+.p-user_icon{
+  width: 100px;
+  height: 100px;
+  border-radius: 200px;
+  border: solid 1px #FD5637;
+}
 </style>
 
 <!--put the main components of this page-->
