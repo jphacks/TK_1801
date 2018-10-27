@@ -40,6 +40,8 @@
 <section class="u-pd-lr30 text-center">
   <!--Title-->
   <h2 class="u-pt100 u-color-gray">My Page</h1>
+  <!--Picture-->
+  <image src="" class="" name="profielImage">
   <!--User's Name-->
   <span class="u-pt100" name="name" value=""></span>
   <!--My Profiel-->
