@@ -42,7 +42,7 @@ function removeMarker(userId) {
   markers[userId].setMap(null);
 }
 
-var socket = io.connect('http://202.182.125.217:3000', { query: 'user_id=' + Math.floor(Math.random() * Math.floor(100)) });
+var socket = io.connect('http://202.182.125.217:3000', { query: 'user_id=' + {$user['id']} );
 
 socket.on('sendLocationToClient', function (data) {
   // 位置情報をサーバーから受け取った時(地図上のマーカーを更新)
