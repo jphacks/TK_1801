@@ -9,8 +9,14 @@ final class WebVC: UIViewController {
         let webView = WKWebView()
         webView.navigationDelegate = self
         webView.uiDelegate = self
+        // iOS11からのドラッグアンドドロップによる画像反転禁止
+        if #available(iOS 11.0, *) {
+            webView.scrollView.subviews.first?.interactions = []
+        }
+        webView.scrollView.isScrollEnabled = true //スクロール可能に
+        webView.scrollView.bounces = false // スクロール時のブラウザのバウンスなし
 
-        let userContentController = WKUserContentController()
+//        let userContentController = WKUserContentController()
 //        let script = "document.cookie='_session_id=セッションID; domain=サーバードメイン; path=Cookieパス;"
 //        let cookieScript = WKUserScript(source: script, injectionTime: WKUserScriptInjectionTime.atDocumentStart, forMainFrameOnly: false)
 //        userContentController.addUserScript(cookieScript)
@@ -36,8 +42,8 @@ final class WebVC: UIViewController {
         self.setupViews()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
 
     }
 
