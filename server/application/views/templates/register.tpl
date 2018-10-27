@@ -14,15 +14,38 @@
     width: 100%;
     border-radius: 20px;
     line-height: 40px;
-    background-color: #FF2525 ;
+    border: none;
+    background-color: #FD5637;
     color: #ffffff
   }
-  .input-group-addon{
+  .btn-primary{
+    background-color: #FD5637;
+    border: none;
+  }
+  .btn-primary:hover, .btn-primary:focus,
+  .btn-primary:active, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary:active.focus,
+  .btn-primary.active, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary.active.focus,
+  .open > .dropdown-toggle.btn-primary,
+  .open > .dropdown-toggle.btn-primary:hover,
+  .open > .dropdown-toggle.btn-primary:focus,
+  .open > .dropdown-toggle.btn-primary.focus,
+  .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover,
+  .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus,
+  .btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus {
+    background: #FEAF45 ; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
+    color: white; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
+    border: 2px solid #FEAF45s;
 
   }
+
+  .btn-primary.outline {
+      border: 3px solid #FEAF45 ; //アウトラインのみのボタンの線の色
+      color: white ; //アウトラインのみのボタンのテキストの色
+  }
+
 </style>
 <section class="u-pd-lr30">
-  <h2 class="caption u-color-gray text-center">Sign Up</h2>
+  <h2 class="caption u-color-gray text-center u-pb100">Sign Up</h2>
   <form action="/register/submit" method="POST">
     {if isset($error_message)}
         <div class="alert alert-danger"><strong>Error</strong>: {$error_message}</div>

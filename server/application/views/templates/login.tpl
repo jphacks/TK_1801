@@ -9,6 +9,9 @@
   .u-pt100{
     padding-top: 100px;
   }
+  .u-pb100{
+    padding-bottom: 100px;
+  }
   .p-button-main{
     width: 100%;
     border-radius: 20px;
@@ -20,7 +23,7 @@
 
   }
 </style>
-<section class="u-pd-lr30 text-center">
+<section class="u-pd-lr30 text-center u-pb100">
   <h2 class="u-pt100 u-color-gray">Sign In</h1>
   <div class="input-group u-pt30">
     <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
