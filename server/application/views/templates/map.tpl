@@ -137,6 +137,7 @@ const peer = new Peer({
 var room;
 setTimeout(function () {
   room = peer.joinRoom('location', { mode: 'sfu' });
+	console.log(room);
 
   // 位置情報を定期送信
   setInterval(function () {
