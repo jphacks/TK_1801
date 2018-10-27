@@ -40,9 +40,9 @@
     height:50px;
 }
 .p-user_icon{
-  width: 100px;
-  height: 100px;
-  border-radius: 200px;
+  width: 150px;
+  height: 150px;
+  border-radius: 300px;
   border: solid 1px #FD5637;
 }
 </style>
@@ -52,17 +52,11 @@
   <!--Title-->
   <h2 class="u-pt50 text-center">My Page</h1>
   <div class="media u-pt30">
-  	<span class="media-left">
+  	<span class="media">
       <img class="p-user_icon" src="../images/user.jpg">
   	</span>
   	<div class="media-body u-pl30">
-  		<h4 class="media-heading">{$user['name']|escape}</h4>
-        <script>
-          $(function() {
-            // RateItの設定 ...（2）
-            $("#rateit1").rateit();
-          });
-        </script>
+  		<h3 class="">{$user['name']|escape}</h3>
         <div class="u-pt10 rateit"></div>
   	</div>
   </div>
