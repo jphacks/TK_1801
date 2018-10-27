@@ -44,7 +44,7 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-3 text-center">
-          <a href="" ><span class="glyphicon glyphicon-home  glyphicon_footer u-t20" aria-hidden="true"></span></a>
+          <a href="/home" ><span class="glyphicon glyphicon-home  glyphicon_footer u-t20" aria-hidden="true"></span></a>
         </div>
         <div class="col-xs-3 text-center">
           <a href="/map" ><span class="glyphicon glyphicon-map-marker glyphicon_footer u-t20" aria-hidden="true"></span></a>
