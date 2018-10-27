@@ -36,7 +36,7 @@ class Review extends CI_Controller {
 			array(
 				'field' => 'star',
 				'label' => 'Star',
-				'rules' => 'required|is_natural_no_zero|lesser_than_equal_to[5]',
+				'rules' => 'required|is_natural_no_zero|less_than_equal_to[5]',
 			),
 		);
 		$this->form_validation->set_rules($rules);
