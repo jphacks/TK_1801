@@ -63,18 +63,11 @@
   	<div class="media-body u-pl30">
         <!--Name-->
   		<h3 class="">{$user['name']|escape}</h3>
-<<<<<<< HEAD
-        <!--Points-->
-        <h4 class="u-p130">POINT:{$user['point']}</h4>
-        <!--self information-->
-        <h4 class="u-p130">INFO :hogehogeo</h4>
-=======
         <h4 class="u-p130 u-t12">POINT:{$user['point']}</h4>
         <h4 class="u-p130 u-t12">INFO :hoge</h4>
->>>>>>> 5d55692ef0a1b2e6a2910c8ff6bfa50e86203436
   	</div>
   </div>
-  
+
   <!--
   History part
   できればスクロールするようにデザインしたい
@@ -94,12 +87,9 @@
       </ul>
     {/if}
   </div>
-  
+
   <!--Button to change own information-->
   <div class="u-pt30">
-<<<<<<< HEAD
-    <button onclick="document.location('/setting')" class="p-button-main" type="button" name="button">Change Profiel</button>
-=======
     <button class="p-button-main" type="button" name="button">Settings</button>
   </div>
   <div class="u-pt30">
@@ -107,7 +97,7 @@
   </div>
   <div class="u-pt30">
     <button class="p-button-main" type="button" name="button">Edit Profile</button>
->>>>>>> 5d55692ef0a1b2e6a2910c8ff6bfa50e86203436
+
   </div>
 </section>
 
