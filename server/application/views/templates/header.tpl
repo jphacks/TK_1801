@@ -156,6 +156,8 @@
           margin-left: 0 !important;
       }
     }
+
+    .wrapper { overflow: hidden; }
   </style>
 <!-- ページのコンテンツすべてをwrapする（フッター以外） -->
   <div id="wrap">
