@@ -10,7 +10,7 @@
     /* フッターを下部へ押しやるための、コンテンツのラッパー */
     #wrap {
     min-height: 100%;
-    height: auto;
+    height: 100%;
     /* フッターの高さ分だけ、ネガティブインデントを指定 */
     margin: 0 auto -50px;
     /* フッターの高さ分だけ、パディングを指定 */
@@ -19,10 +19,10 @@
 
     /* ここでフッターの高さを指定 */
     #footer {
-    position: fixed;
-    bottom: auto;
+    position: absolute;
+    bottom: 0;
     width: 100%;
-    height: 100px;
+    
     background-color: #ffffff;
     border-top: solid lightgray;
     }
