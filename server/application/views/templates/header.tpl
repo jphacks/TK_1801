@@ -163,18 +163,11 @@
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
           <a class="navbar-brand navbar-brand-center" href="/">Leadme</a>
-        </div>
-        <div class="collapse navbar-collapse" id="navigation">
-        <div class="navbar-text navbar-right">
-          <span class="glyphicon glyphicon-user glyphicon_footer" style="color:white;margin-top:-4px" aria-hidden="true"></span> 
-          <span style="color:white" aria-hidden="true">{$user['name']|escape}</span>
+          <div class="navbar-text text-right" style="padding-right:10px">
+            <span class="glyphicon glyphicon-user glyphicon_footer" style="color:white;margin-top:-4px" aria-hidden="true"></span> 
+            <span style="color:white" aria-hidden="true">{$user['name']|escape}</span>
+          </div>
         </div>
       </div><!-- /.container-fluid -->
     </nav>
