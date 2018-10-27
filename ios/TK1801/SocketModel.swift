@@ -10,11 +10,11 @@ final class SocketModel {
     var isStart = false
 
     init(_ url: String) {
-        let manager = SocketManager(socketURL: URL(string: url)!, config: [.log(true), .compress])
+        let manager = SocketManager(socketURL: URL(string: url)!, config: [.log(true), .extraHeaders(["user_id": "7"])])
         socket = manager.defaultSocket
     }
 
-    func connect () {
+    func connect() {
         socket.on(clientEvent: .connect) {data, ack in
             print("socket connected")
         }
@@ -32,9 +32,13 @@ final class SocketModel {
         socket.connect()
     }
 
-    func sendGPS() {
+    func sendGPS(latitude: Double, longitude: Double) {
         // 位置情報を送る処理
-//        socket.emit("sendLocationToServer", params)
+        let params: [String:Double] = [
+            "lat": latitude,
+            "lng": longitude
+        ]
+        socket.emit("sendLocationToServer", params)
     }
 
 }
