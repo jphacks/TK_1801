@@ -8,19 +8,33 @@
 
 <script>
 var map;
-var markers = [];
 function initMap() {
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {
-      lat: 34.7019399, // 緯度
-      lng: 135.51002519999997 // 経度
+  if(navigator.geolocation) {
+    // 現在位置を取得
+    navigator.geolocation.getCurrentPosition(function (position) {
+      var pos = convertPosition(position);
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: pos,
+        zoom: 19
+      });
     },
-    zoom: 19
-  });
-  markers.push(new google.maps.Marker({ position: {
-    lat: 34.7019399, // 緯度
-    lng: 135.51002519999997 // 経度
-  }, map: map }));
+    function () {
+      alert('Your device doesn\'t support Geolocation API.');
+    });
+  }
+}
+
+function convertPosition(position) {
+  return { lat: position.coords.latitude, lng: position.coords.longitude };
+}
+
+var markers = {};
+function updateMarker(userId, position) {
+  if (markers[userId]) {
+    markers[userId].setPosition(position);
+  } else {
+    markers[userId] = new google.maps.Marker({ position: position, map: map });
+  }
 }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
