@@ -157,6 +157,12 @@
       .navbar-brand-center {
           margin-left: 0 !important;
       }
+
+    }
+    .logo{
+    width: 60px;
+    position: relative;
+    top: -12px;
     }
   </style>
 <!-- ページのコンテンツすべてをwrapする（フッター以外） -->
@@ -165,12 +171,12 @@
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-          <a class="navbar-brand navbar-brand-center" href="/">Leadme</a>
+          <a class="navbar-brand navbar-brand-center " href="/"><span><img src="/images/logo_lead_me.png"  class="logo"></span></a>
         </div>
         <div class="navbar-text navbar-right text-right" style="padding-right:10px">
           {if isset($user)}
             <a href="/mypage">
-              <span class="glyphicon glyphicon-user glyphicon_footer" style="color:white;margin-top:-4px" aria-hidden="true"></span> 
+              <span class="glyphicon glyphicon-user glyphicon_footer" style="color:white;margin-top:-4px" aria-hidden="true"></span>
               <span style="color:white" aria-hidden="true">{$user['name']|escape}</span>
             </a>
           {else}
