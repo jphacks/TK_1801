@@ -15,6 +15,14 @@ final class WebVC: UIViewController {
         }
         webView.scrollView.isScrollEnabled = true //スクロール可能に
         webView.scrollView.bounces = false // スクロール時のブラウザのバウンスなし
+        let source = "var meta = document.createElement('meta');"
+            + "meta.name = 'viewport';"
+            + "meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';"
+            + "var head = document.getElementsByTagName('head')[0];"
+            + "head.appendChild(meta);"
+
+        let script = WKUserScript(source: source, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
+        webView.configuration.userContentController.addUserScript(script)
 
 //        let userContentController = WKUserContentController()
 //        let script = "document.cookie='_session_id=セッションID; domain=サーバードメイン; path=Cookieパス;"
