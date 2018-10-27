@@ -15,7 +15,7 @@ class Review extends CI_Controller {
 	{
 		$this->smarty->view('review.tpl', array(
 			'user' => isset($_SESSION['user_id']) ? $this->user->get('*', array('id' => $_SESSION['user_id'])) : null,
-			'guidance_id' => $this->input->post('guidance_id'),
+			'guidance_id' => $this->input->get('id'),
 		));
 	}
 
@@ -42,7 +42,7 @@ class Review extends CI_Controller {
 		);
 		$this->form_validation->set_rules($rules);
 		$data = array(
-			'guidance_id' => $this->input->post('guidance_id'),
+			'guidance_id' => $this->input->get('id'),
 			'body' => $this->input->post('body'),
 			'star' => $this->input->post('star'),
 			'created_by_ip_address' => ip2long($_SERVER['REMOTE_ADDR']),
