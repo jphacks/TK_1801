@@ -8,6 +8,7 @@ extension DefaultsKeys {
 
 let endpoint = "https://leadme.mz-kb.com/"
 
+let urlLogin = endpoint + "login"
 let urlRegister = endpoint + "register"
 
 

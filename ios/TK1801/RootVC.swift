@@ -21,7 +21,7 @@ class RootVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         Location.shared.requestAuthorization()
-        if let url = URL(string: urlRegister) {
+        if let url = URL(string: urlLogin) {
             self.present(WebVC(url), animated: false)
         } else {
             self.setupViews()
