@@ -151,7 +151,7 @@ setTimeout(function () {
     switch (d.type) {
       case 'location':
         // 位置情報をサーバーから受け取った時(地図上のマーカーを更新)
-        updateMarker(d.userId, d.location);
+        updateMarker(d.userId, d.position);
         break;
       case 'disconnection':
         // 他の人の接続切れをサーバーから受け取った時(地図上のマーカーを削除)
