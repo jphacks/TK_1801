@@ -79,14 +79,14 @@
     <div class="form-group">
       <label for="password" class="control-label">Password (must be 6 to 32 characters long)</label>
       <div class="input-group">
-          <span class="input-group-addon"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></span>
+          <span class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></span>
           <input name="password" type="password" class="form-control" placeholder="Password">
       </div>
     </div>
     <div class="form-group">
       <label for="location" class="control-label">Location</label>
       <div class="input-group">
-          <span class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></span>
+          <span class="input-group-addon"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span></span>
           <input name="location" type="text" class="form-control" placeholder="Location (e.g. USA)" value="{if isset($location)}{$location|escape}{/if}">
       </div>
     </div>
