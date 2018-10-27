@@ -73,26 +73,30 @@
   </div>
 
   <div class="row row-scrollable">
-    <span>{$user['point']}</span>
+    <ui>
+      <li class="col-xs-4 col-scrollable">a</li>
+      <li class="col-xs-4 col-scrollable">b</li>
+      <li class="col-xs-4 col-scrollable">c</li>
+      <li class="col-xs-4 col-scrollable">d</li>
+      <li class="col-xs-4 col-scrollable">e</li>
+      <li class="col-xs-4 col-scrollable">f</li>
+      <li class="col-xs-4 col-scrollable">g</li>
+    </ui>
     {if $user['type'] == "guide"}
-      <span>
-        <ul>
-          {foreach $user['reviews'] as $review}
-            <li>{$review}</li>
-          {/foreach}
-        </ul>
-      <span>
+      <ul>
+        {foreach $user['reviews'] as $review}
+          <li class="col-xs-4 col-scrollable">{$review}</li>
+        {/foreach}
+      </ul>
     {else}
-      <span>
-        <ul>
-          {foreach $user['histories'] as $history}
-            <li>{$histories}</li>
-          {/foreach}
-        </ul>
-      </span>
+      <ul>
+        {foreach $user['histories'] as $history}
+          <li class="col-xs-4 col-scrollable">{$histories}</li>
+        {/foreach}
+      </ul>
     {/if}
   </div>
-  
+
   <div class="u-pt30">
     <button class="p-button-main" type="button" name="button">Change Profiel</button>
   </div>
