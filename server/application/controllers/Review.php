@@ -48,7 +48,7 @@ class Review extends CI_Controller {
 			'created_by_ip_address' => ip2long($_SERVER['REMOTE_ADDR']),
 		);
 		$error_message = null;
-		$guidance = $this->guidance->get(array('guidance_id' => $data['guidance_id']));
+		$guidance = $this->guidance->get('*', array('guidance_id' => $data['guidance_id']));
 		if ($guidance === false || $guidance['tourist_user_id'] !== $_SESSION['user_id']) {
 			$error_message = 'You don\'t have rights for posting reviews of this guidance.';
 		}
