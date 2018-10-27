@@ -47,13 +47,13 @@
           <a href="" ><span class="glyphicon glyphicon-home  glyphicon_footer u-t20" aria-hidden="true"></span></a>
         </div>
         <div class="col-xs-3 text-center">
-          <a href="" ><span class="glyphicon glyphicon-map-marker glyphicon_footer u-t20" aria-hidden="true"></span></a>
+          <a href="/map" ><span class="glyphicon glyphicon-map-marker glyphicon_footer u-t20" aria-hidden="true"></span></a>
         </div>
         <div class="col-xs-3 text-center">
-          <a href=""><span class="glyphicon glyphicon-user glyphicon_footer u-t20" aria-hidden="true"></span></a>
+          <a href="mypage"><span class="glyphicon glyphicon-user glyphicon_footer u-t20" aria-hidden="true"></span></a>
         </div>
         <div class="col-xs-3 text-center">
-          <a href="" ><span class="glyphicon glyphicon-envelope glyphicon_footer u-t20" aria-hidden="true"></span></a>
+          <a href="review" ><span class="glyphicon glyphicon-envelope glyphicon_footer u-t20" aria-hidden="true"></span></a>
         </div>
       </div>
     </div>
