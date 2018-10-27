@@ -24,8 +24,8 @@ class Review extends CI_Controller {
 		$this->load->library('form_validation');
 		$rules = array(
 			array(
-				'field' => 'guide_user_id',
-				'label' => 'Guide User ID',
+				'field' => 'guidance_id',
+				'label' => 'Guidance ID',
 				'rules' => 'required|is_natural_no_zero',
 			),
 			array(
@@ -41,14 +41,17 @@ class Review extends CI_Controller {
 		);
 		$this->form_validation->set_rules($rules);
 		$data = array(
-			'tourist_user_id' => $_SESSION['user_id'],
-			'guide_user_id' => $this->input->post('guide_user_id'),
+			'guidance_id' => $this->input->post('guidance_id'),
 			'body' => $this->input->post('body'),
 			'star' => $this->input->post('star'),
 			'created_by_ip_address' => ip2long($_SERVER['REMOTE_ADDR']),
 		);
 		$error_message = null;
-		if ($this->form_validation->run() === false) {
+		$guidance = $this->guidance->get(array('guidance_id' => $data['guidance_id']));
+		if ($guidance === false || $guidance['tourist_user_id'] !== $_SESSION['user_id']) {
+			$error_message = 'You don\'t have rights for posting reviews of this guidance.';
+		}
+		if ($this->form_validation->run() === false || isset($error_message)) {
 			// フォーム検証エラー
 			$error_message = $this->form_validation->error_string();
 		} else {
