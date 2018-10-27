@@ -59,7 +59,7 @@
       <img class="p-user_icon" src="../images/user.jpg">
   	</span>
   	<div class="media-body u-pl30">
-  		<h3 class="u-t12">{$user['name']|escape}</h3>
+  		<h3 class="">{$user['name']|escape}</h3>
         <h4 class="u-p130 u-t12">POINT:{$user['point']}</h4>
         <h4 class="u-p130 u-t12">INFO :hoge</h4>
   	</div>
