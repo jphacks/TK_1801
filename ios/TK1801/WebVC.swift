@@ -26,6 +26,11 @@ final class WebVC: UIViewController {
         self.setupViews()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+    }
+
     private func setupViews() {
         self.view.addSubview(webView)
         self.webView.snp.makeConstraints {
@@ -41,6 +46,11 @@ final class WebVC: UIViewController {
 }
 
 extension WebVC:  WKNavigationDelegate  {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        if Location.shared.authorizationStatus() == .denied {
+            self.present(LocationDeniedVC(), animated: true, completion: nil)
+        }
+    }
 }
 
 extension WebVC: WKUIDelegate {

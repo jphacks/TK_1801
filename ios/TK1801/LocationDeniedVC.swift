@@ -1,11 +1,11 @@
 import UIKit
 
-final class LocationDeniedView: UIView {
+final class LocationDeniedVC: UIViewController {
 
     // TODO: appのアイコンをセット
     private let iv = UIImageView(image: UIImage(named: "icon"))
 
-    let label: UILabel = {
+    private let label: UILabel = {
         let label = UILabel()
         label.text = "Since the location info service is not ON,\nit is not possible to display nearby guides"
         label.textColor = .black
@@ -15,7 +15,7 @@ final class LocationDeniedView: UIView {
         return label
     }()
 
-    let btn: UIButton = {
+    private lazy var btn: UIButton = {
         let btn = UIButton()
         btn.setTitle("Turn on location info service", for: .normal)
         btn.setTitleColor(UIColor.app.orange, for: .normal)
@@ -23,18 +23,19 @@ final class LocationDeniedView: UIView {
         btn.layer.cornerRadius = 24
         btn.layer.borderWidth = 1
         btn.layer.borderColor = UIColor.app.orange.cgColor
+        btn.addTarget(self, action: #selector(settingDidTap), for: .touchUpInside)
         
         return btn
     }()
 
-    init() {
-        super.init(frame: .zero)
-        isHidden = true
-        backgroundColor = UIColor.app.paleGrey
-        addSubview(iv)
-        addSubview(label)
-        addSubview(btn)
-        iv.snp.makeConstraints {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.view.backgroundColor = UIColor.app.paleGrey
+        self.view.addSubview(iv)
+        self.view.addSubview(label)
+        self.view.addSubview(btn)
+        self.iv.snp.makeConstraints {
             $0.top.equalToSuperview().inset(86)
             $0.centerX.equalToSuperview()
             $0.size.equalTo(161)
@@ -50,7 +51,13 @@ final class LocationDeniedView: UIView {
         }
     }
 
-    required init?(coder _: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    @objc private func settingDidTap() {
+        guard let url = URL(string: UIApplication.openSettingsURLString) else { return }
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+        self.dismiss(animated: false, completion: nil)
     }
 }
