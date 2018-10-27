@@ -97,6 +97,13 @@ function initMap() {
         center: pos,
         zoom: 19
       });
+      var infoWindow;
+      infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
+        content: '<div class="sample">TAM 大阪</div>' // 吹き出しに表示する内容
+       });
+      markers.addListener('click', function() { // マーカーをクリックしたとき
+        infoWindow.open(map, marker); // 吹き出しの表示
+      });
     },
     function (error) {
       alert('Your device doesn\'t support Geolocation API.');
@@ -130,6 +137,7 @@ const peer = new Peer({
 var room;
 setTimeout(function () {
   room = peer.joinRoom('location', { mode: 'sfu' });
+	console.log(room);
 
   // 位置情報を定期送信
   setInterval(function () {
