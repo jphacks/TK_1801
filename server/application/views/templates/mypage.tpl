@@ -52,12 +52,11 @@
   <!--Title-->
   <h2 class="u-pt50 text-center">My Page</h1>
   <div class="media u-pt30">
-  	<span class="media">
+  	<span class="media-body">
       <img class="p-user_icon" src="../images/user.jpg">
   	</span>
   	<div class="media-body u-pl30">
   		<h3 class="">{$user['name']|escape}</h3>
-        <div class="u-pt10 rateit"></div>
   	</div>
   </div>
 
