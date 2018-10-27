@@ -85,7 +85,7 @@
   </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.slim.js"></script>
+<script type="text/javascript" src="https://cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
 <script>
 var map;
 function initMap() {
@@ -121,28 +121,47 @@ function removeMarker(userId) {
   markers[userId].setMap(null);
 }
 
-var socket = io.connect('http://202.182.125.217:3000', { query: 'user_id=' + {$user['id']} });
-
-socket.on('sendLocationToClient', function (data) {
-  // 位置情報をサーバーから受け取った時(地図上のマーカーを更新)
-  updateMarker(data.userId, data.location);
+// peerオブジェクト
+const peer = new Peer({
+  key: '61c46edf-bdc8-429a-ba29-ccaf61eb1f19', // 自分のAPIキーを入力
+  debug: 3
 });
 
-socket.on('sendDisconnectionToClient', function (data) {
-  // 他の人の接続切れをサーバーから受け取った時(地図上のマーカーを削除)
-  removeMarker(data.userId);
-});
+var room;
+setTimeout(function () {
+  room = peer.joinRoom('location', { mode: 'sfu' });
 
-setInterval(function () {
-  // 現在位置を取得
-  navigator.geolocation.getCurrentPosition(function (position) {
-    console.log(position);
-    socket.emit('sendLocationToServer', convertPosition(position));
-  },
-  function (error) {
-    console.log('Failed to get current position.');
+  // 位置情報を定期送信
+  setInterval(function () {
+    // 現在位置を取得
+    navigator.geolocation.getCurrentPosition(function (position) {
+      console.log(position);
+      room.send(JSON.stringify({ type: 'location', userId: {$user['id']}, position: convertPosition(position) }));
+    },
+    function (error) {
+      console.log('Failed to get current position.');
+    });
+  }, 5000);
+
+  // 受信
+  room.on('data', function(data){
+    // data.src = 送信者のpeerid, data.data = 送信されたメッセージ
+    console.log('Received: ' + data.data);
+    var d = JSON.parse(data.data);
+    switch (d.type) {
+      case 'location':
+        // 位置情報をサーバーから受け取った時(地図上のマーカーを更新)
+        updateMarker(d.userId, d.position);
+        break;
+      case 'disconnection':
+        // 他の人の接続切れをサーバーから受け取った時(地図上のマーカーを削除)
+        removeMarker(d.userId);
+        break;
+      default:
+        console.log('Undefined type: ' + d.type);
+    }
   });
-}, 5000);
+}, 1000);
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
