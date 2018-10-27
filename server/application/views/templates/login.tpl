@@ -1,4 +1,4 @@
-{include file="header.tpl" title="Log in"}
+{include file="header.tpl" title="Sign In"}
 <style media="screen">
   .u-pd-lr30{
     padding: 0 30px;
@@ -23,27 +23,6 @@
 
   }
 </style>
-<<<<<<< HEAD
-<section class="u-pd-lr30 text-center u-pb100">
-  <h2 class="u-pt100 u-color-gray">Sign In</h1>
-  <div class="input-group u-pt30">
-    <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
-    <input type="text" class="form-control" placeholder="your name">
-  </div>
-  <div class="input-group  u-pt30">
-    <span class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></span>
-    <input type="text" class="form-control" placeholder="email address">
-  </div>
-  <div class="input-group u-pt30">
-    <span class="input-group-addon"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></span>
-    <input type="text" class="form-control" placeholder="password">
-  </div>
-  <div class="u-pt30">
-    <button onclick="location.href='/mypage'" class="p-button-main" type="button" name="button">Sign In</button>
-  </div>
-  {include file="footer.tpl"}
-</section>
-=======
 <section class="u-pd-lr30">
   <h2 class="caption u-color-gray text-center">Sign In</h2>
   <form action="/login" method="POST">
@@ -71,4 +50,3 @@
   <div class="u-pt30 text-center">Don't have an account? Register <a href="/register">here</a>!</div>
 </section>
 {include file="footer.tpl"}
->>>>>>> a81f56e30e7f65921e5d1888824923d8b593f128
