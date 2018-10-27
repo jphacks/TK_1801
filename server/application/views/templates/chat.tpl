@@ -3,8 +3,8 @@
   .message_bar{
     /* position: absolute;
     bottom: 60px; */
-    padding-top: 40px;
-    width: 360px;
+    padding-top: 60px;
+    width: 300px;
   }
   #chatLog{
     width: 100%;
