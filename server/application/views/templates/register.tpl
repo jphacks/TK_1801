@@ -35,7 +35,7 @@
     <input type="text" class="form-control" placeholder="password">
   </div>
   <div class="u-pt30">
-    <button class="p-button-main" type="button" name="button">登録する</button>
+    <button class="p-button-main" type="button" name="button">Sign Up</button>
   </div>
   {include file="footer.tpl"}
 </section>
