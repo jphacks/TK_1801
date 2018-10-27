@@ -57,7 +57,7 @@
   	</span>
   	<div class="media-body u-pl30">
   		<h3 class="">{$user['name']|escape}</h3>
-        <h3 class="text">hogehogeo</h3>
+        <h4 class="text">hogehogeo</h4>
   	</div>
   </div>
 
