@@ -1,6 +1,70 @@
-{include file="header.tpl" title="Where Guides are?"}
+{include file="header.tpl" title="Where are Guides?"}
 
-<h1>地図</h1>
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.83065188299!2d139.76486291493939!3d35.68117163758327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188bfbd89f700b%3A0x277c49ba34ed38!2z5p2x5Lqs6aeF!5e0!3m2!1sja!2sjp!4v1540602360598" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+<div class="row">
+  <div class="col-sm-12">
+    <div id="map" style="width:100%;height:calc(100vh - 180px)"></div>
+  </div>
+</div>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.slim.js"></script>
+<script>
+var map;
+function initMap() {
+  if(navigator.geolocation) {
+    // 現在位置を取得
+    navigator.geolocation.getCurrentPosition(function (position) {
+      var pos = convertPosition(position);
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: pos,
+        zoom: 19
+      });
+    },
+    function (error) {
+      alert('Your device doesn\'t support Geolocation API.');
+    });
+  }
+}
+
+function convertPosition(position) {
+  return { lat: position.coords.latitude, lng: position.coords.longitude };
+}
+
+var markers = {};
+function updateMarker(userId, position) {
+  if (markers[userId]) {
+    markers[userId].setPosition(position);
+  } else {
+    markers[userId] = new google.maps.Marker({ position: position, map: map });
+  }
+}
+
+function removeMarker(userId) {
+  markers[userId].setMap(null);
+}
+
+var socket = io.connect('http://202.182.125.217:3000', { query: 'user_id=' + Math.floor(Math.random() * Math.floor(100)) });
+
+socket.on('sendLocationToClient', function (data) {
+  // 位置情報をサーバーから受け取った時(地図上のマーカーを更新)
+  updateMarker(data.userId, data.location);
+});
+
+socket.on('sendDisconnectionToClient', function (data) {
+  // 他の人の接続切れをサーバーから受け取った時(地図上のマーカーを削除)
+  removeMarker(data.userId);
+});
+
+setInterval(function () {
+  // 現在位置を取得
+  navigator.geolocation.getCurrentPosition(function (position) {
+    console.log(position);
+    socket.emit('sendLocationToServer', convertPosition(position));
+  },
+  function (error) {
+    console.log('Failed to get current position.');
+  });
+}, 5000);
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
 {include file="footer.tpl"}
