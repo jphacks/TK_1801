@@ -22,6 +22,9 @@ class Login extends CI_Controller {
 				redirect('/mypage');
 			}
 		}
-		$this->smarty->view('login.tpl', array('email_address' => $error_message));
+		$this->smarty->view('login.tpl', array(
+			'email_address' => $this->input->post('email_address'),
+			'error_message' => $error_message,
+		));
 	}
 }
