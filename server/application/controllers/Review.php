@@ -15,6 +15,7 @@ class Review extends CI_Controller {
 	{
 		$this->smarty->view('review.tpl', array(
 			'user' => isset($_SESSION['user_id']) ? $this->user->get('*', array('id' => $_SESSION['user_id'])) : null,
+			'guidance_id' => $this->input->post('guidance_id'),
 		));
 	}
 

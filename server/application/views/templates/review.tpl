@@ -31,7 +31,7 @@
   <!--Title-->
   <h2 class="caption text-center">Send Reviews</h1>
   <form action="/review/submit" method="POST">
-    <input name="guide_user_id" type="hidden" value="{$user['id']}">
+    <input name="guidance_id" type="hidden" value="{$guidance_id}">
     {if isset($error_message)}
         <div class="alert alert-danger"><strong>Error</strong>: {$error_message}</div>
     {/if}
