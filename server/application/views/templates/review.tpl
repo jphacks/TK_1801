@@ -1,4 +1,4 @@
-{include file="header.tpl" title="Send Reviews"}
+{include file="header.tpl" title="Send Reviews" user=$user}
 
 <!--add the special style sheet of this page here!-->
 <style media="screen">
@@ -50,6 +50,7 @@
 <!--put the main components of this page-->
 <section class="u-pd-lr30">
   <!--Title-->
+<<<<<<< HEAD
   <h2 class="u-pt50 text-center">Send Reviews</h1>
   <h4 class="u-pt10">Are you satisfied?</h4>
   <div class="media u-pt30">
@@ -71,7 +72,16 @@
   <!--text box of reviews-->
   <div class=" input-group col-xs-12">
       <textarea class="form-control " rows="5" id="comment"></textarea>
+=======
+  <h2 class="u-pt100 u-color-gray">Send Reviews</h1>
+  
+  <!--text box of reviews-->
+  <div class="input-group u-pt30">
+    <span class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></span>
+    <input name="review" type="text" class="form-control" placeholder="Please, write the reviews.">
+>>>>>>> e0393ed1fabf9403398d0d3a4138e3d81dcf2a60
   </div>
+
   <!--send button-->
   <div class="u-pt30">
     <button class="p-button-main" type="button" name="button">Send</button>

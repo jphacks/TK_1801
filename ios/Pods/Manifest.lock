@@ -3,6 +3,9 @@ PODS:
   - FCAlertView (1.4.0)
   - KeychainAccess (3.1.2)
   - SnapKit (4.2.0)
+  - Socket.IO-Client-Swift (13.3.1):
+    - Starscream (~> 3.0.2)
+  - Starscream (3.0.6)
   - SwiftyJSON (4.2.0)
   - SwiftyUserDefaults (3.0.1)
 
@@ -11,6 +14,7 @@ DEPENDENCIES:
   - FCAlertView
   - KeychainAccess
   - SnapKit
+  - Socket.IO-Client-Swift (~> 13.3.0)
   - SwiftyJSON
   - SwiftyUserDefaults
 
@@ -20,6 +24,8 @@ SPEC REPOS:
     - FCAlertView
     - KeychainAccess
     - SnapKit
+    - Socket.IO-Client-Swift
+    - Starscream
     - SwiftyJSON
     - SwiftyUserDefaults
 
@@ -28,9 +34,11 @@ SPEC CHECKSUMS:
   FCAlertView: fdddd63381898c1d1a5a20c9f084fbd2c6d12f8b
   KeychainAccess: b3816fddcf28aa29d94b10ec305cd52be14c472b
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  Socket.IO-Client-Swift: 79f8f85fa44881838175a20f9bd2c32bef2c9d37
+  Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   SwiftyUserDefaults: 3d273b1739b68ada3145dc754a70ec775bc5c8be
 
-PODFILE CHECKSUM: 0c91e5efd23f7343bc1ada7f94ca206d2a9d1d51
+PODFILE CHECKSUM: 2810c42e239dd8eb72f70497f0a691af588eecf3
 
 COCOAPODS: 1.5.3

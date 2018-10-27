@@ -65,6 +65,11 @@ extension Location: CLLocationManagerDelegate {
             print(longitude)
         }
 
+        let state: UIApplication.State = UIApplication.shared.applicationState
+        if state == .background || state == .inactive {
+            print("background")
+        }
+
         // 位置情報が変わった事を通知する
         let notificationCenter = NotificationCenter.default
         notificationCenter.post(name: Location.notificationForChangeLocation, object: nil)

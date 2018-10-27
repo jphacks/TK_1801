@@ -81,6 +81,7 @@ class Register extends CI_Controller {
 			}
 		}
 		$data['error_message'] = $error_message;
+		$data['user'] = isset($_SESSION['user_id']) ? $this->user->get('*', array('id' => $_SESSION['user_id'])) : null;
 		$this->smarty->view('register.tpl', $data);
 	}
 }
