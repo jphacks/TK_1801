@@ -50,8 +50,8 @@
 <!--put the main components of this page-->
 <section class="u-pd-lr30">
   <!--Title-->
-  <h2 class="u-pt50 text-center">Send Reviews</h1>
-  <h4 class="u-pt10">Are you satisfied?</h4>
+  <h2 class="caption text-center">Send Reviews</h1>
+  <h4 class="u-pt30 ">Are you satisfied?</h4>
   <div class="media u-pt30">
   	<span class="media-left">
       <img class="p-user_icon" src="../images/user.jpg">
