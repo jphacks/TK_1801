@@ -133,7 +133,7 @@ setInterval(function () {
   // 現在位置を取得
   navigator.geolocation.getCurrentPosition(function (position) {
     console.log(position);
-    room.send(JSON.stringify({ type: 'location', userId: {$user_id}, position: position }));
+    room.send(JSON.stringify({ type: 'location', userId: {$user['id']}, position: position }));
   },
   function (error) {
     console.log('Failed to get current position.');
