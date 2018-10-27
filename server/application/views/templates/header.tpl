@@ -21,7 +21,11 @@
 <body>
   <style media="screen">
     html { overflow:auto; }
-    body { word-wrap: break-word; }
+    body { 
+        word-wrap: break-word; 
+        -webkit-touch-callout:none;
+        -webkit-user-select:none;
+    }
 
     /* navbar 全体の背景色とボーダーカラー */
     .navbar-default {
