@@ -24,6 +24,7 @@
 </style>
 
 <script type="text/javascript">
+  //sample data
   let reviews = ["he is bad guide." , "i do not like him." , "i hate you."]; //from server
   let histries = ["Jack" , "Daniel"];
   let type = 'tourist'; //from server
