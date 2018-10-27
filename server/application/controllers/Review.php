@@ -41,7 +41,8 @@ class Review extends CI_Controller {
 		);
 		$this->form_validation->set_rules($rules);
 		$data = array(
-			'name' => $_SESSION['user_id'],
+			'tourist_user_id' => $_SESSION['user_id'],
+			'guide_user_id' => $this->input->post('guide_user_id'),
 			'body' => $this->input->post('body'),
 			'star' => $this->input->post('star'),
 			'created_by_ip_address' => ip2long($_SERVER['REMOTE_ADDR']),
@@ -51,8 +52,8 @@ class Review extends CI_Controller {
 			// フォーム検証エラー
 			$error_message = $this->form_validation->error_string();
 		} else {
-			$user_id = $this->user->register($data);
-			if ($user_id === false) {
+			$review_id = $this->review->register($data);
+			if ($review_id === false) {
 				// DBエラー
 				$error_message = 'Failed to register the requestted review.';
 			} else {
