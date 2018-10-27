@@ -43,14 +43,8 @@
             $("#rateit1").rateit();
           });
         </script>
-        <select id="star-selection" name="star">
-          <option value="1">Bad</option>
-          <option value="2">OK</option>
-          <option value="3">Great</option>
-          <option value="4">Excellent</option>
-          <option value="5">Perfect</option>
-        </select>
-        <div class="rateit" data-rateit-backingfld="#star-selection" data-rateit-min="1" data-rateit-max="5" data-rateit-resetable="false"></div>
+        <input type="range" value="5" step="1" id="backing5">
+        <div class="rateit" data-rateit-backingfld="#backing5" data-rateit-min="1" data-rateit-max="5" data-rateit-resetable="false"></div>
   	</div>
   </div>
   <p class="  u-pt30">write a review for {$user['name']|escape}</p>
