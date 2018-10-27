@@ -2,24 +2,6 @@
 
 <!--add the special style sheet of this page here!-->
 <style media="screen">
-  .u-pd-lr30{
-    padding: 0 30px;
-  }
-  .u-pt10{
-    padding-top: 10px;
-  }
-  .u-pt30{
-    padding-top: 30px;
-  }
-  .u-pl30{
-    padding-left: 30px;
-  }
-  .u-pt100{
-    padding-top: 100px;
-  }
-  .u-pt50{
-    padding-top: 50px;
-  }
   .p-button-main{
     width: 100%;
     border-radius: 20px;
@@ -29,9 +11,6 @@
   }
   .input-group-addon{
 
-  }
-  p,h1,h2,h3,h4{
-    color: gray;
   }
 
   div.circle button.rateit-reset {

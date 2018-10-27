@@ -1,4 +1,83 @@
 {include file="header.tpl" title="Where are Guides?" user=$user}
+<style media="screen">
+  .btn-primary{
+    background-color: #c78836;
+    border: none;
+  }
+  .btn-primary:hover, .btn-primary:focus,
+  .btn-primary:active, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary:active.focus,
+  .btn-primary.active, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary.active.focus,
+  .open > .dropdown-toggle.btn-primary,
+  .open > .dropdown-toggle.btn-primary:hover,
+  .open > .dropdown-toggle.btn-primary:focus,
+  .open > .dropdown-toggle.btn-primary.focus,
+  .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover,
+  .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus,
+  .btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus {
+    background:rgba( 254 , 175 , 69 );; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
+    color: white; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
+    border: 2px solid #FEAF45s;
+
+  }
+
+  .btn-primary.outline {
+      border: 3px solid rgba( 254 , 175 , 69 );; //アウトラインのみのボタンの線の色
+      color: white ; //アウトラインのみのボタンのテキストの色
+  }
+  .p-user_icon{
+    width: 100px;
+    height: 100px;
+    border-radius: 200px;
+    border: solid 1px #FD5637;
+  }
+  .p-button-modal__open{
+    width: 40%;
+    border-radius: 20px;
+    line-height: 40px;
+    border: none;
+    background-color: #FD5637;
+    color: #ffffff
+  }
+  .p-button-modal__close{
+    width: 40%;
+    border-radius: 20px;
+    line-height: 40px;
+    border: none;
+    background-color: gray;
+    color: #ffffff
+  }
+</style>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="media-left">
+          <img class="p-user_icon" src="../images/user.jpg">
+        </span>
+        <div class="media-body u-pl30">
+      		<h4 class="media-heading u-pt30">{$user['name']|escape} Scouted you!!</h4>
+        </div>
+      </div>
+      <div class="modal-body text-center">
+        <button type="button" class="p-button-modal__open">Start Chat</button>
+        <button type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  $('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').trigger('focus')
+  })
+</script>
+
+
 
 <div class="row">
   <div class="col-sm-12">

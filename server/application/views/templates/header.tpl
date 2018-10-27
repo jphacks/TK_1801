@@ -164,6 +164,30 @@
     position: relative;
     top: -12px;
     }
+    .u-pd-lr30{
+      padding: 0 30px;
+    }
+    .u-pt10{
+      padding-top: 10px;
+    }
+    .u-pt30{
+      padding-top: 30px;
+    }
+    .u-pl30{
+      padding-left: 30px;
+    }
+    .u-pt100{
+      padding-top: 100px;
+    }
+    .u-pt50{
+      padding-top: 50px;
+    }
+    .u-ml30{
+      margin-left: 30px;
+    }
+    p,h1,h2,h3,h4{
+      color: gray;
+    }
   </style>
 <!-- ページのコンテンツすべてをwrapする（フッター以外） -->
   <div id="wrap">
