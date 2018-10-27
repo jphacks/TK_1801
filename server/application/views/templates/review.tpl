@@ -48,14 +48,14 @@
               $("#rateit1").rateit();
             });
           </script>
-          <input type="range" value="5" step="1" id="backing5" name="star">
+          <input type="range"{if isset($star)} value="{$star}"{/if} step="1" id="backing5" name="star">
           <div class="rateit" data-rateit-backingfld="#backing5" data-rateit-min="0" data-rateit-max="5" data-rateit-resetable="false"></div>
       </div>
     </div>
     <p class="u-pt30">write a review for {$user['name']|escape}</p>
     <!--text box of reviews-->
     <div class="input-group col-xs-12">
-        <textarea class="form-control " rows="5" id="comment" name="body"></textarea>
+        <textarea class="form-control " rows="5" id="comment" name="body">{if isset($body)}{$body}{/if}</textarea>
     </div>
 
     <!--send button-->
