@@ -95,15 +95,15 @@ extension WebVC:  WKNavigationDelegate  {
         }
     }
 
-    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
-        let response = navigationResponse.response as! HTTPURLResponse
-        let cookies = HTTPCookie.cookies(withResponseHeaderFields: response.allHeaderFields as! [String : String], for: response.url!)
-        decisionHandler(.allow)
-
-        for c in cookies {
-            print(c.name + c.value)
-        }
-    }
+//    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+//        let response = navigationResponse.response as! HTTPURLResponse
+//        let cookies = HTTPCookie.cookies(withResponseHeaderFields: response.allHeaderFields as! [String : String], for: response.url!)
+//        decisionHandler(.allow)
+//
+//        for c in cookies {
+//            print(c.name + c.value)
+//        }
+//    }
     
 }
 
