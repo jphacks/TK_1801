@@ -126,37 +126,41 @@ const peer = new Peer({
   key: '61c46edf-bdc8-429a-ba29-ccaf61eb1f19', // 自分のAPIキーを入力
   debug: 3
 });
-var room = peer.joinRoom('location', { mode: 'sfu' });
 
-// 位置情報を定期送信
-setInterval(function () {
-  // 現在位置を取得
-  navigator.geolocation.getCurrentPosition(function (position) {
-    console.log(position);
-    room.send(JSON.stringify({ type: 'location', userId: {$user['id']}, position: position }));
-  },
-  function (error) {
-    console.log('Failed to get current position.');
+var room;
+setTimeout(function () {
+  room = peer.joinRoom('location', { mode: 'sfu' });
+
+  // 位置情報を定期送信
+  setInterval(function () {
+    // 現在位置を取得
+    navigator.geolocation.getCurrentPosition(function (position) {
+      console.log(position);
+      room.send(JSON.stringify({ type: 'location', userId: {$user['id']}, position: position }));
+    },
+    function (error) {
+      console.log('Failed to get current position.');
+    });
+  }, 5000);
+
+  // 受信
+  room.on('data', function(data){
+    // data.src = 送信者のpeerid, data.data = 送信されたメッセージ
+    var d = JSON.parse(data.data);
+    switch (d.type) {
+      case 'location':
+        // 位置情報をサーバーから受け取った時(地図上のマーカーを更新)
+        updateMarker(d.userId, d.location);
+        break;
+      case 'disconnection':
+        // 他の人の接続切れをサーバーから受け取った時(地図上のマーカーを削除)
+        removeMarker(d.userId);
+        break;
+      default:
+        console.log('Undefined type: ' + d.type);
+    }
   });
-}, 5000);
-
-// 受信
-room.on('data', function(data){
-  // data.src = 送信者のpeerid, data.data = 送信されたメッセージ
-  var d = JSON.parse(data.data);
-  switch (d.type) {
-    case 'location':
-      // 位置情報をサーバーから受け取った時(地図上のマーカーを更新)
-      updateMarker(d.userId, d.location);
-      break;
-    case 'disconnection':
-      // 他の人の接続切れをサーバーから受け取った時(地図上のマーカーを削除)
-      removeMarker(d.userId);
-      break;
-    default:
-      console.log('Undefined type: ' + d.type);
-  }
-});
+}, 1000);
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
