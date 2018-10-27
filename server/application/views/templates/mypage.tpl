@@ -45,6 +45,9 @@
   border-radius: 300px;
   border: solid 1px #FD5637;
 }
+.u-t12{
+  font-size: 12px;
+}
 </style>
 
 <!--put the main components of this page-->
@@ -56,9 +59,9 @@
       <img class="p-user_icon" src="../images/user.jpg">
   	</span>
   	<div class="media-body u-pl30">
-  		<h3 class="">{$user['name']|escape}</h3>
-        <h4 class="u-p130">POINT:{$user['point']}</h4>
-        <h4 class="u-p130">INFO :hogehogeo</h4>
+  		<h3 class="u-t12">{$user['name']|escape}</h3>
+        <h4 class="u-p130 u-t12">POINT:{$user['point']}</h4>
+        <h4 class="u-p130 u-t12">INFO :hoge</h4>
   	</div>
   </div>
 
@@ -79,7 +82,13 @@
   </div>
 
   <div class="u-pt30">
-    <button class="p-button-main" type="button" name="button">Change Profiel</button>
+    <button class="p-button-main" type="button" name="button">Settings</button>
+  </div>
+  <div class="u-pt30">
+    <button class="p-button-main" type="button" name="button">Your Reviews</button>
+  </div>
+  <div class="u-pt30">
+    <button class="p-button-main" type="button" name="button">Edit Profile</button>
   </div>
 </section>
 
