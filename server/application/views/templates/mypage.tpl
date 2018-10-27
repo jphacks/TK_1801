@@ -33,6 +33,13 @@
   	</span>
   	<div class="media-body u-pl30">
   		<h4 class="media-heading">{$user['name']|escape}</h4>
+        <script>
+          $(function() {
+            // RateItの設定 ...（2）
+            $("#rateit1").rateit();
+          });
+        </script>
+        <div class="u-pt10 rateit"></div>
   	</div>
   </div>
 
