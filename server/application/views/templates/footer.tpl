@@ -19,7 +19,10 @@
 
     /* ここでフッターの高さを指定 */
     #footer {
-    height: 50px;
+    position: fixed;
+    bottom: auto;
+    width: 100%;
+    height: 100px;
     background-color: #ffffff;
     border-top: solid lightgray;
     }
