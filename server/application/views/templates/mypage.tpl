@@ -44,7 +44,7 @@
   <image src="" class="" name="profielImage">
   <!--User's Name-->
   <span class="u-pt100" name="name" value=""></span>
-  <!--My Profiel-->
+  <!--My Profiel(if this is user, this part is not needed)-->
   <span class="u-pt30" name="profiel" value="">test sentenses "fdisahg;dsihsdfk;jskvjdfokvgjsknvhfslbvfuislvjfnvskjdfnsbdfjnkdn"</span>
   <!--Reviews part-->
   <span>
@@ -52,7 +52,10 @@
       showReviews(); //put the reviews
     </script>
   </span>
-
+  <!--Order button-->
+  <div class="u-pt30">
+    <button class="p-button-main" type="button" name="button">Order!!</button>
+  </div>
 </section>
 
 {include file="footer.tpl"}
