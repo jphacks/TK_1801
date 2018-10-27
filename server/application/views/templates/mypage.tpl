@@ -51,11 +51,11 @@
 <section class="u-pd-lr30">
   <!--Title-->
   <h2 class="u-pt50 text-center">My Page</h1>
-  <div class="u-pt30">
-  	<span class="text-center">
+  <div class="media u-pt30">
+  	<span class="media-body">
       <img class="p-user_icon" src="../images/user.jpg">
   	</span>
-  	<div class="text-center u-pl30">
+  	<div class="media-header u-pl30">
   		<h3 class="">{$user['name']|escape}</h3>
         <h4 class="u-p130">POINT:{$user['point']}</h4>
         <h4 class="u-p130">INFO :hogehogeo</h4>
