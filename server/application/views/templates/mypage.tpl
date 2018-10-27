@@ -45,16 +45,6 @@
   border-radius: 300px;
   border: solid 1px #FD5637;
 }
-
-<!--ここから丸々コピペです-->
-.row-scrollable{
-  overflow-x: auto !important;
-  white-space: nowrap !important;
-}
-.row-scrollable > .col-scrollable {
-  display: inline-block !important;
-  float: none !important;
-}
 </style>
 
 <!--put the main components of this page-->
@@ -73,25 +63,16 @@
   </div>
 
   <div class="row row-scrollable">
-    <ui>
-      <li class="col-xs-4 col-scrollable">a</li>
-      <li class="col-xs-4 col-scrollable">b</li>
-      <li class="col-xs-4 col-scrollable">c</li>
-      <li class="col-xs-4 col-scrollable">d</li>
-      <li class="col-xs-4 col-scrollable">e</li>
-      <li class="col-xs-4 col-scrollable">f</li>
-      <li class="col-xs-4 col-scrollable">g</li>
-    </ui>
     {if $user['type'] == "guide"}
       <ul>
         {foreach $user['reviews'] as $review}
-          <li class="col-xs-4 col-scrollable">{$review}</li>
+          <li>{$review}</li>
         {/foreach}
       </ul>
     {else}
       <ul>
         {foreach $user['histories'] as $history}
-          <li class="col-xs-4 col-scrollable">{$histories}</li>
+          <li>{$histories}</li>
         {/foreach}
       </ul>
     {/if}
