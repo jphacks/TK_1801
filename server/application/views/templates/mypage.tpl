@@ -45,6 +45,16 @@
   border-radius: 300px;
   border: solid 1px #FD5637;
 }
+
+<!--ここから丸々コピペです-->
+.row-scrollable{
+  overflow-x: auto !important;
+  white-space: nowrap !important;
+}
+.row-scrollable > .col-scrollable {
+  display: inline-block !important;
+  float: none !important;
+}
 </style>
 
 <!--put the main components of this page-->
@@ -62,25 +72,27 @@
   	</div>
   </div>
 
-  <span>{$user['point']}</span>
-  {if $user['type'] == "guide"}
-    <span>
-      <ul>
-        {foreach $user['reviews'] as $review}
-          <li>{$review}</li>
-        {/foreach}
-      </ul>
-    <span>
-  {else}
-    <span>
-      <ul>
-        {foreach $user['histories'] as $history}
-          <li>{$histories}</li>
-        {/foreach}
-      </ul>
-    </span>
-  {/if}
-
+  <div class="row row-scrollable">
+    <span>{$user['point']}</span>
+    {if $user['type'] == "guide"}
+      <span>
+        <ul>
+          {foreach $user['reviews'] as $review}
+            <li>{$review}</li>
+          {/foreach}
+        </ul>
+      <span>
+    {else}
+      <span>
+        <ul>
+          {foreach $user['histories'] as $history}
+            <li>{$histories}</li>
+          {/foreach}
+        </ul>
+      </span>
+    {/if}
+  </div>
+  
   <div class="u-pt30">
     <button class="p-button-main" type="button" name="button">Change Profiel</button>
   </div>
