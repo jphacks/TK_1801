@@ -116,6 +116,9 @@ function updateMarker(userId, position) {
     markers[userId] = new google.maps.Marker({ position: position, map: map });
   }
 }
+markers.addListener( "click", function ( argument ) {
+  console.log( 'hoge' ) ;
+}
 
 function removeMarker(userId) {
   markers[userId].setMap(null);
