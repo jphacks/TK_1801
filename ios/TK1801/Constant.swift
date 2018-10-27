@@ -1,9 +1,23 @@
-//
-//  Constant.swift
-//  TK1801
-//
-//  Created by Iko Nakari on 2018/10/27.
-//  Copyright © 2018 nakarin0528. All rights reserved.
-//
+import KeychainAccess
+import SwiftyUserDefaults
 
-import Foundation
+extension DefaultsKeys {
+    static let latitude = DefaultsKey<Double?>("latitude")
+    static let longitude = DefaultsKey<Double?>("longitude")
+}
+
+let endpoint = "https://leadme.mz-kb.com/"
+
+let urlRegister = endpoint + "register"
+
+
+
+var latitude: Double? {
+    get { return Defaults[.latitude] }
+    set(value) { Defaults[.latitude] = value }
+}
+
+var longitude: Double? {
+    get { return Defaults[.longitude] }
+    set(value) { Defaults[.longitude] = value }
+}

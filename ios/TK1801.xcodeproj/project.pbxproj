@@ -13,6 +13,7 @@
 		DB6A57402182EC7600CF8172 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB6A573F2182EC7600CF8172 /* Assets.xcassets */; };
 		DB6A57432182EC7600CF8172 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB6A57412182EC7600CF8172 /* LaunchScreen.storyboard */; };
 		DB964D382183EE0F00D18464 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB964D372183EE0F00D18464 /* Constant.swift */; };
+		DB964D3A2183F01500D18464 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB964D392183F01500D18464 /* Location.swift */; };
 		DBDD696121834D7600894ED9 /* RootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDD696021834D7600894ED9 /* RootVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		DB6A57422182EC7600CF8172 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB6A57442182EC7600CF8172 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB964D372183EE0F00D18464 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		DB964D392183F01500D18464 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		DBDD696021834D7600894ED9 /* RootVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,6 +80,7 @@
 				DB6A57412182EC7600CF8172 /* LaunchScreen.storyboard */,
 				DB6A57442182EC7600CF8172 /* Info.plist */,
 				DB964D372183EE0F00D18464 /* Constant.swift */,
+				DB964D392183F01500D18464 /* Location.swift */,
 			);
 			path = TK1801;
 			sourceTree = "<group>";
@@ -125,6 +128,11 @@
 				TargetAttributes = {
 					DB6A57342182EC7500CF8172 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -214,6 +222,7 @@
 			files = (
 				DBDD696121834D7600894ED9 /* RootVC.swift in Sources */,
 				DB6A573B2182EC7500CF8172 /* WebVC.swift in Sources */,
+				DB964D3A2183F01500D18464 /* Location.swift in Sources */,
 				DB6A57392182EC7500CF8172 /* AppDelegate.swift in Sources */,
 				DB964D382183EE0F00D18464 /* Constant.swift in Sources */,
 			);
