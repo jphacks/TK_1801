@@ -1,4 +1,4 @@
-{include file="header.tpl" title="My Page"}
+{include file="header.tpl" title="My Page" user=$user}
 
 <!--add the special style sheet of this page here!-->
 <style media="screen">

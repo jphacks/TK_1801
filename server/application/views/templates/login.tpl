@@ -1,4 +1,4 @@
-{include file="header.tpl" title="Sign In"}
+{include file="header.tpl" title="Sign In" user=$user}
 <style media="screen">
   .u-pd-lr30{
     padding: 0 30px;

@@ -1,4 +1,4 @@
-{include file="header.tpl" title="Send Reviews"}
+{include file="header.tpl" title="Send Reviews" user=$user}
 
 <!--add the special style sheet of this page here!-->
 <style media="screen">
