@@ -171,29 +171,11 @@
           </button>
           <a class="navbar-brand navbar-brand-center" href="/">Leadme</a>
         </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav navbar-right">
-            {*<li><a href="#">Link</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-              </ul>
-            </li>*}
-            <li>
-              <span class="glyphicon glyphicon-user glyphicon_footer" style="color:white;font-size:20px;margin-top:3px" aria-hidden="true"></span>
-            </li>
-            <li style="margin-left:6px;margin-top:12px">
-              <span style="color:white;font-size:14px" aria-hidden="true">{$user['name']}</span>
-            </li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
+        <div class="collapse navbar-collapse" id="navigation">
+        <div class="navbar-text navbar-right">
+          <span class="glyphicon glyphicon-user glyphicon_footer" style="color:white;margin-top:-4px" aria-hidden="true"></span> 
+          <span style="color:white" aria-hidden="true">{$user['name']|escape}</span>
+        </div>
       </div><!-- /.container-fluid -->
     </nav>
 
