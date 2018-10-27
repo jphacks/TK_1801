@@ -146,6 +146,7 @@ setTimeout(function () {
   // 受信
   room.on('data', function(data){
     // data.src = 送信者のpeerid, data.data = 送信されたメッセージ
+    console.log('Received: ' + data.data);
     var d = JSON.parse(data.data);
     switch (d.type) {
       case 'location':
