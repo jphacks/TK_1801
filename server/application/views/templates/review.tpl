@@ -48,7 +48,7 @@
               $("#rateit1").rateit();
             });
           </script>
-          <input type="range"{if isset($star)} value="{$star}"{/if} step="1" id="backing5" name="star">
+          <input type="range" value="{if isset($star)}{$star}{else}0{/if}" step="1" id="backing5" name="star">
           <div class="rateit" data-rateit-backingfld="#backing5" data-rateit-min="0" data-rateit-max="5" data-rateit-resetable="false"></div>
       </div>
     </div>
