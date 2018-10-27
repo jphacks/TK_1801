@@ -1,6 +1,7 @@
 import UIKit
 import SnapKit
 import WebKit
+import SwiftyUserDefaults
 
 final class WebVC: UIViewController {
 
@@ -8,6 +9,21 @@ final class WebVC: UIViewController {
         let webView = WKWebView()
         webView.navigationDelegate = self
         webView.uiDelegate = self
+        // iOS11からのドラッグアンドドロップによる画像反転禁止
+        if #available(iOS 11.0, *) {
+            webView.scrollView.subviews.first?.interactions = []
+        }
+        webView.scrollView.isScrollEnabled = true //スクロール可能に
+        webView.scrollView.bounces = false // スクロール時のブラウザのバウンスなし
+
+//        let userContentController = WKUserContentController()
+//        let script = "document.cookie='_session_id=セッションID; domain=サーバードメイン; path=Cookieパス;"
+//        let cookieScript = WKUserScript(source: script, injectionTime: WKUserScriptInjectionTime.atDocumentStart, forMainFrameOnly: false)
+//        userContentController.addUserScript(cookieScript)
+//
+//        let configuration = WKWebViewConfiguration()
+//        configuration.userContentController = userContentController
+
         return webView
     }()
 
@@ -26,8 +42,8 @@ final class WebVC: UIViewController {
         self.setupViews()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
 
     }
 
@@ -39,7 +55,9 @@ final class WebVC: UIViewController {
     }
 
     private func load(url: URL) {
-        let request = URLRequest(url: url)
+        var request = URLRequest(url: url)
+        request.httpShouldHandleCookies = false
+//        request.setValue("_session_id=セッションID", forHTTPHeaderField: "Cookie")
         self.webView.load(request)
     }
 
@@ -50,6 +68,23 @@ extension WebVC:  WKNavigationDelegate  {
         if Location.shared.authorizationStatus() == .denied {
             self.present(LocationDeniedVC(), animated: true, completion: nil)
         }
+    }
+
+    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+        if let urlResponse = navigationResponse.response as? HTTPURLResponse,
+            let url = urlResponse.url,
+            let allHeaderFields = urlResponse.allHeaderFields as? [String : String] {
+            let cookies = HTTPCookie.cookies(withResponseHeaderFields: allHeaderFields, for: url)
+            print(cookies)
+            for cookie in cookies {
+                print(cookie.domain)
+                if cookie.domain == endpoint {
+                    print(cookie.domain)
+//                    Defaults[.cookie] = cookie.domain
+                }
+            }
+        }
+        decisionHandler(.allow)
     }
 }
 

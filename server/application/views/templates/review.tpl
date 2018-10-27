@@ -27,11 +27,13 @@
 <section class="u-pd-lr30 text-center">
   <!--Title-->
   <h2 class="u-pt100 u-color-gray">Send Reviews</h1>
+  
   <!--text box of reviews-->
   <div class="input-group u-pt30">
     <span class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></span>
-    <input type="text" class="form-control" placeholder="Please, write the reviews.">
+    <input name="review" type="text" class="form-control" placeholder="Please, write the reviews.">
   </div>
+
   <!--send button-->
   <div class="u-pt30">
     <button class="p-button-main" type="button" name="button">Send</button>
