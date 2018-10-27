@@ -18,5 +18,7 @@ target 'TK1801' do
   pod 'FCAlertView'
   # アプリ内保存
   pod 'SwiftyUserDefaults'
+  # リアルタイム通信
+  pod 'Socket.IO-Client-Swift', '~> 13.3.0'
 
 end
