@@ -9,6 +9,7 @@ final class Location:NSObject {
     static let notificationForChangeLocation = Notification.Name("ChangeLocation")
     static let notificationForChangeAuthorization = Notification.Name("ChangeAuthorization")
     static let notificationForErrorLocation = Notification.Name("ErrorLocation")
+    let socketModel: SocketModel
 
     let manager: CLLocationManager = {
         let manager = CLLocationManager()
@@ -23,6 +24,7 @@ final class Location:NSObject {
     }()
 
     override init() {
+        socketModel = SocketModel("http://202.182.125.217:3000/")
         super.init()
         self.manager.delegate = self
     }
@@ -58,11 +60,12 @@ extension Location: CLLocationManagerDelegate {
         guard let location = manager.location else { return }
         latitude = location.coordinate.latitude
         longitude = location.coordinate.longitude
-
+//        socketModel.connect()
         // TODO位置情報送信
         if let latitude = latitude, let longitude = longitude {
             print(latitude)
             print(longitude)
+//            socketModel.sendGPS(latitude: latitude, longitude: longitude)
         }
 
         let state: UIApplication.State = UIApplication.shared.applicationState

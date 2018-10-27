@@ -5,6 +5,8 @@ import SwiftyUserDefaults
 
 final class WebVC: UIViewController {
 
+//    var socketModel: SocketModel
+
     private lazy var webView: WKWebView = {
         let webView = WKWebView()
         webView.navigationDelegate = self
@@ -24,18 +26,22 @@ final class WebVC: UIViewController {
         let script = WKUserScript(source: source, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
         webView.configuration.userContentController.addUserScript(script)
 
-//        let userContentController = WKUserContentController()
-//        let script = "document.cookie='_session_id=セッションID; domain=サーバードメイン; path=Cookieパス;"
-//        let cookieScript = WKUserScript(source: script, injectionTime: WKUserScriptInjectionTime.atDocumentStart, forMainFrameOnly: false)
-//        userContentController.addUserScript(cookieScript)
-//
-//        let configuration = WKWebViewConfiguration()
-//        configuration.userContentController = userContentController
+        let userContentController = WKUserContentController()
+        let cookieScript: WKUserScript
+        if let sessionID = Defaults[.sessionID] {
+            cookieScript = WKUserScript(source: "document.cookie = 'PHPSESSID=\(sessionID);path=/';", injectionTime: .atDocumentStart, forMainFrameOnly: true)
+            userContentController.addUserScript(cookieScript)
+            webView.configuration.userContentController.addUserScript(cookieScript)
+
+        }
+
+        webView.configuration.preferences.setValue(true, forKey: "allowFileAccessFromFileURLs")
 
         return webView
     }()
 
     init(_ url: URL) {
+//        socketModel = SocketModel("http://202.182.125.217:3000")
         super.init(nibName: nil, bundle: nil)
         self.load(url: url)
     }
@@ -48,6 +54,7 @@ final class WebVC: UIViewController {
         super.viewDidLoad()
 
         self.setupViews()
+
     }
 
     override func viewWillLayoutSubviews() {
@@ -65,7 +72,9 @@ final class WebVC: UIViewController {
     private func load(url: URL) {
         var request = URLRequest(url: url)
         request.httpShouldHandleCookies = false
-//        request.setValue("_session_id=セッションID", forHTTPHeaderField: "Cookie")
+        if let sessionID = Defaults[.sessionID] {
+            request.setValue("PHPSESSID=\(sessionID)",forHTTPHeaderField: "Cookie")
+        }
         self.webView.load(request)
     }
 
@@ -76,24 +85,26 @@ extension WebVC:  WKNavigationDelegate  {
         if Location.shared.authorizationStatus() == .denied {
             self.present(LocationDeniedVC(), animated: true, completion: nil)
         }
-    }
 
-    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
-        if let urlResponse = navigationResponse.response as? HTTPURLResponse,
-            let url = urlResponse.url,
-            let allHeaderFields = urlResponse.allHeaderFields as? [String : String] {
-            let cookies = HTTPCookie.cookies(withResponseHeaderFields: allHeaderFields, for: url)
-            print(cookies)
-            for cookie in cookies {
-                print(cookie.domain)
-                if cookie.domain == endpoint {
-                    print(cookie.domain)
-//                    Defaults[.cookie] = cookie.domain
+        webView.configuration.websiteDataStore.httpCookieStore.getAllCookies {
+            for item in $0 {
+                if item.domain == "leadme.mz-kb.com" {
+                    Defaults[.sessionID] = item.value
                 }
             }
         }
-        decisionHandler(.allow)
     }
+
+    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
+        let response = navigationResponse.response as! HTTPURLResponse
+        let cookies = HTTPCookie.cookies(withResponseHeaderFields: response.allHeaderFields as! [String : String], for: response.url!)
+        decisionHandler(.allow)
+
+        for c in cookies {
+            print(c.name + c.value)
+        }
+    }
+    
 }
 
 extension WebVC: WKUIDelegate {
