@@ -50,7 +50,7 @@
           <option value="4">Excellent</option>
           <option value="5">Perfect</option>
         </select>
-        <div class="rateit" data-rateit-backingfld="#star-selection" data-rateit-min="1" data-rateit-resetable="false"></div>
+        <div class="rateit" data-rateit-backingfld="#star-selection" data-rateit-min="1" data-rateit-max="5" data-rateit-resetable="false"></div>
   	</div>
   </div>
   <p class="  u-pt30">write a review for {$user['name']|escape}</p>
