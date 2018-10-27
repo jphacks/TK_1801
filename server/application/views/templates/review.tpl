@@ -43,18 +43,25 @@
             $("#rateit1").rateit();
           });
         </script>
-        <div class="u-pt10 rateit"></div>
+        <select id="star-selection" name="star">
+          <option value="1">Bad</option>
+          <option value="2">OK</option>
+          <option value="3">Great</option>
+          <option value="4">Excellent</option>
+          <option value="5">Perfect</option>
+        </select>
+        <div class="rateit" data-rateit-backingfld="#star-selection" data-rateit-min="1" data-rateit-resetable="false"></div>
   	</div>
   </div>
   <p class="  u-pt30">write a review for {$user['name']|escape}</p>
   <!--text box of reviews-->
   <div class=" input-group col-xs-12">
-      <textarea class="form-control " rows="5" id="comment"></textarea>
+      <textarea class="form-control " rows="5" id="comment" name="comment"></textarea>
   </div>
 
   <!--send button-->
   <div class="u-pt30">
-    <button class="p-button-main" type="button" name="button">Send</button>
+    <button class="p-button-main" type="button">Send</button>
   </div>
 </section>
 </script>
