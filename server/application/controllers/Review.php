@@ -52,7 +52,7 @@ class Review extends CI_Controller {
 			// フォーム検証エラー
 			$error_message = $this->form_validation->error_string();
 		} else {
-			$review_id = $this->review->register($data);
+			$review_id = $this->guidance_review->register($data);
 			if ($review_id === false) {
 				// DBエラー
 				$error_message = 'Failed to register the requestted review.';
