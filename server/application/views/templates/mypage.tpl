@@ -23,55 +23,6 @@
   }
 </style>
 
-<script type="text/javascript">
-  //sample data
-  let reviews = ["he is bad guide." , "i do not like him." , "i hate you."]; //from server
-  let histries = ["Jack" , "Daniel"];
-  let type = 'tourist'; //from server
-  let point = 1234;
-
-  //write sent reviews
-  function writeReviews(){
-    reviews.forEach(function(review){
-      document.write("<ul>\n");
-      document.write("<li>");
-      document.write(review); //this is sentense of review
-      document.write("</li>");
-      document.write("</ul>\n");
-    });
-  }
-  
-  //write own point
-  function writePoints(){
-    document.write("<span>");
-    document.write(point);
-    document.write("<span>\n");
-  }
-  
-  //write the guide who you chose
-  function writeHistry(){
-    histries.forEach(function(histry){
-      document.write("<ul>\n");
-      document.write("<li>");
-      document.write(histry); //this is sentense of review
-      document.write("</li>");
-      document.write("</ul>\n");
-    });
-  }
-  
-  //write all information
-  function writeInfo(){
-    if(type == "guide"){
-      //Reviews part
-      writeReviews(); //put the reviews
-      writePoints();
-    }else if(type == "tourist"){
-      writeHistry();
-      writePoints();
-    }
-  }
-  </script>
-
 <!--section part / it contain the main parts-->
 <section class="u-pd-lr30 text-center">
 
@@ -88,9 +39,24 @@
   <span class="u-pt30" name="profiel" value="">test sentenses "fdisahg;dsihsdfk;jskvjdfokvgjsknvhfslbvfuislvjfnvskjdfnsbdfjnkdn"</span>
   
   <!--If part-->
-  <script type="text/javascript">
-    writeInfo();
-  </script>
+  <span>{$point}</span>
+  {if $type == "guide"}
+    <span>
+      <ul>
+        {foreach $reviews as $review}
+          <li>{$review}</li>
+        {/foreach}
+      </ul>
+    <span>
+  {else}
+    <span>
+      <ul>
+        {foreach $histories as $history}
+          <li>{$histories}</li>
+        {/foreach}
+      </ul>
+    </span>
+  {/if}
 
   <!--Order button-->
   <div class="u-pt30">
