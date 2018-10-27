@@ -52,7 +52,7 @@
   <!--Title-->
   <h2 class="u-pt50 text-center">My Page</h1>
   <div class="u-pt30">
-  	<span class="block-center">
+  	<span class="text-center">
       <img class="p-user_icon" src="../images/user.jpg">
   	</span>
   	<div class="text-center u-pl30">
