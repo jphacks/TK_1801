@@ -24,8 +24,13 @@
 </style>
 
 <script type="text/javascript">
-  function showReviews(reviews){
-    let reviews = reviews; //this is the reviews list
+  let reviews = ["he is bad guide." , "i do not like him." , "i hate you."]; //from server
+  let histries = ["Jack" , "Daniel"];
+  let type = 'tourist'; //from server
+  let point = 1234;
+
+  //write sent reviews
+  function writeReviews(){
     reviews.forEach(function(review){
       document.write("<ul>\n");
       document.write("<li>");
@@ -34,24 +39,58 @@
       document.write("</ul>\n");
     });
   }
+  
+  //write own point
+  function writePoints(){
+    document.write("<span>");
+    document.write(point);
+    document.write("<span>\n");
+  }
+  
+  //write the guide who you chose
+  function writeHistry(){
+    histries.forEach(function(histry){
+      document.write("<ul>\n");
+      document.write("<li>");
+      document.write(histry); //this is sentense of review
+      document.write("</li>");
+      document.write("</ul>\n");
+    });
+  }
+  
+  //write all information
+  function writeInfo(){
+    if(type == "guide"){
+      //Reviews part
+      writeReviews(); //put the reviews
+      writePoints();
+    }else if(type == "tourist"){
+      writeHistry();
+      writePoints();
+    }
+  }
   </script>
 
 <!--section part / it contain the main parts-->
 <section class="u-pd-lr30 text-center">
+
   <!--Title-->
   <h2 class="u-pt100 u-color-gray">My Page</h1>
+
   <!--Picture-->
   <image src="" class="" name="profielImage">
+
   <!--User's Name-->
   <span class="u-pt100" name="name" value=""></span>
-  <!--My Profiel(if this is user, this part is not needed)-->
+
+  <!--My Profiel-->
   <span class="u-pt30" name="profiel" value="">test sentenses "fdisahg;dsihsdfk;jskvjdfokvgjsknvhfslbvfuislvjfnvskjdfnsbdfjnkdn"</span>
-  <!--Reviews part-->
-  <span>
-    <script type="text/javascript">
-      showReviews(); //put the reviews
-    </script>
-  </span>
+  
+  <!--If part-->
+  <script type="text/javascript">
+    writeInfo();
+  </script>
+
   <!--Order button-->
   <div class="u-pt30">
     <button class="p-button-main" type="button" name="button">Order!!</button>
