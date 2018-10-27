@@ -1,0 +1,6 @@
+framework module Pods_TK1801 {
+  umbrella header "Pods-TK1801-umbrella.h"
+
+  export *
+  module * { export * }
+}
