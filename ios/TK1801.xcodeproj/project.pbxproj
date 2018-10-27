@@ -17,6 +17,7 @@
 		DB964D3C218400A400D18464 /* LocationDeniedVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB964D3B218400A400D18464 /* LocationDeniedVC.swift */; };
 		DB964D3F218402A200D18464 /* ExUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB964D3E218402A200D18464 /* ExUIColor.swift */; };
 		DB964D41218402C300D18464 /* AppExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB964D40218402C300D18464 /* AppExtension.swift */; };
+		DBC3BFFB2184388300BEC8E4 /* SocketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC3BFFA2184388300BEC8E4 /* SocketModel.swift */; };
 		DBDD696121834D7600894ED9 /* RootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBDD696021834D7600894ED9 /* RootVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		DB964D3B218400A400D18464 /* LocationDeniedVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDeniedVC.swift; sourceTree = "<group>"; };
 		DB964D3E218402A200D18464 /* ExUIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExUIColor.swift; sourceTree = "<group>"; };
 		DB964D40218402C300D18464 /* AppExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExtension.swift; sourceTree = "<group>"; };
+		DBC3BFFA2184388300BEC8E4 /* SocketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketModel.swift; sourceTree = "<group>"; };
 		DBDD696021834D7600894ED9 /* RootVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -81,6 +83,7 @@
 			children = (
 				DB964D3D2184028800D18464 /* Extensions */,
 				DB6A57382182EC7500CF8172 /* AppDelegate.swift */,
+				DBC3BFFA2184388300BEC8E4 /* SocketModel.swift */,
 				DB6A573A2182EC7500CF8172 /* WebVC.swift */,
 				DBDD696021834D7600894ED9 /* RootVC.swift */,
 				DB6A573F2182EC7600CF8172 /* Assets.xcassets */,
@@ -248,6 +251,7 @@
 				DB6A573B2182EC7500CF8172 /* WebVC.swift in Sources */,
 				DB964D3A2183F01500D18464 /* Location.swift in Sources */,
 				DB6A57392182EC7500CF8172 /* AppDelegate.swift in Sources */,
+				DBC3BFFB2184388300BEC8E4 /* SocketModel.swift in Sources */,
 				DB964D382183EE0F00D18464 /* Constant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
