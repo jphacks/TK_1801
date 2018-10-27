@@ -20,6 +20,8 @@
 </head>
 <body>
   <style media="screen">
+    html { overflow:auto; }
+    body { overflow: hidden; word-wrap: break-word; }
 
     /* navbar 全体の背景色とボーダーカラー */
     .navbar-default {
@@ -156,8 +158,6 @@
           margin-left: 0 !important;
       }
     }
-
-    .wrapper { overflow: hidden; }
   </style>
 <!-- ページのコンテンツすべてをwrapする（フッター以外） -->
   <div id="wrap">
