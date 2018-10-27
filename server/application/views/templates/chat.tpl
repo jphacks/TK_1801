@@ -5,6 +5,7 @@
     bottom: 60px; */
     padding-top: 60px;
     width: 300px;
+    text-align: center;
   }
   #chatLog{
     width: 100%;
