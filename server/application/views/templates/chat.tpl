@@ -17,7 +17,7 @@
 <script>
     // peerオブジェクト
     const peer = new Peer({
-        key: '9341ff17-ecd0-47e2-ba5f-0a6dc5199575', // 自分のAPIキーを入力
+        key: '61c46edf-bdc8-429a-ba29-ccaf61eb1f19', // 自分のAPIキーを入力
         debug: 3
     });
 
