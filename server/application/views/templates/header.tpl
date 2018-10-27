@@ -166,8 +166,16 @@
           <a class="navbar-brand navbar-brand-center" href="/">Leadme</a>
         </div>
         <div class="navbar-text navbar-right text-right" style="padding-right:10px">
-          <span class="glyphicon glyphicon-user glyphicon_footer" style="color:white;margin-top:-4px" aria-hidden="true"></span> 
-          <span style="color:white" aria-hidden="true">{$user['name']|escape}</span>
+          {if isset($user)}
+            <a href="/mypage">
+              <span class="glyphicon glyphicon-user glyphicon_footer" style="color:white;margin-top:-4px" aria-hidden="true"></span> 
+              <span style="color:white" aria-hidden="true">{$user['name']|escape}</span>
+            </a>
+          {else}
+            <a href="/login">
+              <span style="color:white" aria-hidden="true">Login</span>
+            </a>
+          {/if}
         </div>
       </div><!-- /.container-fluid -->
     </nav>
