@@ -44,7 +44,7 @@
           });
         </script>
         <input type="range" value="5" step="1" id="backing5">
-        <div class="rateit" data-rateit-backingfld="#backing5" data-rateit-min="1" data-rateit-max="5" data-rateit-resetable="false"></div>
+        <div class="rateit" data-rateit-backingfld="#backing5" data-rateit-min="0" data-rateit-max="5" data-rateit-resetable="false"></div>
   	</div>
   </div>
   <p class="  u-pt30">write a review for {$user['name']|escape}</p>
