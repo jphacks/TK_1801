@@ -38,7 +38,7 @@ class Register extends CI_Controller {
 			array(
 				'field' => 'email_address',
 				'label' => 'Email Address',
-				'rules' => 'required|valid_email',//|is_unique[users.email_address]',
+				'rules' => 'required|valid_email|is_unique[users.email_address]',
 			),
 			array(
 				'field' => 'password',
@@ -73,7 +73,7 @@ class Register extends CI_Controller {
 			$user_id = $this->user->register($data);
 			if ($user_id === false) {
 				// DBエラー
-				$error_message = 'アカウントの登録に失敗しました。';
+				$error_message = 'Failed to register the user data.';
 			} else {
 				// ユーザーの登録に成功
 				$_SESSION['user_id'] = $user_id;
