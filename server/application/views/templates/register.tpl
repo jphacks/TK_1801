@@ -1,4 +1,4 @@
-{include file="header.tpl" title="新規登録"}
+{include file="header.tpl" title="Registeration"}
 <style media="screen">
   .u-pd-lr30{
     padding: 0 30px;

@@ -1,5 +1,5 @@
-{include file="header.tpl" title="レビュー投稿"}
+{include file="header.tpl" title="Send Reviews"}
 
-<h1>レビュー投稿</h1>
+<h1>Send Reviews</h1>
 
 {include file="footer.tpl"}
