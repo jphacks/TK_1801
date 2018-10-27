@@ -20,6 +20,9 @@
 </head>
 <body>
   <style media="screen">
+    html { overflow:auto; }
+    body { word-wrap: break-word; }
+
     /* navbar 全体の背景色とボーダーカラー */
     .navbar-default {
     background-color: #FFE53B;
