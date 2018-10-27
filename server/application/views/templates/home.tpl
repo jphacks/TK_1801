@@ -28,4 +28,5 @@
   <!--Title-->
   <h2 class="u-pt100 u-color-gray">My Page</h1>
 </section>
+
 {include file="footer.tpl"}
