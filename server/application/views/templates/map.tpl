@@ -1,4 +1,4 @@
-{include file="header.tpl" title="Where are Guides?"}
+{include file="header.tpl" title="Where are Guides?" user=$user}
 
 <div class="row">
   <div class="col-sm-12">

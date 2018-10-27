@@ -4,7 +4,6 @@ class Login extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-
 		session_start();
 	}
 
@@ -23,6 +22,7 @@ class Login extends CI_Controller {
 			}
 		}
 		$this->smarty->view('login.tpl', array(
+			'user' => isset($_SESSION['user_id']) ? $this->user->get('*', array('id' => $_SESSION['user_id'])) : null,
 			'email_address' => $this->input->post('email_address'),
 			'error_message' => $error_message,
 		));
