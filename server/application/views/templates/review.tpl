@@ -30,7 +30,8 @@
 <section class="u-pd-lr30">
   <!--Title-->
   <h2 class="caption text-center">Send Reviews</h1>
-  <form action="/review" method="POST">
+  <form action="/review/submit" method="POST">
+    <input name="guide_user_id" type="hidden" value="{$user['id']}">
     {if isset($error_message)}
         <div class="alert alert-danger"><strong>Error</strong>: {$error_message}</div>
     {/if}
@@ -47,14 +48,14 @@
               $("#rateit1").rateit();
             });
           </script>
-          <input type="range" value="5" step="1" id="backing5">
+          <input type="range" value="5" step="1" id="backing5" name="star">
           <div class="rateit" data-rateit-backingfld="#backing5" data-rateit-min="0" data-rateit-max="5" data-rateit-resetable="false"></div>
       </div>
     </div>
     <p class="u-pt30">write a review for {$user['name']|escape}</p>
     <!--text box of reviews-->
     <div class="input-group col-xs-12">
-        <textarea class="form-control " rows="5" id="comment" name="comment"></textarea>
+        <textarea class="form-control " rows="5" id="comment" name="body"></textarea>
     </div>
 
     <!--send button-->
