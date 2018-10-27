@@ -22,7 +22,7 @@
 </style>
 <section class="u-pd-lr30">
   <h2 class="caption u-color-gray text-center">Sign In</h2>
-  <form action="/register/submit" method="POST">
+  <form action="/login" method="POST">
     {if isset($error_message)}
         <div class="alert alert-danger"><strong>Error</strong>: {$error_message}</div>
     {/if}
