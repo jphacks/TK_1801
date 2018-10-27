@@ -23,27 +23,24 @@
   }
 </style>
 
-<!--section part / it contain the main parts-->
-<section class="u-pd-lr30 text-center">
-
+<!--put the main components of this page-->
+<section class="u-pd-lr30">
   <!--Title-->
-  <h2 class="u-pt100 u-color-gray">My Page</h1>
+  <h2 class="u-pt50 text-center">My Page</h1>
+  <div class="media u-pt30">
+  	<span class="media-left">
+      <img class="p-user_icon" src="../images/user.jpg">
+  	</span>
+  	<div class="media-body u-pl30">
+  		<h4 class="media-heading">{$user['name']|escape}</h4>
+  	</div>
+  </div>
 
-  <!--Picture-->
-  <image src="" class="" name="profielImage">
-
-  <!--User's Name-->
-  <span class="u-pt100" name="name" value=""></span>
-
-  <!--My Profiel-->
-  <span class="u-pt30" name="profiel" value="">test sentenses "fdisahg;dsihsdfk;jskvjdfokvgjsknvhfslbvfuislvjfnvskjdfnsbdfjnkdn"</span>
-  
-  <!--If part-->
-  <span>{$point}</span>
-  {if $type == "guide"}
+  <span>{$user['point']}</span>
+  {if $user['type'] == "guide"}
     <span>
       <ul>
-        {foreach $reviews as $review}
+        {foreach $user['reviews'] as $review}
           <li>{$review}</li>
         {/foreach}
       </ul>
@@ -51,16 +48,15 @@
   {else}
     <span>
       <ul>
-        {foreach $histories as $history}
+        {foreach $user['histories'] as $history}
           <li>{$histories}</li>
         {/foreach}
       </ul>
     </span>
   {/if}
 
-  <!--Order button-->
   <div class="u-pt30">
-    <button class="p-button-main" type="button" name="button">Order!!</button>
+    <button class="p-button-main" type="button" name="button">Change Profiel</button>
   </div>
 </section>
 
