@@ -16,6 +16,7 @@ target 'TK1801' do
   pod 'KeychainAccess'
   # ポップアップ
   pod 'FCAlertView'
-
+  # アプリ内保存
+  pod 'SwiftyUserDefaults'
 
 end

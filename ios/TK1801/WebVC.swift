@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  TK1801
-//
-//  Created by Iko Nakari on 2018/10/26.
-//  Copyright © 2018 nakarin0528. All rights reserved.
-//
-
 import UIKit
 import SnapKit
 import WebKit
@@ -32,8 +24,11 @@ final class WebVC: UIViewController {
         super.viewDidLoad()
 
         self.setupViews()
+    }
 
-        print(self.webView.url)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
     }
 
     private func setupViews() {
@@ -51,6 +46,11 @@ final class WebVC: UIViewController {
 }
 
 extension WebVC:  WKNavigationDelegate  {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        if Location.shared.authorizationStatus() == .denied {
+            self.present(LocationDeniedVC(), animated: true, completion: nil)
+        }
+    }
 }
 
 extension WebVC: WKUIDelegate {

@@ -1,11 +1,3 @@
-//
-//  RootVC.swift
-//  TK1801
-//
-//  Created by Iko Nakari on 2018/10/26.
-//  Copyright © 2018 nakarin0528. All rights reserved.
-//
-
 import UIKit
 import SnapKit
 
@@ -28,7 +20,8 @@ class RootVC: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        if let url = URL(string: "https://leadme.mz-kb.com/register") {
+        Location.shared.requestAuthorization()
+        if let url = URL(string: urlLogin) {
             self.present(WebVC(url), animated: false)
         } else {
             self.setupViews()
