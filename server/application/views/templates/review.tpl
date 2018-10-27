@@ -38,7 +38,7 @@
     <h4 class="u-pt30 ">Are you satisfied?</h4>
     <div class="media u-pt30">
       <span class="media-left">
-        <img class="p-user_icon" src="../images/user.jpg">
+        <img class="p-user_icon" src="/images/user.jpg">
       </span>
       <div class="media-body u-pl30">
         <h4 class="media-heading">{$user['name']|escape}</h4>
