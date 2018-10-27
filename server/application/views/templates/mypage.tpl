@@ -5,11 +5,20 @@
   .u-pd-lr30{
     padding: 0 30px;
   }
+  .u-pt10{
+    padding-top: 10px;
+  }
   .u-pt30{
     padding-top: 30px;
   }
+  .u-pl30{
+    padding-left: 30px;
+  }
   .u-pt100{
     padding-top: 100px;
+  }
+  .u-pt50{
+    padding-top: 50px;
   }
   .p-button-main{
     width: 100%;
@@ -21,46 +30,56 @@
   .input-group-addon{
 
   }
+  p,h1,h2,h3,h4{
+    color: gray;
+  }
+
+  div.circle button.rateit-reset {
+    display: none;
+    width:50px;
+    height:50px;
+}
+.p-user_icon{
+  width: 150px;
+  height: 150px;
+  border-radius: 300px;
+  border: solid 1px #FD5637;
+}
 </style>
 
-<!--section part / it contain the main parts-->
-<section class="u-pd-lr30 text-center">
-
+<!--put the main components of this page-->
+<section class="u-pd-lr30">
   <!--Title-->
-  <h2 class="u-pt100 u-color-gray">My Page</h1>
+  <h2 class="u-pt50 text-center">My Page</h1>
+  <div class="media u-pt30">
+  	<span class="media-left">
+      <img class="p-user_icon" src="../images/user.jpg">
+  	</span>
+  	<div class="media-body u-pl30">
+  		<h3 class="">{$user['name']|escape}</h3>
+        <h4 class="u-p130">POINT:{$user['point']}</h4>
+        <h4 class="u-p130">INFO :hogehogeo</h4>
+  	</div>
+  </div>
 
-  <!--Picture-->
-  <image src="" class="" name="profielImage">
-
-  <!--User's Name-->
-  <span class="u-pt100" name="name" value=""></span>
-
-  <!--My Profiel-->
-  <span class="u-pt30" name="profiel" value="">test sentenses "fdisahg;dsihsdfk;jskvjdfokvgjsknvhfslbvfuislvjfnvskjdfnsbdfjnkdn"</span>
-  
-  <!--If part-->
-  <span>{$point}</span>
-  {if $type == "guide"}
-    <span>
+  <div class="row row-scrollable">
+    {if $user['type'] == "guide"}
       <ul>
-        {foreach $reviews as $review}
+        {foreach $user['reviews'] as $review}
           <li>{$review}</li>
         {/foreach}
       </ul>
-    <span>
-  {else}
-    <span>
+    {else}
       <ul>
-        {foreach $histories as $history}
+        {foreach $user['histories'] as $history}
           <li>{$histories}</li>
         {/foreach}
       </ul>
-    </span>
-  {/if}
+    {/if}
+  </div>
 
-  <!--Order button-->
   <div class="u-pt30">
-    <button class="p-button-main" type="button" name="button">Order!!</button>
+    <button class="p-button-main" type="button" name="button">Change Profiel</button>
   </div>
 </section>
 

@@ -50,7 +50,7 @@
           <a href="/map" ><span class="glyphicon glyphicon-map-marker glyphicon_footer u-t20" aria-hidden="true"></span></a>
         </div>
         <div class="col-xs-4 text-center">
-          <a href="" ><span class="glyphicon glyphicon-envelope glyphicon_footer u-t20" aria-hidden="true"></span></a>
+          <a href="/review" ><span class="glyphicon glyphicon-comment glyphicon_footer u-t20" aria-hidden="true"></span></a>
         </div>
       </div>
     </div>
