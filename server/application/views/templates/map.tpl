@@ -118,7 +118,7 @@ function updateMarker(userId, position) {
 }
 markers.addListener( "click", function ( argument ) {
   console.log( 'hoge' ) ;
-}
+});
 
 function removeMarker(userId) {
   markers[userId].setMap(null);
