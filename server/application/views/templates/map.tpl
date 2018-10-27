@@ -42,7 +42,13 @@ function removeMarker(userId) {
   markers[userId].setMap(null);
 }
 
-var socket = io.connect('http://202.182.125.217:3000', { transports: ["websocket"], query: 'user_id=' + {$user['id']} });
+var socket;
+var url = 'http://202.182.125.217:3000';
+if(/iPhone|iPod|iPad/i.test(navigator.userAgent)){
+  socket = io.connect(url,{ transports: ["websocket"], query: 'user_id=' + {$user['id']} });
+}else{
+  socket = io.connect(url,{ forceJSONP: true, query: 'user_id=' + {$user['id']} });
+}
 
 socket.on('sendLocationToClient', function (data) {
   // 位置情報をサーバーから受け取った時(地図上のマーカーを更新)
