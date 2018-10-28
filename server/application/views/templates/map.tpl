@@ -143,13 +143,15 @@ function updateMarker(userId, name, position, type) {
       strokeWeight: 1.0                    //枠の透過率
     },
     label: (type == 'me') ? { text: 'You', color:'#FFFFFF', fontSize: '10px' } : null });
-    var infoWindow  = new google.maps.InfoWindow({ // 吹き出しの追加
-      content: '<div class="sample">' + name + '<button class="btn btn-sm btn-primary btn-block" onclick="sendRequest(' + userId + ')">Request!</button></div>' // 吹き出しに表示する内容
-    });
+    if (type != 'me') {
+      var infoWindow  = new google.maps.InfoWindow({ // 吹き出しの追加
+        content: '<div class="sample">' + name + '<button class="btn btn-sm btn-primary btn-block" onclick="sendRequest(' + userId + ')">Request!</button></div>' // 吹き出しに表示する内容
+      });
+      markers[userId].addListener('click', function() { // マーカーをクリックしたとき
+        infoWindow.open(map, markers[userId]); // 吹き出しの表示
+      });
+    }
     names[userId] = name;
-    markers[userId].addListener('click', function() { // マーカーをクリックしたとき
-      infoWindow.open(map, markers[userId]); // 吹き出しの表示
-    });
   }
 }
 
