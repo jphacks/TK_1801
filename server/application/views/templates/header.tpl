@@ -2,15 +2,17 @@
 <html lang="ja">
 
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Leadme">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <title>{if isset($title)}{$title} - {/if}Leadme</title>
 
 <!-- Bootstrap -->
 <link href="/css/bootstrap.min.css" rel="stylesheet">
-<link href="js/RateIt/rateit.css" rel="stylesheet" type="text/css" />
+<link href="/js/RateIt/rateit.css" rel="stylesheet" type="text/css" />
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -21,7 +23,11 @@
 <body>
   <style media="screen">
     html { overflow:auto; }
-    body { word-wrap: break-word; }
+    body {
+        word-wrap: break-word;
+        -webkit-overflow-scrolling: auto;
+        overflow-scrolling: auto;
+    }
 
     /* navbar 全体の背景色とボーダーカラー */
     .navbar-default {
@@ -212,4 +218,4 @@
       </div><!-- /.container-fluid -->
     </nav>
 
-    <div class="container">
+    <div class="">
