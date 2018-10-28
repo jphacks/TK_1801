@@ -37,7 +37,7 @@
   <div id="chatLog">
   </div>
   <div class="message_bar">
-    <input type="text" id="msg" placeholder=" メッセージを入力"> <button id="send" class="p-button-modal__open">send</button>
+    <input type="text" id="msg" placeholder="message"> <button id="send" class="p-button-modal__open">Send</button>
   </div>
 </section>
     <script type="text/javascript" src="https://cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
@@ -74,7 +74,7 @@ $(setTimeout(function () {
 // 退室
 $('#leave').click(function(){
     room.close();
-    chatlog('<i>' + {$room_id} + '</i>から退室しました');
+    chatlog('Left the chat room.');
 });
 
 // チャットログに記録するための関数

@@ -129,11 +129,19 @@ function convertPosition(position) {
 
 var markers = {};
 var names = {};
-function updateMarker(userId, name, position) {
+function updateMarker(userId, name, position, type) {
   if (markers[userId]) {
     markers[userId].setPosition(position);
   } else {
-    markers[userId] = new google.maps.Marker({ position: position, map: map });
+    markers[userId] = new google.maps.Marker({ position: position, map: map, 
+    icon: {
+      fillColor: (type == 'guide') ? "#FF0000" : "#0000FF",                //塗り潰し色
+      fillOpacity: 0.8,                    //塗り潰し透過率
+      path: google.maps.SymbolPath.CIRCLE, //円を指定
+      scale: (type == 'guide') ? 16 : 8,   //円のサイズ
+      strokeColor: (type == 'guide') ? "#FF8080" : "#8080FF",              //枠の色
+      strokeWeight: 1.0                    //枠の透過率
+    } });
     var infoWindow  = new google.maps.InfoWindow({ // 吹き出しの追加
       content: '<div class="sample">' + name + '<button class="btn btn-sm btn-primary btn-block" onclick="sendRequest(' + userId + ')">呼び出し</button></div>' // 吹き出しに表示する内容
     });
@@ -209,7 +217,8 @@ setTimeout(function () {
         type: 'location',
         userId: {$user['id']},
         name: '{$user["name"]|escape|escape:"quotes"}',
-        position: convertPosition(position)
+        position: convertPosition(position),
+        userType: '{$user["type"]|escape|escape:"quotes"}'
       }));
     },
     function (error) {
@@ -225,7 +234,7 @@ setTimeout(function () {
     switch (d.type) {
       case 'location':
         // 位置情報をサーバーから受け取った時(地図上のマーカーを更新)
-        updateMarker(d.userId, d.name, d.position);
+        updateMarker(d.userId, d.name, d.position, d.userType);
         break;
       case 'disconnection':
         // 他の人の接続切れをサーバーから受け取った時(地図上のマーカーを削除)
