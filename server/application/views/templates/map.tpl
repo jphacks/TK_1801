@@ -133,7 +133,7 @@ function updateMarker(userId, name, position, type) {
   if (markers[userId]) {
     markers[userId].setPosition(position);
   } else {
-    markers[userId] = new google.maps.Marker({ position: position, map: map, 
+    markers[userId] = new google.maps.Marker({ position: position, map: map,
     icon: {
       fillColor: (type == 'guide') ? "#FF0000" : "#0000FF",                //塗り潰し色
       fillOpacity: 0.8,                    //塗り潰し透過率
@@ -285,5 +285,5 @@ setTimeout(function () {
 }, 2000);
 
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvvoPaN9Wdcyka3M5dDefxCJX3Kl4jUTU&callback=initMap"></script>
 {include file="footer.tpl"}
