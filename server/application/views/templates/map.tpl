@@ -127,6 +127,8 @@ function removeMarker(userId) {
   markers[userId].setMap(null);
 }
 
+var room;
+
 function sendRequest(destUserId) {
   room.send(JSON.stringify({
     type: 'request',
@@ -142,7 +144,6 @@ const peer = new Peer({
   debug: 3
 });
 
-var room;
 setTimeout(function () {
   room = peer.joinRoom('location', { mode: 'sfu' });
 	console.log(room);
