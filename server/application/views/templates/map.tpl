@@ -183,7 +183,7 @@ setTimeout(function () {
         // ガイド依頼の呼び出しをサーバーから受け取った時(呼び出しモーダルを表示)
         if (d.destUserId == {$user['id']}) {
           $('#calling-modal-user-name').text(d.name);
-          $('#chat-link').attr('href', '/chat?room=" + d.userId);
+          $('#chat-link').attr('href', '/chat?room=' + d.userId);
           $('#btn-calling-modal').click();
         }
         break;
