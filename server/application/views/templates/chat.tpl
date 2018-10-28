@@ -52,10 +52,9 @@
 
     // 入室
     let room = null;
-    let hogename = "おっぱい";
     $('#join').click(function(){
-        room = peer.joinRoom(hogename, { mode: 'sfu' });
-        chatlog('<i>' + hogename + '</i>に入室しました');
+        room = peer.joinRoom($('#roomName').val(), { mode: 'sfu' });
+        chatlog('<i>' + $('#roomName').val() + '</i>に入室しました');
 
         // チャットを送信
         $('#send').click(function(){
