@@ -68,8 +68,8 @@
         </div>
       </div>
       <div id="calling-modal-menu" class="modal-body text-center">
-        <a id="chat-link" href="#"><button type="button" class="p-button-modal__open">Start Chat</button></a>
-        <button type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">Decline</button>
+        <button id="calling-modal-btn-accept" type="button" class="p-button-modal__open">Start Chat</button>
+        <button id="calling-modal-btn-decline" type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">Decline</button>
       </div>
       <div id="calling-modal-menu-ok" class="modal-body text-center" style="display:none">
         <button type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">OK</button>
@@ -91,7 +91,7 @@
       <div id="calling-modal-menu" class="modal-body text-center">
         <button id="waiting-modal-btn-cancel" type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">Cancel</button>
       </div>
-      <div id="calling-modal-menu-ok" class="modal-body text-center">
+      <div id="calling-modal-menu-ok" class="modal-body text-center" style="display:none">
         <button id="waiting-modal-btn-cancel" type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">OK</button>
       </div>
     </div>
@@ -174,6 +174,22 @@ function cancelRequest(destUserId) {
   }));
 }
 
+function declineRequest(destUserId) {
+  room.send(JSON.stringify({
+    type: 'decline',
+    userId: destUserId,
+    destUserId: {$user['id']}
+  }));
+}
+
+function acceptRequest(destUserId) {
+  room.send(JSON.stringify({
+    type: 'accept',
+    userId: destUserId,
+    destUserId: {$user['id']}
+  }));
+}
+
 // peerオブジェクト
 const peer = new Peer({
   key: '61c46edf-bdc8-429a-ba29-ccaf61eb1f19', // 自分のAPIキーを入力
@@ -219,7 +235,13 @@ setTimeout(function () {
         // ガイド依頼の呼び出しをサーバーから受け取った時(呼び出しモーダルを表示)
         if (d.destUserId == {$user['id']}) {
           $('#calling-modal-message').text(d.name + ' scouted you!!');
-          $('#chat-link').attr('href', '/chat?room=' + d.userId);
+          $('#calling-modal-btn-decline').click(function () {
+            declineRequest(destUserId);
+          });
+          $('#calling-modal-btn-accept').click(function () {
+            acceptRequest(destUserId);
+            location.href = '/chat?room=' + destUserId;
+          });
           $('#calling-modal-menu').show();
           $('#calling-modal-menu-ok').hide();
           $('#btn-calling-modal').click();
