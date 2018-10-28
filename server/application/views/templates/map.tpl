@@ -132,8 +132,7 @@ function sendRequest(destUserId) {
     type: 'request',
     userId: {$user['id']},
     destUserId: destUserId,
-    name: '{$user["name"]|escape|escape:"quotes"}',
-    position: convertPosition(position)
+    name: '{$user["name"]|escape|escape:"quotes"}'
   }));
 }
 
