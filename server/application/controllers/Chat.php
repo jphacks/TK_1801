@@ -15,7 +15,7 @@ class Chat extends CI_Controller {
 		if (isset($tourist_user_id) && isset($guide_user_id)) {
 			// ガイド依頼の履歴をDBへ蓄積
 			$this->guidance->register(array(
-				'tourist_user_id' => $tourist_user_id,
+				'customer_user_id' => $tourist_user_id,
 				'guide_user_id' => $guide_user_id,
 				'status' => 'active',
 				'created_by_ip_address' => ip2long($_SERVER['REMOTE_ADDR']),

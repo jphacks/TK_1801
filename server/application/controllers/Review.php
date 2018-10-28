@@ -19,7 +19,7 @@ class Review extends CI_Controller {
 		}
 		
 		$guidance = $this->guidance->get('*', array('guidance_id' => $this->input->get('id')));
-		if ($guidance === false || $guidance['tourist_user_id'] !== $_SESSION['user_id']) {
+		if ($guidance === false || $guidance['customer_user_id'] !== $_SESSION['user_id']) {
 			$data = array(
 				'error_message_only' => 'You don\'t have rights for posting reviews of this guidance.',
 			);
