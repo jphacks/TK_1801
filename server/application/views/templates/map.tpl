@@ -88,8 +88,11 @@
       		<h4 id="waiting-modal-message" class="media-heading u-pt30"></h4>
         </div>
       </div>
-      <div class="modal-body text-center">
+      <div id="calling-modal-menu" class="modal-body text-center">
         <button id="waiting-modal-btn-cancel" type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">Cancel</button>
+      </div>
+      <div id="calling-modal-menu-ok" class="modal-body text-center">
+        <button id="waiting-modal-btn-cancel" type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">OK</button>
       </div>
     </div>
   </div>
@@ -158,6 +161,8 @@ function sendRequest(destUserId) {
   $('#waiting-modal-btn-cancel').click(function () {
     cancelRequest(destUserId);
   });
+  $('#waiting-modal-menu').show();
+  $('#waiting-modal-menu-ok').hide();
   $('#btn-waiting-modal').click();
 }
 
@@ -223,9 +228,23 @@ setTimeout(function () {
       case 'cancel':
         // ガイド依頼の呼び出しキャンセルをサーバーから受け取った時(呼び出しモーダルを閉じる)
         if (d.destUserId == {$user['id']}) {
-          $('#calling-modal-message').text('The request from ' + d.name + ' request has been cancelled.');
+          $('#calling-modal-message').text('The request from ' + d.name + ' has been cancelled.');
           $('#calling-modal-menu').hide();
           $('#calling-modal-menu-ok').show();
+        }
+        break;
+      case 'decline':
+        // ガイド依頼の呼び出しキャンセルをサーバーから受け取った時(呼び出しモーダルを閉じる)
+        if (d.destUserId == {$user['id']}) {
+          $('#waiting-modal-message').text('Your request has been declined.');
+          $('#waiting-modal-menu').hide();
+          $('#waiting-modal-menu-ok').show();
+        }
+        break;
+      case 'accept':
+        // ガイド依頼の呼び出し承諾をサーバーから受け取った時(呼び出しモーダルを閉じる)
+        if (d.destUserId == {$user['id']}) {
+          location.href = '/chat?room=' + d.destUserId;
         }
         break;
       default:
