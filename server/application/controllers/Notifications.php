@@ -12,7 +12,7 @@ class Notifications extends CI_Controller {
 		if (!isset($_SESSION['user_id']) || ($this->user->count(array('id' => $_SESSION['user_id'])) === 0)) {
 			redirect('/login');
 		} else {
-			$this->smarty->view('Notifications.tpl', array(
+			$this->smarty->view('notifications.tpl', array(
 				'user' => $this->user->get('*', array('id' => $_SESSION['user_id'])),
 			));
 		}
