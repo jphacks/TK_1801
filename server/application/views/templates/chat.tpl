@@ -4,7 +4,7 @@
     /* position: absolute;
     bottom: 60px; */
     padding-top: 60px;
-    width: 300px;
+    width: 320px;
     text-align: center;
   }
   #chatLog{
