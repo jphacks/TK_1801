@@ -116,7 +116,7 @@ function updateMarker(userId, position) {
     infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
       content: '<div class="sample">TAM 大阪</div>' // 吹き出しに表示する内容
      });
-    markers.addListener('click', function() { // マーカーをクリックしたとき
+    markers[userId].addListener('click', function() { // マーカーをクリックしたとき
       infoWindow.open(map, marker); // 吹き出しの表示
     });
   } else {
