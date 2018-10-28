@@ -22,7 +22,7 @@
       background-color: #c78836;
       border: none;
     }
-    .change-panel{
+    .panel-title{
       line-height: 40px;
       border: none;
       background-color: #FD5637;
@@ -40,7 +40,7 @@
       {/if}
 
       <!--名前変更-->
-      <div class="panel panel-default change-panel">
+      <div class="panel panel-default">
         <div class="panel-heading">
           <h4 class="panel-title">
             <a data-toggle="collapse" data-parent="#accordion" href="#nameChange">Register new nickname</a>
@@ -65,7 +65,7 @@
       </div>
 
       <!--メールアドレス変更-->
-      <div class="panel panel-default change-panel">
+      <div class="panel panel-default">
         <div class="panel-heading">
           <h4 class="panel-title">
             <a data-toggle="collapse" data-parent="#accordion" href="#mailChange">Register new mail address</a>
@@ -90,7 +90,7 @@
       </div>
 
       <!--パスワード変更-->
-      <div class="panel panel-default change-panel">
+      <div class="panel panel-default">
         <div class="panel-heading">
           <h4 class="panel-title">
             <a data-toggle="collapse" data-parent="#accordion" href="#passChange">Change your password</a>
@@ -124,4 +124,5 @@
       </div>
     </div>
   </section>
+  
 {include file="footer.tpl"}
