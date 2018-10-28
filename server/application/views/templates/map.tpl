@@ -71,6 +71,9 @@
         <a id="chat-link" href="#"><button type="button" class="p-button-modal__open">Start Chat</button></a>
         <button type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">Decline</button>
       </div>
+      <div id="calling-modal-menu-ok" class="modal-body text-center" style="display:none">
+        <button type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">OK</button>
+      </div>
     </div>
   </div>
 </div>
@@ -212,6 +215,8 @@ setTimeout(function () {
         if (d.destUserId == {$user['id']}) {
           $('#calling-modal-message').text(d.name + ' scouted you!!');
           $('#chat-link').attr('href', '/chat?room=' + d.userId);
+          $('#calling-modal-menu').show();
+          $('#calling-modal-menu-ok').hide();
           $('#btn-calling-modal').click();
         }
         break;
@@ -219,6 +224,8 @@ setTimeout(function () {
         // ガイド依頼の呼び出しキャンセルをサーバーから受け取った時(呼び出しモーダルを閉じる)
         if (d.destUserId == {$user['id']}) {
           $('#calling-modal-message').text('The request from ' + d.name + ' request has been cancelled.');
+          $('#calling-modal-menu').hide();
+          $('#calling-modal-menu-ok').show();
         }
         break;
       default:
