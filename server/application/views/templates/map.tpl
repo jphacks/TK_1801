@@ -177,16 +177,16 @@ function cancelRequest(destUserId) {
 function declineRequest(destUserId) {
   room.send(JSON.stringify({
     type: 'decline',
-    userId: destUserId,
-    destUserId: {$user['id']}
+    userId: {$user['id']},
+    destUserId: destUserId
   }));
 }
 
 function acceptRequest(destUserId) {
   room.send(JSON.stringify({
     type: 'accept',
-    userId: destUserId,
-    destUserId: {$user['id']}
+    userId: {$user['id']},
+    destUserId: destUserId
   }));
 }
 
@@ -236,11 +236,11 @@ setTimeout(function () {
         if (d.destUserId == {$user['id']}) {
           $('#calling-modal-message').text(d.name + ' scouted you!!');
           $('#calling-modal-btn-decline').click(function () {
-            declineRequest(destUserId);
+            declineRequest(userId);
           });
           $('#calling-modal-btn-accept').click(function () {
-            acceptRequest(destUserId);
-            location.href = '/chat?room=' + destUserId;
+            acceptRequest(userId);
+            location.href = '/chat?room=' + userId;
           });
           $('#calling-modal-menu').show();
           $('#calling-modal-menu-ok').hide();
