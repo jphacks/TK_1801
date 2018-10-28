@@ -71,6 +71,7 @@
   	</div>
   </div>
 
+  {*
   <!--
   History part
   できればスクロールするようにデザインしたい
@@ -90,6 +91,7 @@
       </ul>
     {/if}
   </div>
+  *}
 
   <!--Button to change own information-->
   <div class="u-pt30">
