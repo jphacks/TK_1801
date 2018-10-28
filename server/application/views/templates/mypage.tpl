@@ -61,10 +61,13 @@
       <img class="p-user_icon" src="../images/user.jpg"> <!--真ん中に持ってきたい-->
   	</span>
   	<div class="media-body u-pl30">
-        <!--Name-->
-  		<h3 class="">{$user['name']|escape}</h3>
-        <h4 class="u-p130 u-t12">POINT:{$user['point']}</h4>
-        <h4 class="u-p130 u-t12">INFO :hoge</h4>
+      <!--Name-->
+  		<h3>{$user['name']|escape}</h3>
+      <ul>
+        <li class="u-p130 u-t12">Point Balance: {$user['point']}</li>
+        <li class="u-p130 u-t12">Location: {$user['location']}</li>
+        <li class="u-p130 u-t12">Your Rating: ★★★★☆ 4.5</li>{* TODO: DB内の評価から入れる *}
+      </ul>
   	</div>
   </div>
 
@@ -72,7 +75,7 @@
   History part
   できればスクロールするようにデザインしたい
   -->
-  <div class="">
+  <div>
     {if $user['type'] == "guide"}
       <ul>
         {foreach $calls[''] as $call} <!--call the calls components from DB by user id-->
