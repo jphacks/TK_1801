@@ -9,6 +9,14 @@ class Review extends CI_Controller {
 		if (!isset($_SESSION['user_id'])) {
 			redirect('/login');
 		}
+		
+		$guidance = $this->guidance->get('*', array('guidance_id' => $data['guidance_id']));
+		if ($guidance === false || $guidance['tourist_user_id'] !== $_SESSION['user_id']) {
+			$data = array(
+				'error_message_only' => 'You don\'t have rights for posting reviews of this guidance.',
+			);
+			$this->smarty->view('review.tpl', $data);
+		}
 	}
 
 	function index()
@@ -21,14 +29,6 @@ class Review extends CI_Controller {
 
 	function submit()
 	{
-		$guidance = $this->guidance->get('*', array('guidance_id' => $data['guidance_id']));
-		if ($guidance === false || $guidance['tourist_user_id'] !== $_SESSION['user_id']) {
-			$data = array(
-				'error_message_only' => 'You don\'t have rights for posting reviews of this guidance.',
-			);
-			$this->smarty->view('review.tpl', $data);
-		}
-
 		// フォーム検証ライブラリの読み込み
 		$this->load->library('form_validation');
 		$rules = array(
