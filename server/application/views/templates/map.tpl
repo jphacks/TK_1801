@@ -115,7 +115,7 @@ function updateMarker(userId, name, position) {
   } else {
     markers[userId] = new google.maps.Marker({ position: position, map: map });
     var infoWindow  = new google.maps.InfoWindow({ // 吹き出しの追加
-      content: '<div class="sample">' + name + '</div>' // 吹き出しに表示する内容
+      content: '<div class="sample">' + name + '<button class="btn btn-sm btn-primary btn-block" onclick="sendRequest(' + userId + ')">呼び出し</button></div>' // 吹き出しに表示する内容
     });
     markers[userId].addListener('click', function() { // マーカーをクリックしたとき
       infoWindow.open(map, markers[userId]); // 吹き出しの表示
@@ -127,13 +127,23 @@ function removeMarker(userId) {
   markers[userId].setMap(null);
 }
 
+var room;
+
+function sendRequest(destUserId) {
+  room.send(JSON.stringify({
+    type: 'request',
+    userId: {$user['id']},
+    destUserId: destUserId,
+    name: '{$user["name"]|escape|escape:"quotes"}'
+  }));
+}
+
 // peerオブジェクト
 const peer = new Peer({
   key: '61c46edf-bdc8-429a-ba29-ccaf61eb1f19', // 自分のAPIキーを入力
   debug: 3
 });
 
-var room;
 setTimeout(function () {
   room = peer.joinRoom('location', { mode: 'sfu' });
 	console.log(room);
@@ -143,7 +153,12 @@ setTimeout(function () {
     // 現在位置を取得
     navigator.geolocation.getCurrentPosition(function (position) {
       console.log(position);
-      room.send(JSON.stringify({ type: 'location', userId: {$user['id']}, name: '{$user["name"]|escape|escape:"quotes"}', position: convertPosition(position) }));
+      room.send(JSON.stringify({
+        type: 'location',
+        userId: {$user['id']},
+        name: '{$user["name"]|escape|escape:"quotes"}',
+        position: convertPosition(position)
+      }));
     },
     function (error) {
       console.log('Failed to get current position.');
@@ -166,8 +181,10 @@ setTimeout(function () {
         break;
       case 'request':
         // ガイド依頼の呼び出しをサーバーから受け取った時(呼び出しモーダルを表示)
-        $('#calling-modal-user-name').text(d.name);
-        $('#btn-calling-modal').click();
+        if (d.destUserId == {$user['id']}) {
+          $('#calling-modal-user-name').text(d.name);
+          $('#btn-calling-modal').click();
+        }
         break;
       default:
         console.log('Undefined type: ' + d.type);
