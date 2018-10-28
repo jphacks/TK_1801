@@ -48,10 +48,10 @@
   }
 </style>
 <!-- Button trigger modal -->
-<button type="button" id="btn-calling-modal" class="btn btn-primary" data-toggle="modal" data-target="#calling-modal">
+<button type="button" id="btn-calling-modal" class="btn btn-primary" data-toggle="modal" data-target="#calling-modal" style="display:none">
   Calling modal
 </button>
-<button type="button" id="btn-waiting-modal" class="btn btn-primary" data-toggle="modal" data-target="#waiting-modal">
+<button type="button" id="btn-waiting-modal" class="btn btn-primary" data-toggle="modal" data-target="#waiting-modal" style="display:none">
   Waiting modal
 </button>
 
