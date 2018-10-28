@@ -56,7 +56,7 @@ let room = null;
 //$('#join').click(function(){
 $(setTimeout(function () {
   room = peer.joinRoom('{$room_id}', { mode: 'sfu' });
-  chatlog('<i>' + {$room_id} + '</i>に入室しました');
+  chatlog('The chat has been started.');
 
   // チャットを送信
   $('#send').click(function(){
