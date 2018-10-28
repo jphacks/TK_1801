@@ -14,6 +14,7 @@ class Chat extends CI_Controller {
 		} else {
 			$this->smarty->view('chat.tpl', array(
 				'user' => $this->user->get('*', array('id' => $_SESSION['user_id'], 'chat_id' => $this->input->get('id'))),
+				'room_id' => $this->input->get('room_id'),
 			));
 		}
 	}

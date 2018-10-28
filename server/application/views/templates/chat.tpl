@@ -55,7 +55,7 @@ const peer = new Peer({
 let room = null;
 //$('#join').click(function(){
 $(setTimeout(function () {
-  room = peer.joinRoom({$room_id}, { mode: 'sfu' });
+  room = peer.joinRoom('{$room_id}', { mode: 'sfu' });
   chatlog('<i>' + {$room_id} + '</i>に入室しました');
 
   // チャットを送信
