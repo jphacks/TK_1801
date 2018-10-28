@@ -9,8 +9,16 @@ class Review extends CI_Controller {
 		if (!isset($_SESSION['user_id'])) {
 			redirect('/login');
 		}
+
+		if ($this->input->get('id') === null)
+		{
+			$data = array(
+				'error_message_only' => 'The Guidance ID is not specified.',
+			);
+			$this->smarty->view('review.tpl', $data);
+		}
 		
-		$guidance = $this->guidance->get('*', array('guidance_id' => $data['guidance_id']));
+		$guidance = $this->guidance->get('*', array('guidance_id' => $this->input->get('id')));
 		if ($guidance === false || $guidance['tourist_user_id'] !== $_SESSION['user_id']) {
 			$data = array(
 				'error_message_only' => 'You don\'t have rights for posting reviews of this guidance.',

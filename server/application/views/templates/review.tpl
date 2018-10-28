@@ -32,7 +32,7 @@
   <h2 class="caption text-center">Send Reviews</h1>
   {if isset($error_message_only)}
     <div class="alert alert-danger"><strong>Error</strong>: {$error_message_only}</div>
-  {else if isset($guidance_id)}
+  {else}
     <form action="/review/submit?id={$guidance_id}" method="POST">
       <input name="guidance_id" type="hidden" value="{$guidance_id}">
       {if isset($error_message)}
@@ -66,8 +66,6 @@
         <button class="p-button-main" type="submit">Send</button>
       </div>
     </form>
-  {else}
-    <div class="alert alert-danger"><strong>Error</strong>: The Guidance ID is not specified.</div>
   {/if}
 </section>
 {include file="footer.tpl"}
