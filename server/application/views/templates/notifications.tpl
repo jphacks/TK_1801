@@ -48,23 +48,36 @@
 .u-t12{
   font-size: 12px;
 }
+.panel-default{
+  width: 100%;
+  border: none;
+  margin-top: -20px;
+}
+.p-user_icon{
+  width: 40px;
+  height: 40px;
+  border-radius: 250px;
+  border: solid 1px #FD5637;
+  margin-bottom: 10px;
+}
 </style>
 
 <!--put the main components of this page-->
 <section class="u-pd-lr30">
   <!--Title-->
-  <h2 class="u-pt50 text-center">Notifications</h1>
-
-  <!--Button to change own information-->
-  <div class="u-pt30">
-    <button class="p-button-main" type="button" name="button">Settings</button>
-  </div>
-  <div class="u-pt30">
-    <button class="p-button-main" type="button" name="button">Your Reviews</button>
-  </div>
-  <div class="u-pt30">
-    <button class="p-button-main" type="button" name="button">Edit Profile</button>
-
+  <h2 class="text-center"></h1>
+    <div class="panel panel-default">
+    	<!-- <div class="panel-heading text-center">
+    		<p class="text-center">Notifications</p>
+    	</div> -->
+      <div class="panel-body">
+        <!-- ここをeachで回したい -->
+    		<p>Date of review</p>
+        <img src="/images/user.jpg" alt="" class="p-user_icon">
+        <p>〇〇さんがあなたについてレビューを書きました</p>
+        <p>てきすとてきすててきすとてきすとてきすとてきすとてきすとてきすとてきすとてきすとてきすててきすとてきすとてきすとてきすとてきすとてきすとてきすとてきすとてきすててきすとてきすとてきすとてきすとてきすとてきすとてきすと</p>
+    	</div>
+    </div>
   </div>
 </section>
 

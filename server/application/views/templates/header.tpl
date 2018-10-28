@@ -23,8 +23,8 @@
 <body>
   <style media="screen">
     html { overflow:auto; }
-    body { 
-        word-wrap: break-word; 
+    body {
+        word-wrap: break-word;
         -webkit-overflow-scrolling: auto;
         overflow-scrolling: auto;
     }
@@ -218,4 +218,4 @@
       </div><!-- /.container-fluid -->
     </nav>
 
-    <div class="container">
+    <div class="">
