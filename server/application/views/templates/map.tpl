@@ -130,32 +130,26 @@ function convertPosition(position) {
 var markers = {};
 var names = {};
 function updateMarker(userId, name, position, type) {
-  /*if (type == 'tourist') {
-    // 現状はとりあえず観光客の位置をマップ上に表示しない
-    return;
-  }*/
   if (markers[userId]) {
     markers[userId].setPosition(position);
   } else {
     markers[userId] = new google.maps.Marker({ position: position, map: map,
     icon: (type == 'guide') ? null : {
-      fillColor: (type == 'me') ? "#0000B0" : "#FF4040",                //塗り潰し色
+      fillColor: (type == 'me') ? "#0000B0" : (type == 'guide') ? "#FF4040" : "#4040FF",                //塗り潰し色
       fillOpacity: 0.8,                    //塗り潰し透過率
       path: google.maps.SymbolPath.CIRCLE, //円を指定
-      scale: 10,   //円のサイズ
-      strokeColor: (type == 'me') ? "#000080" : "#FF0000",              //枠の色
+      scale: (type == 'tourist') ? 0 : 10,   //円のサイズ
+      strokeColor: (type == 'me') ? "#000080" : (type == 'guide') ? "#FF0000" : "#0000FF",              //枠の色
       strokeWeight: 1.0                    //枠の透過率
     },
     label: (type == 'me') ? { text: 'You', color:'#FFFFFF', fontSize: '10px' } : null });
-    if (type != 'me') {
-      var infoWindow  = new google.maps.InfoWindow({ // 吹き出しの追加
-        content: '<div class="sample">' + name + '<button class="btn btn-sm btn-primary btn-block" onclick="sendRequest(' + userId + ')">Request!</button></div>' // 吹き出しに表示する内容
-      });
-      markers[userId].addListener('click', function() { // マーカーをクリックしたとき
-        infoWindow.open(map, markers[userId]); // 吹き出しの表示
-      });
-    }
+    var infoWindow  = new google.maps.InfoWindow({ // 吹き出しの追加
+      content: '<div class="sample">' + name + '<button class="btn btn-sm btn-primary btn-block" onclick="sendRequest(' + userId + ')">Request!</button></div>' // 吹き出しに表示する内容
+    });
     names[userId] = name;
+    markers[userId].addListener('click', function() { // マーカーをクリックしたとき
+      infoWindow.open(map, markers[userId]); // 吹き出しの表示
+    });
   }
 }
 
