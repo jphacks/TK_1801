@@ -176,5 +176,5 @@ setTimeout(function () {
 }, 1000);
 
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCvvoPaN9Wdcyka3M5dDefxCJX3Kl4jUTU&callback=initMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap"></script>
 {include file="footer.tpl"}
