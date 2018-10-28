@@ -138,7 +138,7 @@ function updateMarker(userId, name, position, type) {
       fillColor: (type == 'me') ? "#A000A0" : (type == 'guide') ? "#FF4040" : "#4040FF",                //塗り潰し色
       fillOpacity: 0.8,                    //塗り潰し透過率
       path: google.maps.SymbolPath.CIRCLE, //円を指定
-      scale: (type == 'guide') ? 12 : 4,   //円のサイズ
+      scale: (type == 'tourist') ? 0 : 10,   //円のサイズ
       strokeColor: (type == 'me') ? "#800080" : (type == 'guide') ? "#FF0000" : "#0000FF",              //枠の色
       strokeWeight: 1.0                    //枠の透過率
     } });
