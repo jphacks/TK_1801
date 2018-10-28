@@ -112,15 +112,14 @@ var markers = {};
 function updateMarker(userId, position) {
   if (markers[userId]) {
     markers[userId].setPosition(position);
-    var infoWindow;
-    infoWindow = new google.maps.InfoWindow({ // 吹き出しの追加
+  } else {
+    markers[userId] = new google.maps.Marker({ position: position, map: map });
+    var infoWindow  = new google.maps.InfoWindow({ // 吹き出しの追加
       content: '<div class="sample">TAM 大阪</div>' // 吹き出しに表示する内容
-     });
+    });
     markers[userId].addListener('click', function() { // マーカーをクリックしたとき
       infoWindow.open(map, markers[userId]); // 吹き出しの表示
     });
-  } else {
-    markers[userId] = new google.maps.Marker({ position: position, map: map });
   }
 }
 
@@ -144,7 +143,7 @@ setTimeout(function () {
     // 現在位置を取得
     navigator.geolocation.getCurrentPosition(function (position) {
       console.log(position);
-      room.send(JSON.stringify({ type: 'location', userId: {$user['id']}, position: convertPosition(position) }));
+      room.send(JSON.stringify({ type: 'location', userId: {$user['id']}, name: '{$user["name"]|escape|escape:"quotes"}', position: convertPosition(position) }));
     },
     function (error) {
       console.log('Failed to get current position.');
