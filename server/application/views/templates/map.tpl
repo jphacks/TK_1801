@@ -130,6 +130,10 @@ function convertPosition(position) {
 var markers = {};
 var names = {};
 function updateMarker(userId, name, position, type) {
+  if (type == 'tourist') {
+    // 現状はとりあえず観光客の位置をマップ上に表示しない
+    return;
+  }
   if (markers[userId]) {
     markers[userId].setPosition(position);
   } else {
@@ -138,7 +142,7 @@ function updateMarker(userId, name, position, type) {
       fillColor: (type == 'me') ? "#0000B0" : (type == 'guide') ? "#FF4040" : "#4040FF",                //塗り潰し色
       fillOpacity: 0.8,                    //塗り潰し透過率
       path: google.maps.SymbolPath.CIRCLE, //円を指定
-      scale: (type == 'tourist') ? 0 : 10,   //円のサイズ
+      scale: 10,   //円のサイズ
       strokeColor: (type == 'me') ? "#000080" : (type == 'guide') ? "#FF0000" : "#0000FF",              //枠の色
       strokeWeight: 1.0                    //枠の透過率
     },
