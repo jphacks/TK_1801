@@ -49,7 +49,10 @@
 </style>
 <!-- Button trigger modal -->
 <button type="button" id="btn-calling-modal" class="btn btn-primary" data-toggle="modal" data-target="#calling-modal">
-  Launch demo modal
+  Calling modal
+</button>
+<button type="button" id="btn-waiting-modal" class="btn btn-primary" data-toggle="modal" data-target="#waiting-modal">
+  Waiting modal
 </button>
 
 <!-- Modal -->
@@ -71,13 +74,23 @@
     </div>
   </div>
 </div>
-<script type="text/javascript">
-  $('#myModal').on('shown.bs.modal', function () {
-    $('#myInput').trigger('focus')
-  })
-</script>
-
-
+<div class="modal fade" id="waiting-modal" tabindex="-1" role="dialog" aria-labelledby="waiting-modal-label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="media-left">
+          <img class="p-user_icon" src="/images/user.jpg">
+        </span>
+        <div class="media-body u-pl30">
+      		<h4 id="waiting-modal-message" class="media-heading u-pt30"></h4>
+        </div>
+      </div>
+      <div class="modal-body text-center">
+        <button type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="row">
   <div class="col-sm-12">
@@ -136,6 +149,8 @@ function sendRequest(destUserId) {
     destUserId: destUserId,
     name: '{$user["name"]|escape|escape:"quotes"}'
   }));
+  $('#waiting-modal-message').text('Calling ' + d.name + ' ...');
+  $('#btn-waiting-modal').click();
 }
 
 // peerオブジェクト
