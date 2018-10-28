@@ -90,13 +90,10 @@
 
   <!--Button to change own information-->
   <div class="u-pt30">
-    <button class="p-button-main" type="button" name="button">Settings</button>
-  </div>
-  <div class="u-pt30">
     <button class="p-button-main" type="button" name="button">Your Reviews</button>
   </div>
   <div class="u-pt30">
-    <button class="p-button-main" type="button" name="button">Edit Profile</button>
+    <button href="/setting" class="p-button-main" type="button" name="button">Edit Profile</button>
 
   </div>
 </section>
