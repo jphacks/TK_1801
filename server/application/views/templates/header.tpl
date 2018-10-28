@@ -24,6 +24,7 @@
   <style media="screen">
     html { overflow:auto; }
     body { 
+        position:fixed;
         word-wrap: break-word; 
         -webkit-overflow-scrolling: auto;
         overflow-scrolling: auto;
