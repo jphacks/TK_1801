@@ -10,7 +10,7 @@ class Review extends CI_Controller {
 			redirect('/login');
 		}
 
-		if ($this->input->get('id') === null)
+		/*if ($this->input->get('id') === null)
 		{
 			$data = array(
 				'error_message_only' => 'The Guidance ID is not specified.',
@@ -24,7 +24,7 @@ class Review extends CI_Controller {
 				'error_message_only' => 'You don\'t have rights for posting reviews of this guidance.',
 			);
 			$this->smarty->view('review.tpl', $data);
-		}
+		}*/
 	}
 
 	function index()
