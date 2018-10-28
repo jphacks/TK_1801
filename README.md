@@ -106,18 +106,21 @@
 ## 開発内容・開発技術
 ### 活用した技術
 #### API・データ
-* SkyWay(from: NTT Communications 様)
+* SkyWay (by NTT Communications 様)
+    * 以下の部分に使用
+        * 位置情報のリアルタイム共有
+        * チャット
 * Google Maps API
-* 
+    * マップ表示・マップ上のマーカー表示に使用
 
 #### フレームワーク・ライブラリ・モジュール
-* CodeIgniter
-* Smarty
-* BootStrap3
+* PHP 7.2 + CodeIgniter 3 (フレームワーク)
+* SQLite 3
+* Smarty (テンプレートエンジン)
+* BootStrap 3
 
 #### デバイス
-* iPhone
-* 
+* iPhoneほか
 
 ### 研究内容・事前開発プロダクト（任意）
 * なし
@@ -125,4 +128,4 @@
 ### 独自開発技術（Hack Dayで開発したもの）
 #### 2日間に開発した独自の機能・技術
 * SkyWayを使用した複数端末間での情報共有(`3a056d83e6f2ae9768839f22640cd1a6ed9a77a9`)
-* 
+* リアルタム位置情報のマップ表示によるチャット相手(ガイド依頼相手)の選択
