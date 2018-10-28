@@ -117,7 +117,7 @@ function updateMarker(userId, position) {
       content: '<div class="sample">TAM 大阪</div>' // 吹き出しに表示する内容
      });
     markers[userId].addListener('click', function() { // マーカーをクリックしたとき
-      infoWindow.open(map, marker); // 吹き出しの表示
+      infoWindow.open(map, markers[userId]); // 吹き出しの表示
     });
   } else {
     markers[userId] = new google.maps.Marker({ position: position, map: map });
