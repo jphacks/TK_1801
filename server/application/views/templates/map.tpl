@@ -141,7 +141,8 @@ function updateMarker(userId, name, position, type) {
       scale: (type == 'tourist') ? 0 : 10,   //円のサイズ
       strokeColor: (type == 'me') ? "#800080" : (type == 'guide') ? "#FF0000" : "#0000FF",              //枠の色
       strokeWeight: 1.0                    //枠の透過率
-    } });
+    },
+    label: (type == 'me') ? { text: 'You', color:'#FFFFFF', fontSize: '10px' } : null });
     var infoWindow  = new google.maps.InfoWindow({ // 吹き出しの追加
       content: '<div class="sample">' + name + '<button class="btn btn-sm btn-primary btn-block" onclick="sendRequest(' + userId + ')">呼び出し</button></div>' // 吹き出しに表示する内容
     });
