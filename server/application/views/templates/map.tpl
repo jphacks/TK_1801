@@ -218,9 +218,7 @@ setTimeout(function () {
       case 'cancel':
         // ガイド依頼の呼び出しキャンセルをサーバーから受け取った時(呼び出しモーダルを閉じる)
         if (d.destUserId == {$user['id']}) {
-          $('#calling-modal-menu').text('The request from ' + d.name + ' request has been cancelled');
-          $('#chat-link').attr('href', '/chat?room=' + d.userId);
-          $('#btn-calling-modal').click();
+          $('#calling-modal-message').text('The request from ' + d.name + ' request has been cancelled.');
         }
         break;
       default:
