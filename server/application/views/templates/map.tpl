@@ -130,10 +130,10 @@ function convertPosition(position) {
 var markers = {};
 var names = {};
 function updateMarker(userId, name, position, type) {
-  if (type == 'tourist') {
+  /*if (type == 'tourist') {
     // 現状はとりあえず観光客の位置をマップ上に表示しない
     return;
-  }
+  }*/
   if (markers[userId]) {
     markers[userId].setPosition(position);
   } else {
