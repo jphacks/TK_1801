@@ -13,7 +13,7 @@ class Chat extends CI_Controller {
 			redirect('/login');
 		} else {
 			$this->smarty->view('chat.tpl', array(
-				'user' => $this->user->get('*', array('id' => $_SESSION['user_id'])),
+				'user' => $this->user->get('*', array('id' => $_SESSION['user_id'], 'chat_id' => $this->input->get('id'))),
 			));
 		}
 	}

@@ -52,9 +52,10 @@
 
     // 入室
     let room = null;
-    $('#join').click(function(){
-        room = peer.joinRoom($('#roomName').val(), { mode: 'sfu' });
-        chatlog('<i>' + $('#roomName').val() + '</i>に入室しました');
+    //$('#join').click(function(){
+    $(function () {
+        room = peer.joinRoom({$room_id}, { mode: 'sfu' });
+        chatlog('<i>' + {$room_id} + '</i>に入室しました');
 
         // チャットを送信
         $('#send').click(function(){
@@ -72,7 +73,7 @@
 // 退室
 $('#leave').click(function(){
     room.close();
-    chatlog('<i>' + $('#roomName').val() + '</i>から退室しました');
+    chatlog('<i>' + {$room_id} + '</i>から退室しました');
 })
 
 
