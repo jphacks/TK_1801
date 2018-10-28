@@ -30,7 +30,9 @@
 <section class="u-pd-lr30">
   <!--Title-->
   <h2 class="caption text-center">Send Reviews</h1>
-  {if isset($guidance_id)}
+  {if isset($error_message_only)}
+    <div class="alert alert-danger"><strong>Error</strong>: {$error_message_only}</div>
+  {else if isset($guidance_id)}
     <form action="/review/submit?id={$guidance_id}" method="POST">
       <input name="guidance_id" type="hidden" value="{$guidance_id}">
       {if isset($error_message)}
