@@ -48,25 +48,25 @@
   }
 </style>
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+<button type="button" id="btn-calling-modal" class="btn btn-primary" data-toggle="modal" data-target="#calling-modal">
   Launch demo modal
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="calling-modal" tabindex="-1" role="dialog" aria-labelledby="calling-modal-label" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <span class="media-left">
-          <img class="p-user_icon" src="../images/user.jpg">
+          <img class="p-user_icon" src="/images/user.jpg">
         </span>
         <div class="media-body u-pl30">
-      		<h4 class="media-heading u-pt30">{$user['name']|escape} Scouted you!!</h4>
+      		<h4 class="media-heading u-pt30"><span id="calling-modal-user-name"></span> scouted you!!</h4>
         </div>
       </div>
       <div class="modal-body text-center">
         <button type="button" class="p-button-modal__open">Start Chat</button>
-        <button type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">Close</button>
+        <button type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">Decline</button>
       </div>
     </div>
   </div>
@@ -163,6 +163,11 @@ setTimeout(function () {
       case 'disconnection':
         // 他の人の接続切れをサーバーから受け取った時(地図上のマーカーを削除)
         removeMarker(d.userId);
+        break;
+      case 'request':
+        // ガイド依頼の呼び出しをサーバーから受け取った時(呼び出しモーダルを表示)
+        $('#calling-modal-user-name').text(d.name);
+        $('#btn-calling-modal').click();
         break;
       default:
         console.log('Undefined type: ' + d.type);
