@@ -64,7 +64,7 @@
       <!--Name-->
   		<h3>{$user['name']|escape}</h3>
       <ul>
-        <li class="u-p130 u-t12">Point Balance: {$user['point']}</li>
+        <li class="u-p130 u-t12">Point Balance: {$user['balance']} P</li>
         <li class="u-p130 u-t12">Location: {$user['location']}</li>
         <li class="u-p130 u-t12">Your Rating: ★★★★☆ 4.5</li>{* TODO: DB内の評価から入れる *}
       </ul>
