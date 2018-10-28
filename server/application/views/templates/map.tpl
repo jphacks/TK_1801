@@ -134,7 +134,7 @@ function updateMarker(userId, name, position, type) {
     markers[userId].setPosition(position);
   } else {
     markers[userId] = new google.maps.Marker({ position: position, map: map,
-    icon: {
+    icon: (type == 'guide') ? null : {
       fillColor: (type == 'me') ? "#A000A0" : (type == 'guide') ? "#FF4040" : "#4040FF",                //塗り潰し色
       fillOpacity: 0.8,                    //塗り潰し透過率
       path: google.maps.SymbolPath.CIRCLE, //円を指定
