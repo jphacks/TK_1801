@@ -135,11 +135,11 @@ function updateMarker(userId, name, position, type) {
   } else {
     markers[userId] = new google.maps.Marker({ position: position, map: map, 
     icon: {
-      fillColor: (type == 'guide') ? "#FF0000" : "#0000FF",                //塗り潰し色
+      fillColor: (type == 'me') ? "#A000A0" : (type == 'guide') ? "#FF4040" : "#4040FF",                //塗り潰し色
       fillOpacity: 0.8,                    //塗り潰し透過率
       path: google.maps.SymbolPath.CIRCLE, //円を指定
-      scale: (type == 'guide') ? 16 : 8,   //円のサイズ
-      strokeColor: (type == 'guide') ? "#FF8080" : "#8080FF",              //枠の色
+      scale: (type == 'guide') ? 12 : 4,   //円のサイズ
+      strokeColor: (type == 'me') ? "#800080" : (type == 'guide') ? "#FF0000" : "#0000FF",              //枠の色
       strokeWeight: 1.0                    //枠の透過率
     } });
     var infoWindow  = new google.maps.InfoWindow({ // 吹き出しの追加
@@ -220,6 +220,7 @@ setTimeout(function () {
         position: convertPosition(position),
         userType: '{$user["type"]|escape|escape:"quotes"}'
       }));
+      updateMarker({$user['id']}, '{$user["name"]|escape|escape:"quotes"}', convertPosition(position), 'me');
     },
     function (error) {
       console.log('Failed to get current position.');
