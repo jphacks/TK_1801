@@ -135,11 +135,11 @@ function updateMarker(userId, name, position, type) {
   } else {
     markers[userId] = new google.maps.Marker({ position: position, map: map,
     icon: (type == 'guide') ? null : {
-      fillColor: (type == 'me') ? "#A000A0" : (type == 'guide') ? "#FF4040" : "#4040FF",                //塗り潰し色
+      fillColor: (type == 'me') ? "#0000B0" : (type == 'guide') ? "#FF4040" : "#4040FF",                //塗り潰し色
       fillOpacity: 0.8,                    //塗り潰し透過率
       path: google.maps.SymbolPath.CIRCLE, //円を指定
       scale: (type == 'tourist') ? 0 : 10,   //円のサイズ
-      strokeColor: (type == 'me') ? "#800080" : (type == 'guide') ? "#FF0000" : "#0000FF",              //枠の色
+      strokeColor: (type == 'me') ? "#000080" : (type == 'guide') ? "#FF0000" : "#0000FF",              //枠の色
       strokeWeight: 1.0                    //枠の透過率
     },
     label: (type == 'me') ? { text: 'You', color:'#FFFFFF', fontSize: '10px' } : null });
