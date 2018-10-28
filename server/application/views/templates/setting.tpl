@@ -22,9 +22,15 @@
       background-color: #c78836;
       border: none;
     }
+    .change-panel{
+      line-height: 40px;
+      border: none;
+      background-color: #FD5637;
+      color: #ffffff
+    }
   </style>
 
-
+  <!--間違って更新しないようにするため，formのactionは無しにしています-->
   <section>
     <h2>Setting</h2>
     <!--おりたたみ-->
@@ -32,16 +38,17 @@
       {if isset($error_message)}
           <div class="alert alert-danger"><strong>Error</strong>: {$error_message}</div>
       {/if}
-      <div class="panel panel-default">
+
+      <!--名前変更-->
+      <div class="panel panel-default change-panel">
         <div class="panel-heading">
           <h4 class="panel-title">
             <a data-toggle="collapse" data-parent="#accordion" href="#nameChange">Register new nickname</a>
           </h4>
         </div>
-        <!--名前変更-->
         <div id="nameChange" class="panel-collapse collapse">
           <div class="panel-body">
-            <form action="/register/submit" method="POST">
+            <form action="#" method="POST">
               <div class="form-group">
                 <label for="name" class="control-label">Name</label>
                 <div class="input-group">
@@ -56,16 +63,17 @@
           </div>
         </div>
       </div>
-      <div class="panel panel-default">
+
+      <!--メールアドレス変更-->
+      <div class="panel panel-default change-panel">
         <div class="panel-heading">
           <h4 class="panel-title">
             <a data-toggle="collapse" data-parent="#accordion" href="#mailChange">Register new mail address</a>
           </h4>
         </div>
-        <!--メールアドレス変更-->
         <div id="mailChange" class="panel-collapse collapse">
           <div class="panel-body">
-            <form action="/register/submit" method="POST">
+            <form action="#" method="POST">
               <div class="form-group">
                 <label for="email_address" class="control-label">Email Address</label>
                 <div class="input-group">
@@ -80,16 +88,17 @@
           </div>
         </div>
       </div>
-      <div class="panel panel-default">
+
+      <!--パスワード変更-->
+      <div class="panel panel-default change-panel">
         <div class="panel-heading">
           <h4 class="panel-title">
             <a data-toggle="collapse" data-parent="#accordion" href="#passChange">Change your password</a>
           </h4>
         </div>
-        <!--パスワード変更-->
         <div id="passChange" class="panel-collapse collapse">
           <div class="panel-body">
-            <form action="/register/submit" method="POST">
+            <form action="#" method="POST">
               <!--old password-->
               <div class="form-group">
                 <label for="password" class="control-label">Input your password</label>
