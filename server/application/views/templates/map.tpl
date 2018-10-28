@@ -273,7 +273,7 @@ setTimeout(function () {
         console.log('Undefined type: ' + d.type);
     }
   });
-}, 1000);
+}, 2000);
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
