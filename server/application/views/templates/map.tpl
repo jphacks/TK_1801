@@ -65,7 +65,7 @@
         </div>
       </div>
       <div class="modal-body text-center">
-        <button type="button" class="p-button-modal__open">Start Chat</button>
+        <a id="chat-link" href="#"><button type="button" class="p-button-modal__open">Start Chat</button></a>
         <button type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">Decline</button>
       </div>
     </div>
@@ -183,6 +183,7 @@ setTimeout(function () {
         // ガイド依頼の呼び出しをサーバーから受け取った時(呼び出しモーダルを表示)
         if (d.destUserId == {$user['id']}) {
           $('#calling-modal-user-name').text(d.name);
+          $('#chat-link').attr('href', '/chat?room=" + d.userId);
           $('#btn-calling-modal').click();
         }
         break;
