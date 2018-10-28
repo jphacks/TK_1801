@@ -29,17 +29,17 @@
     color: #ffffff
   }
 </style>
-{*
 <section class="u-pd-lr30">
+{*
   room: <input type="text" id="roomName"> <button id="join">入室</button><button id="leave">退室</button>
   <hr>
+*}
   <div id="chatLog">
   </div>
   <div class="message_bar">
     <input type="text" id="msg" placeholder=" メッセージを入力"> <button id="send" class="p-button-modal__open">send</button>
   </div>
 </section>
-*}
     <script type="text/javascript" src="https://cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
