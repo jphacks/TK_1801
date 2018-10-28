@@ -251,7 +251,7 @@ setTimeout(function () {
           });
           $('#calling-modal-btn-accept').click(function () {
             acceptRequest(d.userId);
-            location.href = '/chat?room=' + d.userId;
+            location.href = '/chat?room=' + d.userId + '&tourist=' + d.userId + '&guide=' + d.destUserId;
           });
           $('#calling-modal-menu').show();
           $('#calling-modal-menu-ok').hide();
