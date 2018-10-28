@@ -131,7 +131,7 @@ function updateMarker(userId, name, position) {
     var infoWindow  = new google.maps.InfoWindow({ // 吹き出しの追加
       content: '<div class="sample">' + name + '<button class="btn btn-sm btn-primary btn-block" onclick="sendRequest(' + userId + ')">呼び出し</button></div>' // 吹き出しに表示する内容
     });
-    names[userId] = name:
+    names[userId] = name;
     markers[userId].addListener('click', function() { // マーカーをクリックしたとき
       infoWindow.open(map, markers[userId]); // 吹き出しの表示
     });
