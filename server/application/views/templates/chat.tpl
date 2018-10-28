@@ -67,7 +67,7 @@ $(setTimeout(function () {
 
   // チャットを受信
   room.on('data', function(data){
-    chatlog('Guide ' > ' + data.data); // data.src = 送信者のpeerid, data.data = 送信されたメッセージ
+    chatlog('Guide > ' + data.data); // data.src = 送信者のpeerid, data.data = 送信されたメッセージ
   });
 }, 2000));
 
