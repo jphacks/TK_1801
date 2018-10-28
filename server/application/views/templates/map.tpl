@@ -64,10 +64,10 @@
           <img class="p-user_icon" src="/images/user.jpg">
         </span>
         <div class="media-body u-pl30">
-      		<h4 class="media-heading u-pt30"><span id="calling-modal-user-name"></span> scouted you!!</h4>
+      		<h4 id="calling-modal-message" class="media-heading u-pt30"></h4>
         </div>
       </div>
-      <div class="modal-body text-center">
+      <div id="calling-modal-menu" class="modal-body text-center">
         <a id="chat-link" href="#"><button type="button" class="p-button-modal__open">Start Chat</button></a>
         <button type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">Decline</button>
       </div>
@@ -86,7 +86,7 @@
         </div>
       </div>
       <div class="modal-body text-center">
-        <button type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">Cancel</button>
+        <button id="waiting-modal-btn-cancel" type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">Cancel</button>
       </div>
     </div>
   </div>
@@ -152,7 +152,18 @@ function sendRequest(destUserId) {
     name: '{$user["name"]|escape|escape:"quotes"}'
   }));
   $('#waiting-modal-message').text('Calling ' + names[destUserId] + ' ...');
+  $('#waiting-modal-btn-cancel').click(function () {
+    cancelRequest(destUserId);
+  });
   $('#btn-waiting-modal').click();
+}
+
+function cancelRequest(destUserId) {
+  room.send(JSON.stringify({
+    type: 'cancel',
+    userId: {$user['id']},
+    destUserId: destUserId
+  }));
 }
 
 // peerオブジェクト
@@ -199,7 +210,15 @@ setTimeout(function () {
       case 'request':
         // ガイド依頼の呼び出しをサーバーから受け取った時(呼び出しモーダルを表示)
         if (d.destUserId == {$user['id']}) {
-          $('#calling-modal-user-name').text(d.name);
+          $('#calling-modal-message').text(d.name + ' scouted you!!');
+          $('#chat-link').attr('href', '/chat?room=' + d.userId);
+          $('#btn-calling-modal').click();
+        }
+        break;
+      case 'request':
+        // ガイド依頼の呼び出しキャンセルをサーバーから受け取った時(呼び出しモーダルを閉じる)
+        if (d.destUserId == {$user['id']}) {
+          $('#calling-modal-menu').text('The request from ' + d.name + ' request has been cancelled');
           $('#chat-link').attr('href', '/chat?room=' + d.userId);
           $('#btn-calling-modal').click();
         }
