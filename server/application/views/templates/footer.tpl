@@ -10,7 +10,7 @@
     /* フッターを下部へ押しやるための、コンテンツのラッパー */
     #wrap {
     min-height: 100%;
-    height: auto;
+    height: 100%;
     /* フッターの高さ分だけ、ネガティブインデントを指定 */
     margin: 0 auto -50px;
     /* フッターの高さ分だけ、パディングを指定 */
@@ -19,7 +19,10 @@
 
     /* ここでフッターの高さを指定 */
     #footer {
-    height: 50px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    
     background-color: #ffffff;
     border-top: solid lightgray;
     }
@@ -59,6 +62,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="/js/bootstrap.min.js"></script>
-  <script src="js/RateIt/jquery.rateit.js"></script>
+  <script src="/js/RateIt/jquery.rateit.js"></script>
   </body>
 </html>

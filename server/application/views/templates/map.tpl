@@ -48,25 +48,25 @@
   }
 </style>
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+<button type="button" id="btn-calling-modal" class="btn btn-primary" data-toggle="modal" data-target="#calling-modal">
   Launch demo modal
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="calling-modal" tabindex="-1" role="dialog" aria-labelledby="calling-modal-label" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <span class="media-left">
-          <img class="p-user_icon" src="../images/user.jpg">
+          <img class="p-user_icon" src="/images/user.jpg">
         </span>
         <div class="media-body u-pl30">
-      		<h4 class="media-heading u-pt30">{$user['name']|escape} Scouted you!!</h4>
+      		<h4 class="media-heading u-pt30"><span id="calling-modal-user-name"></span> scouted you!!</h4>
         </div>
       </div>
       <div class="modal-body text-center">
-        <button type="button" class="p-button-modal__open">Start Chat</button>
-        <button type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">Close</button>
+        <a id="chat-link" href="#"><button type="button" class="p-button-modal__open">Start Chat</button></a>
+        <button type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">Decline</button>
       </div>
     </div>
   </div>
@@ -81,11 +81,11 @@
 
 <div class="row">
   <div class="col-sm-12">
-    <div id="map" style="width:100%;height:calc(100vh - 180px)"></div>
+    <div id="map" style="width:100%;height:500px;"></div>
   </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.slim.js"></script>
+<script type="text/javascript" src="https://cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
 <script>
 var map;
 function initMap() {
@@ -109,11 +109,17 @@ function convertPosition(position) {
 }
 
 var markers = {};
-function updateMarker(userId, position) {
+function updateMarker(userId, name, position) {
   if (markers[userId]) {
     markers[userId].setPosition(position);
   } else {
     markers[userId] = new google.maps.Marker({ position: position, map: map });
+    var infoWindow  = new google.maps.InfoWindow({ // 吹き出しの追加
+      content: '<div class="sample">' + name + '<button class="btn btn-sm btn-primary btn-block" onclick="sendRequest(' + userId + ')">呼び出し</button></div>' // 吹き出しに表示する内容
+    });
+    markers[userId].addListener('click', function() { // マーカーをクリックしたとき
+      infoWindow.open(map, markers[userId]); // 吹き出しの表示
+    });
   }
 }
 
@@ -121,28 +127,71 @@ function removeMarker(userId) {
   markers[userId].setMap(null);
 }
 
-var socket = io.connect('http://202.182.125.217:3000', { query: 'user_id=' + {$user['id']} });
+var room;
 
-socket.on('sendLocationToClient', function (data) {
-  // 位置情報をサーバーから受け取った時(地図上のマーカーを更新)
-  updateMarker(data.userId, data.location);
+function sendRequest(destUserId) {
+  room.send(JSON.stringify({
+    type: 'request',
+    userId: {$user['id']},
+    destUserId: destUserId,
+    name: '{$user["name"]|escape|escape:"quotes"}'
+  }));
+}
+
+// peerオブジェクト
+const peer = new Peer({
+  key: '61c46edf-bdc8-429a-ba29-ccaf61eb1f19', // 自分のAPIキーを入力
+  debug: 3
 });
 
-socket.on('sendDisconnectionToClient', function (data) {
-  // 他の人の接続切れをサーバーから受け取った時(地図上のマーカーを削除)
-  removeMarker(data.userId);
-});
+setTimeout(function () {
+  room = peer.joinRoom('location', { mode: 'sfu' });
+	console.log(room);
 
-setInterval(function () {
-  // 現在位置を取得
-  navigator.geolocation.getCurrentPosition(function (position) {
-    console.log(position);
-    socket.emit('sendLocationToServer', convertPosition(position));
-  },
-  function (error) {
-    console.log('Failed to get current position.');
+  // 位置情報を定期送信
+  setInterval(function () {
+    // 現在位置を取得
+    navigator.geolocation.getCurrentPosition(function (position) {
+      console.log(position);
+      room.send(JSON.stringify({
+        type: 'location',
+        userId: {$user['id']},
+        name: '{$user["name"]|escape|escape:"quotes"}',
+        position: convertPosition(position)
+      }));
+    },
+    function (error) {
+      console.log('Failed to get current position.');
+    });
+  }, 5000);
+
+  // 受信
+  room.on('data', function(data){
+    // data.src = 送信者のpeerid, data.data = 送信されたメッセージ
+    console.log('Received: ' + data.data);
+    var d = JSON.parse(data.data);
+    switch (d.type) {
+      case 'location':
+        // 位置情報をサーバーから受け取った時(地図上のマーカーを更新)
+        updateMarker(d.userId, d.name, d.position);
+        break;
+      case 'disconnection':
+        // 他の人の接続切れをサーバーから受け取った時(地図上のマーカーを削除)
+        removeMarker(d.userId);
+        break;
+      case 'request':
+        // ガイド依頼の呼び出しをサーバーから受け取った時(呼び出しモーダルを表示)
+        if (d.destUserId == {$user['id']}) {
+          $('#calling-modal-user-name').text(d.name);
+          $('#chat-link').attr('href', '/chat?room=' + d.userId);
+          $('#btn-calling-modal').click();
+        }
+        break;
+      default:
+        console.log('Undefined type: ' + d.type);
+    }
   });
-}, 5000);
+}, 1000);
 
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"></script>
