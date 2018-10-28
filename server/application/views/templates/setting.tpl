@@ -22,7 +22,7 @@
       background-color: #c78836;
       border: none;
     }
-    .panel-title{
+    .panel{
       line-height: 40px;
       border: none;
       background-color: #FD5637;
@@ -124,5 +124,5 @@
       </div>
     </div>
   </section>
-  
+
 {include file="footer.tpl"}
