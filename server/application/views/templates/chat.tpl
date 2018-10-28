@@ -62,12 +62,12 @@ $(setTimeout(function () {
   $('#send').click(function(){
      var msg = $('#msg').val();
      room.send(msg);
-     chatlog('自分> ' + msg);
+     chatlog('You > ' + msg);
   });
 
   // チャットを受信
   room.on('data', function(data){
-    chatlog('ID: ' + data.src + '> ' + data.data); // data.src = 送信者のpeerid, data.data = 送信されたメッセージ
+    chatlog('Guide ' > ' + data.data); // data.src = 送信者のpeerid, data.data = 送信されたメッセージ
   });
 }, 2000));
 
