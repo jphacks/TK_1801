@@ -109,13 +109,13 @@ function convertPosition(position) {
 }
 
 var markers = {};
-function updateMarker(userId, position) {
+function updateMarker(userId, name, position) {
   if (markers[userId]) {
     markers[userId].setPosition(position);
   } else {
     markers[userId] = new google.maps.Marker({ position: position, map: map });
     var infoWindow  = new google.maps.InfoWindow({ // 吹き出しの追加
-      content: '<div class="sample">TAM 大阪</div>' // 吹き出しに表示する内容
+      content: '<div class="sample">' + name + '</div>' // 吹き出しに表示する内容
     });
     markers[userId].addListener('click', function() { // マーカーをクリックしたとき
       infoWindow.open(map, markers[userId]); // 吹き出しの表示
@@ -158,7 +158,7 @@ setTimeout(function () {
     switch (d.type) {
       case 'location':
         // 位置情報をサーバーから受け取った時(地図上のマーカーを更新)
-        updateMarker(d.userId, d.position);
+        updateMarker(d.userId, d.name, d.position);
         break;
       case 'disconnection':
         // 他の人の接続切れをサーバーから受け取った時(地図上のマーカーを削除)
