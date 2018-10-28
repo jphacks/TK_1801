@@ -236,11 +236,11 @@ setTimeout(function () {
         if (d.destUserId == {$user['id']}) {
           $('#calling-modal-message').text(d.name + ' scouted you!!');
           $('#calling-modal-btn-decline').click(function () {
-            declineRequest(userId);
+            declineRequest(d.userId);
           });
           $('#calling-modal-btn-accept').click(function () {
-            acceptRequest(userId);
-            location.href = '/chat?room=' + userId;
+            acceptRequest(d.userId);
+            location.href = '/chat?room=' + d.userId;
           });
           $('#calling-modal-menu').show();
           $('#calling-modal-menu-ok').hide();
