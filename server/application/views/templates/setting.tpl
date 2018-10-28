@@ -1,4 +1,4 @@
-{include file="header.tpl" , title="Setting" , user=$user}
+{include file="header.tpl" title="Setting" user=$user}
   <style>
     .u-pd-lr30{
       padding: 0 30px;
