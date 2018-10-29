@@ -1,6 +1,6 @@
 # Lead Me
 
-[![Lead Me](image.png)](https://www.youtube.com/watch?v=7xmZi-1ZIN8)
+[![Lead Me](product.png)](https://www.youtube.com/watch?v=7xmZi-1ZIN8)
 
 ## 製品概要
 ### Guide Tech
