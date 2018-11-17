@@ -28,7 +28,7 @@ class Mypage extends CI_Controller {
 			);
 			$this->smarty->view('mypage.tpl', array(
 				'user' => $this->user->get('*', array('id' => $_SESSION['user_id'])),
-				'star_avg' => $review_info['star_avg'],
+				'star_avg' => $review_info[0]['star_avg'],
 			));
 		}
 	}
