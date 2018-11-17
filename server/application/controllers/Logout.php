@@ -12,9 +12,6 @@ class Logout extends CI_Controller {
 		// セッションを解放
 		session_unset();
 		session_destroy();
-	  
-		// 念のため新しいセッションIDを振り直す
-		session_regenerate_id(true);
 
 		// トップへ
 		redirect('/');
