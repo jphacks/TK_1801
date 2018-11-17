@@ -102,6 +102,9 @@
   <div class="u-pt30">
     <button onclick="location.href='/setting'" class="p-button-main" type="button" name="button">Edit Profile</button>
   </div>
+  <div class="u-pt30">
+    <button onclick="location.href='/logout'" class="p-button-main" type="button" name="button">Logout</button>
+  </div>
 </section>
 
 {include file="footer.tpl"}
