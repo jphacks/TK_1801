@@ -115,6 +115,9 @@
             <div class="review-body">{$review['body']}</div>
           </div>
         {/foreach}
+        {if empty($reviews)}
+          You have not received any reviews!
+        {/if}
     	</div>
     </div>
   </div>
