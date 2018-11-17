@@ -58,27 +58,6 @@
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="calling-modal" tabindex="-1" role="dialog" aria-labelledby="calling-modal-label" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <span class="media-left">
-          <img id="calling-modal-profile-img" class="p-user_icon" src="">
-        </span>
-        <div class="media-body u-pl30">
-      		<h4 id="calling-modal-message" class="media-heading u-pt30"></h4>
-        </div>
-      </div>
-      <div id="calling-modal-menu" class="modal-body text-center">
-        <button id="calling-modal-btn-accept" type="button" class="p-button-modal__open">Start Chat</button>
-        <button id="calling-modal-btn-decline" type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">Decline</button>
-      </div>
-      <div id="calling-modal-menu-ok" class="modal-body text-center" style="display:none">
-        <button type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">OK</button>
-      </div>
-    </div>
-  </div>
-</div>
 <div class="modal fade" id="waiting-modal" tabindex="-1" role="dialog" aria-labelledby="waiting-modal-label" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -91,10 +70,31 @@
         </div>
       </div>
       <div id="waiting-modal-menu" class="modal-body text-center">
-        <button id="waiting-modal-btn-cancel" type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">Cancel</button>
+        <button id="waiting-modal-btn-accept" type="button" class="p-button-modal__open">Start Chat</button>
+        <button id="waiting-modal-btn-decline" type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">Decline</button>
       </div>
       <div id="waiting-modal-menu-ok" class="modal-body text-center" style="display:none">
-        <button id="waiting-modal-btn-cancel" type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">OK</button>
+        <button type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="calling-modal" tabindex="-1" role="dialog" aria-labelledby="calling-modal-label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <span class="media-left">
+          <img id="calling-modal-profile-img" class="p-user_icon" src="">
+        </span>
+        <div class="media-body u-pl30">
+      		<h4 id="calling-modal-message" class="media-heading u-pt30"></h4>
+        </div>
+      </div>
+      <div id="calling-modal-menu" class="modal-body text-center">
+        <button id="calling-modal-btn-cancel" type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">Cancel</button>
+      </div>
+      <div id="calling-modal-menu-ok" class="modal-body text-center" style="display:none">
+        <button id="calling-modal-btn-cancel" type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">OK</button>
       </div>
     </div>
   </div>
