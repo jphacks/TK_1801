@@ -48,7 +48,7 @@
         </div>
         <div id="nameChange" class="panel-collapse collapse">
           <div class="panel-body">
-            <form action="{$base_url}setting" method="POST">
+            <form action="{$base_url}setting/submit" method="POST">
               <div class="form-group">
                 <label for="name" class="control-label">Name</label>
                 <div class="input-group">
@@ -73,7 +73,7 @@
         </div>
         <div id="mailChange" class="panel-collapse collapse">
           <div class="panel-body">
-            <form action="{$base_url}setting" method="POST">
+            <form action="{$base_url}setting/submit" method="POST">
               <div class="form-group">
                 <label for="email_address" class="control-label">Email Address</label>
                 <div class="input-group">
@@ -98,7 +98,7 @@
         </div>
         <div id="passChange" class="panel-collapse collapse">
           <div class="panel-body">
-            <form action="{$base_url}setting" method="POST">
+            <form action="{$base_url}setting/submit" method="POST">
               {*  TODO: 古いパスワードを受け取って認証成功した場合のみユーザー情報更新
               <!--old password-->
               <div class="form-group">

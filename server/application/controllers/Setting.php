@@ -9,6 +9,13 @@ class Setting extends CI_Controller {
 
 	function index()
 	{
+		$this->smarty->view('setting.tpl', array(
+			'user' => $this->user->get('*', array('id' => $_SESSION['user_id'])),
+		));
+	}
+
+	function submit()
+	{
 		// フォーム検証ライブラリの読み込み
 		$this->load->library('form_validation');
 
@@ -78,7 +85,6 @@ class Setting extends CI_Controller {
 			'user' => $this->user->get('*', array('id' => $_SESSION['user_id'])),
 			'error_message' => $error_message,
 		);
-
 		$this->smarty->view('setting.tpl', $data);
 	}
 }
