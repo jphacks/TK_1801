@@ -21,7 +21,7 @@ class Notifications extends CI_Controller {
 				'users.name AS tourist_user_name, '.
 				'guidance_reviews.body AS body, '.
 				'guidance_reviews.created_at AS created_at',
-				array('guidances.guide_user_id' => $_SESSION['user_id']),
+				array('guidances.tourist_user_id' => $_SESSION['user_id']),
 				null,
 				null,
 				null,
