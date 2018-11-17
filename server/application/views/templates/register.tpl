@@ -39,7 +39,7 @@
   }
   .btn.active, .btn.focus,
   .btn.active:hover, .btn.focus:hover {
-    border: 2px solid #ffbd00;
+    border: 2px solid #ffbd00 !important;
   }
 
   .btn-primary.outline {
