@@ -16,7 +16,7 @@
     margin-top: 30px;
   }
   #msg{
-    width: 70%;
+    width: calc(90% - 140px);
     height: 40px;
     border-radius: 5px;
     border: solid 1px;
@@ -33,7 +33,7 @@
     color: #ffffff
   }
   .btn-gray{
-    background-color: #ddd;
+    background-color: #bbb;
     color: #ffffff
   }
 </style>
