@@ -79,7 +79,7 @@
   margin-right: 10px;
 }
 .review-name {
-  margin-right: 15px;
+  margin-right: 5px;
 }
 </style>
 
