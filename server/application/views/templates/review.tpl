@@ -22,6 +22,7 @@
 .p-user_icon{
   width: 100px;
   height: 100px;
+  object-fit: cover;
   border-radius: 200px;
   border: solid 1px #FD5637;
 }

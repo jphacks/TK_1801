@@ -80,14 +80,28 @@ $(setTimeout(function () {
   room.on('data', function(data){
     chatlog('Guide > ' + data.data); // data.src = 送信者のpeerid, data.data = 送信されたメッセージ
   });
+
+  // 相手の退室を受信
+  room.on('peerLeave', function(data){
+    leave();
+  });
 }, 2000));
 
 // 退室
 $('#leave').click(function(){
-    room.close();
-    chatlog('Left the chat room.');
-    location.href = "{$base_url}review?id={$guidance_id}";
+  leave();
 });
+
+function leave(){
+  room.close();
+
+  // 観光客はレビュー画面, ガイドはマイページへリダイレクト
+  {if $is_tourist && isset($guidance_id)}
+    location.href = "{$base_url}review?id={$guidance_id}";
+  {else}
+    location.href = "{$base_url}";
+  {/if}
+}
 
 // チャットログに記録するための関数
 function chatlog(msg){

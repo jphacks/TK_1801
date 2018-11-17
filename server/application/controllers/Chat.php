@@ -9,6 +9,7 @@ class Chat extends CI_Controller {
 
 	function index()
 	{
+		$is_tourist = true;
 		$room_id = $this->input->get('room');
 		$tourist_user_id = $this->input->get('tourist');
 		$guide_user_id = $this->input->get('guide');
@@ -22,6 +23,7 @@ class Chat extends CI_Controller {
 			));
 		} else {
 			$guidance_id = null;
+			$is_tourist = false;
 		}
 		if (!isset($_SESSION['user_id']) || ($this->user->count(array('id' => $_SESSION['user_id'])) === 0)) {
 			redirect('/login');
@@ -33,6 +35,7 @@ class Chat extends CI_Controller {
 					'guidance_id' => $guidance_id,
 				)),
 				'room_id' => $room_id,
+				'is_tourist' => $is_tourist,
 			));
 		}
 	}
