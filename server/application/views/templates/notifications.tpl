@@ -62,8 +62,10 @@
   margin-bottom: 10px;
 }
 .review-item {
-  background: #eee;
+  background: #f8f8f8;
+  color: #000;
   margin-bottom: 20px;
+  padding: 15px;
 }
 </style>
 
@@ -78,9 +80,11 @@
       <div class="panel-body">
         {foreach $reviews as $review}
           <div class="review-item">
-            <p>{date("F j, Y, g:i a", strtotime($review['created_at']))}</p>
-            <img src="{$base_url}/storage/profile_image/{$review['tourist_user_id']}" alt="" class="p-user_icon">
-            <p>{$review['tourist_user_name']|escape} wrote:</p>
+            <div>{date("F j, Y, g:i a", strtotime($review['created_at']))}</div>
+            <div>
+              <img src="{$base_url}/storage/profile_image/{$review['tourist_user_id']}" alt="" class="p-user_icon">
+              {$review['tourist_user_name']|escape} wrote:
+            </div>
             <p>{$review['body']}</p>
           </div>
         {/foreach}
