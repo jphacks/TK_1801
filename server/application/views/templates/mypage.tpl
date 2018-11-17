@@ -68,7 +68,7 @@
       <ul>
         <li class="u-p130 u-t12">Point Balance: {$user['balance']} P</li>
         <li class="u-p130 u-t12">Location: {$user['location']}</li>
-        <li class="u-p130 u-t12">Your Rating: ★★★★☆ 4.5</li>{* TODO: DB内の評価から入れる *}
+        <li class="u-p130 u-t12">Your Rating: ★★★★☆ {$star_avg}</li>{* TODO: DB内の評価から入れる *}
       </ul>
   	</div>
   </div>
