@@ -154,7 +154,7 @@ function updateMarker(userId, name, position, type) {
     },
     label: (type == 'me') ? { text: 'You', color:'#FFFFFF', fontSize: '10px' } : null });
     var infoWindow  = new google.maps.InfoWindow({ // 吹き出しの追加
-      content: '<div><img class="p-user_icon_sm" src="{$base_url}/storage/profile_image/' + userId + '">' + name + '<button class="btn btn-sm btn-primary btn-block" onclick="sendRequest(' + userId + ')">Request!</button></div>' // 吹き出しに表示する内容
+      content: '<div><img class="p-user_icon_sm" src="{$base_url}/storage/profile_image/' + userId + '">' + name + ' <button class="btn btn-sm btn-primary btn-block" onclick="sendRequest(' + userId + ')">Request!</button></div>' // 吹き出しに表示する内容
     });
     names[userId] = name;
     markers[userId].addListener('click', function() { // マーカーをクリックしたとき
