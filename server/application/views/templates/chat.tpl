@@ -3,30 +3,36 @@
   .message_bar{
     /* position: absolute;
     bottom: 60px; */
-    padding-top: 60px;
-    width: 320px;
+    padding-top: 30px;
+    width: 90%;
     text-align: center;
+    margin: auto;
   }
   #chatLog{
-    width: 100%;
-    height: 400px;
+    width: 90%;
+    height: 500px;
     overflow: scroll;
+    margin: auto;
+    margin-top: 30px;
   }
   #msg{
     width: 70%;
-    border-radius: 10px;
+    height: 40px;
+    border-radius: 5px;
     border: solid 1px;
     border-color: gray;
+    margin: 0 10px 0 0;
   }
   #send{}
   .p-button-modal__open{
-    border-radius: 20px;
-    line-height: 20px;
+    border-radius: 3px;
+    height: 40px;
     border: none;
-    padding: 4px 10px;
+    padding: 4px 15px;
     background-color: #FD5637;
     color: #ffffff
   }
+
 </style>
 <section class="u-pd-lr30">
 {*
@@ -62,6 +68,7 @@ $(setTimeout(function () {
      var msg = $('#msg').val();
      room.send(msg);
      chatlog('You > ' + msg);
+     $('#msg').val('');
   });
 
   // チャットを受信
