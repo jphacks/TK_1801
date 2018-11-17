@@ -32,8 +32,8 @@ class Notifications extends CI_Controller {
 			$this->smarty->view('notifications.tpl', array(
 				'user' => $this->user->get('*', array(
 					'id' => $_SESSION['user_id'],
-					'reviews' => $reviews,
 				)),
+				'reviews' => $reviews,
 			));
 		}
 	}
