@@ -10,7 +10,6 @@
   #chatLog{
     width: 100%;
     height: 400px;
-
     overflow: scroll;
   }
   #msg{

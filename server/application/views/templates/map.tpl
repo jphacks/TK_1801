@@ -19,7 +19,9 @@
     border: 2px solid #FEAF45s;
 
   }
-
+  .navbar {
+    margin-bottom: 0px;
+  }
   .btn-primary.outline {
       border: 3px solid rgba( 254 , 175 , 69 );; //アウトラインのみのボタンの線の色
       color: white ; //アウトラインのみのボタンのテキストの色
@@ -100,7 +102,7 @@
 
 <div class="row">
   <div class="col-sm-12">
-    <div id="map" style="width:100%;height:500px;"></div>
+    <div id="map" style="width:100%;height:95vh;"></div>
   </div>
 </div>
 
