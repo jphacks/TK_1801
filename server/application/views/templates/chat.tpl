@@ -62,6 +62,7 @@ $(setTimeout(function () {
      var msg = $('#msg').val();
      room.send(msg);
      chatlog('You > ' + msg);
+     $('#msg').val('');
   });
 
   // チャットを受信
