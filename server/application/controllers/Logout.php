@@ -1,5 +1,5 @@
 <?php
-class Login extends CI_Controller {
+class Logout extends CI_Controller {
 
 	function __construct()
 	{
