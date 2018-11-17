@@ -48,6 +48,14 @@
     background-color: gray;
     color: #ffffff
   }
+  .p-user_icon_sm{
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 250px;
+    border: solid 1px #FD5637;
+    margin-bottom: 10px;
+  }
 </style>
 <!-- Button trigger modal -->
 <button type="button" id="btn-calling-modal" class="btn btn-primary" data-toggle="modal" data-target="#calling-modal" style="display:none">
@@ -146,7 +154,7 @@ function updateMarker(userId, name, position, type) {
     },
     label: (type == 'me') ? { text: 'You', color:'#FFFFFF', fontSize: '10px' } : null });
     var infoWindow  = new google.maps.InfoWindow({ // 吹き出しの追加
-      content: '<div class="sample">' + name + '<button class="btn btn-sm btn-primary btn-block" onclick="sendRequest(' + userId + ')">Request!</button></div>' // 吹き出しに表示する内容
+      content: '<div><img class="p-user_icon_sm" src="{$base_url}/storage/profile_image/' + userId + '">' + name + '<button class="btn btn-sm btn-primary btn-block" onclick="sendRequest(' + userId + ')">Request!</button></div>' // 吹き出しに表示する内容
     });
     names[userId] = name;
     markers[userId].addListener('click', function() { // マーカーをクリックしたとき
