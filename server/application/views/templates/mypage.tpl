@@ -114,9 +114,11 @@
   *}
 
   <!--Button to change own information-->
-  <div class="u-pt30">
-    <a href="/notifications"><button class="p-button-main" type="button" name="button">Your Reviews</button></a>
-  </div>
+  {if $user['type'] === 'guide'}
+    <div class="u-pt30">
+      <a href="/notifications"><button class="p-button-main" type="button" name="button">Your Reviews</button></a>
+    </div>
+  {/if}
   <div class="u-pt30">
     <button onclick="location.href='/setting'" class="p-button-main" type="button" name="button">Edit Profile</button>
   </div>
