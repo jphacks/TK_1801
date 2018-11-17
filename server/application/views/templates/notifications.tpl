@@ -98,13 +98,13 @@
               <span class="review-star">
                 {if $review['star'] == 1}
                   ★☆☆☆☆ 1
-                {if $review['star'] == 2}
+                {else if $review['star'] == 2}
                   ★★☆☆☆ 2
-                {if $review['star'] == 3}
+                {else if $review['star'] == 3}
                   ★★★☆☆ 3
-                {if $review['star'] == 4}
+                {else if $review['star'] == 4}
                   ★★★★☆ 4
-                {if $review['star'] == 5}
+                {else if $review['star'] == 5}
                   ★★★★★ 5
                 {/if}
               </span>
