@@ -67,7 +67,7 @@ class Guidance_review extends CI_Model {
 		if ($with_guidance === true) {
 			$this->db->join('guidances', 'guidances.id = guidance_reviews.guidance_id');
 			if ($with_tourist_user === true) {
-				$this->db->join('users', 'users.id = guidances.tourist_user_id');
+				$this->db->join('users', 'users.id = guidances.customer_user_id');
 			}
 		}
 		$query = $this->db->get();
