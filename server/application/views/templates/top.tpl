@@ -34,6 +34,10 @@
     text-align: center;
     font-family: Arial-Black;
     padding-top: 20px;
+    position: relative;
+    left: 50%;
+    transform-box: trans;
+    transform: translateX(-50%);
 }
 .u-t35{
     font-size:35px;
@@ -107,6 +111,9 @@ a{
 .u-pt30{
   padding-top: 30px;
 }
+.l-align-left{
+  text-align: left;
+}
 </style>
 
 <section class="l-sectionLayout_lp">
@@ -116,7 +123,7 @@ a{
     </div>
     <div class="catch">
         <p class="u-pt50 u-t35"><span class="text_big">F</span>ind a guide,</p>
-        <p class=" u-t35"><span class="text_big">F</span>ind Your fan</p>
+        <p class=" u-t35"><span class="text_big">F</span>un your tourism</p>
         <p class="u-color-white u-style_oblique u-pt10">観光客とガイドを繋ぐプラットフォーム</p>
     </div>
     <div class="button u-pt30">
