@@ -124,12 +124,12 @@ a{
     <div class="catch">
         <p class="u-pt50 u-t35"><span class="text_big">F</span>ind a guide,</p>
         <p class=" u-t35"><span class="text_big">F</span>un your tourism</p>
-        <p class="u-color-white u-style_oblique u-pt10">観光客とガイドを繋ぐプラットフォーム</p>
+        <p class="u-color-white u-style_oblique u-pt10">A platform connecting tourists and local guides</p>
     </div>
     <div class="button u-pt30">
-        <a href="/register"><button  id="signup-as-subscriber" class="p-button-modal__open">今すぐ始める</button></a>
-        <p class="center u-pt30 u-color-white">または</p>
-        <a href="/login"><button id="signup-as-subscriber" class="p-button-modal__open">ログイン</button></a>
+        <a href="/register"><button  id="signup-as-subscriber" class="p-button-modal__open">Get started</button></a>
+        <p class="center u-pt30 u-color-white">or</p>
+        <a href="/login"><button id="signup-as-subscriber" class="p-button-modal__open">Login</button></a>
     </div>
     <!-- <div class="center">※Youtubeチャンネルが必要です</div> -->
   </div>
