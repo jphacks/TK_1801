@@ -56,7 +56,7 @@
             <div class="rateit" data-rateit-backingfld="#backing5" data-rateit-min="0" data-rateit-max="5" data-rateit-resetable="false"></div>
         </div>
       </div>
-      <p class="u-pt30">Write a review for {$user['name']|escape}:</p>
+      <p class="u-pt30">Send a review to {$guide_user['name']|escape}:</p>
       <!--text box of reviews-->
       <div class="input-group col-xs-12">
         <textarea class="form-control " rows="5" id="comment" name="body">{if isset($body)}{$body}{/if}</textarea>
