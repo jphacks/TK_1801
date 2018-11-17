@@ -1,4 +1,4 @@
-{include file="header.tpl" title="Registration" user=$user}
+{include file="header.tpl" title="Register" user=$user}
 <style media="screen">
   .u-pd-lr30{
     padding: 0 30px;
@@ -32,14 +32,14 @@
   .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover,
   .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus,
   .btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus {
-    background:rgba( 254 , 175 , 69 );; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
+    background:rgb( 254 , 175 , 69, 1 ); //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
     color: white; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
     border: 2px solid #FEAF45s;
 
   }
 
   .btn-primary.outline {
-      border: 3px solid rgba( 254 , 175 , 69 );; //アウトラインのみのボタンの線の色
+      border: 3px solid rgba( 254 , 175 , 69, 1 ); //アウトラインのみのボタンの線の色
       color: white ; //アウトラインのみのボタンのテキストの色
   }
 
