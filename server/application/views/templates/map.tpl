@@ -63,7 +63,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <span class="media-left">
-          <img class="p-user_icon" src="/images/user.jpg">
+          <img id="calling-modal-profile-img" class="p-user_icon" src="">
         </span>
         <div class="media-body u-pl30">
       		<h4 id="calling-modal-message" class="media-heading u-pt30"></h4>
@@ -84,7 +84,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <span class="media-left">
-          <img class="p-user_icon" src="/images/user.jpg">
+          <img id="calling-modal-profile-img" class="p-user_icon" src="">
         </span>
         <div class="media-body u-pl30">
       		<h4 id="waiting-modal-message" class="media-heading u-pt30"></h4>
@@ -169,6 +169,7 @@ function sendRequest(destUserId) {
     name: '{$user["name"]|escape|escape:"quotes"}'
   }));
   $('#waiting-modal-message').text('Calling ' + names[destUserId] + ' ...');
+  $('#calling-modal-profile-img').attr('src', '{$base_url}/storage/profile_image/' + destUserId);
   $('#waiting-modal-btn-cancel').click(function () {
     cancelRequest(destUserId);
   });
@@ -248,6 +249,7 @@ setTimeout(function () {
         // ガイド依頼の呼び出しをサーバーから受け取った時(呼び出しモーダルを表示)
         if (d.destUserId == {$user['id']}) {
           $('#calling-modal-message').text(d.name + ' scouted you!!');
+          $('#calling-modal-profile-img').attr('src', '{$base_url}/storage/profile_image/' + d.userId);
           $('#calling-modal-btn-decline').click(function () {
             declineRequest(d.userId);
           });
