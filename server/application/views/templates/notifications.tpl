@@ -57,15 +57,25 @@
 .p-user_icon{
   width: 40px;
   height: 40px;
+  object-fit: cover;
   border-radius: 250px;
   border: solid 1px #FD5637;
   margin-bottom: 10px;
 }
 .review-item {
-  background: #f8f8f8;
+  background: #f4f4f4;
   color: #000;
   margin-bottom: 20px;
-  padding: 15px;
+  padding: 20px;
+}
+.review-date {
+  margin-bottom: 10px;
+}
+.review-tourist {
+  margin-bottom: 10px;
+}
+.review-tourist img {
+  margin-right: 10px;
 }
 </style>
 
@@ -80,12 +90,12 @@
       <div class="panel-body">
         {foreach $reviews as $review}
           <div class="review-item">
-            <div>{date("F j, Y, g:i a", strtotime($review['created_at']))}</div>
-            <div>
+            <div class="review-date">{date("F j, Y, g:i a", strtotime($review['created_at']))}</div>
+            <div class="review-tourist">
               <img src="{$base_url}/storage/profile_image/{$review['tourist_user_id']}" alt="" class="p-user_icon">
               {$review['tourist_user_name']|escape} wrote:
             </div>
-            <p>{$review['body']}</p>
+            <div class="review-body">{$review['body']}</div>
           </div>
         {/foreach}
     	</div>
