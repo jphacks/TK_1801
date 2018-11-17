@@ -55,6 +55,7 @@
     border-radius: 250px;
     border: solid 1px #FD5637;
     margin-bottom: 10px;
+    margin-right: 10px;
   }
 </style>
 <!-- Button trigger modal -->
