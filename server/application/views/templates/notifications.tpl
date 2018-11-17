@@ -116,7 +116,7 @@
           </div>
         {/foreach}
         {if empty($reviews)}
-          You have not received any reviews!
+          You have not received any messages!
         {/if}
     	</div>
     </div>
