@@ -94,7 +94,20 @@
             <div class="review-date">{date("F j, Y, g:i a", strtotime($review['created_at']))}</div>
             <div class="review-tourist">
               <img src="{$base_url}/storage/profile_image/{$review['tourist_user_id']}" alt="" class="p-user_icon">
-              {$review['tourist_user_name']|escape} wrote:
+              <span class="review-name">{$review['tourist_user_name']|escape}</span>
+              <span class="review-star">
+                {if $review['star'] == 1}
+                  ★☆☆☆☆ 1
+                {if $review['star'] == 2}
+                  ★★☆☆☆ 2
+                {if $review['star'] == 3}
+                  ★★★☆☆ 3
+                {if $review['star'] == 4}
+                  ★★★★☆ 4
+                {if $review['star'] == 5}
+                  ★★★★★ 5
+                {/if}
+              </span>
             </div>
             <div class="review-body">{$review['body']}</div>
           </div>
