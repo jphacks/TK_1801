@@ -78,6 +78,9 @@
 .review-tourist img {
   margin-right: 10px;
 }
+.review-name {
+  margin-right: 15px;
+}
 </style>
 
 <!--put the main components of this page-->
