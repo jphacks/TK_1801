@@ -46,9 +46,11 @@ class Guidance_review extends CI_Model {
 	 * @param string ソート順序(ASC/DESC)
 	 * @param int 取得するデータ数
 	 * @param int 取得開始位置
+	 * @param bool guidanceテーブルをJOINするか
+	 * @param bool usersテーブルをJOINして観光客の情報を取得するか
 	 * @return array レビュー情報の配列
 	 */
-	public function search($select = '*', $wheres = array(), $order_by = null, $sort_order = 'ASC', $limit = null, $offset = null) {
+	public function search($select = '*', $wheres = array(), $order_by = null, $sort_order = 'ASC', $limit = null, $offset = null, $with_guidance = false, $with_tourist_user = false) {
 		$this->db->select($select, false);
 		$this->db->from('guidance_reviews');
 		$this->db->where($wheres);
@@ -60,6 +62,12 @@ class Guidance_review extends CI_Model {
 				$this->db->limit($limit, $offset);
 			}else{
 				$this->db->limit($limit);
+			}
+		}
+		if ($with_guidance === true) {
+			$this->db->join('guidances', 'guidances.id = guidance_reviews.guidance_id');
+			if ($with_tourist_user === true) {
+				$this->db->join('users', 'users.id = guidances.tourist_user_id');
 			}
 		}
 		$query = $this->db->get();

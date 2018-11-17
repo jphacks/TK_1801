@@ -1,4 +1,5 @@
 {include file="header.tpl" title="Notifications" user=$user}
+{ci_config name="base_url"}
 
 <!--add the special style sheet of this page here!-->
 <style media="screen">
@@ -71,11 +72,14 @@
     		<p class="text-center">Notifications</p>
     	</div> -->
       <div class="panel-body">
-        <!-- ここをeachで回したい -->
-    		<p>Date of review</p>
-        <img src="/images/user.jpg" alt="" class="p-user_icon">
-        <p>〇〇さんがあなたについてレビューを書きました</p>
-        <p>てきすとてきすててきすとてきすとてきすとてきすとてきすとてきすとてきすとてきすとてきすててきすとてきすとてきすとてきすとてきすとてきすとてきすとてきすとてきすててきすとてきすとてきすとてきすとてきすとてきすとてきすと</p>
+        {foreach $reviews as $review}
+          <div class="review-item">
+            <p>Date of review</p>
+            <img src="{$base_url}/storage/profile_image/{$review['tourist_user_id']}" alt="" class="p-user_icon">
+            <p>{$review['tourist_user_name']|escape} wrote:</p>
+            <p>{$review['body']}</p>
+          </div>
+        {/foreach}
     	</div>
     </div>
   </div>

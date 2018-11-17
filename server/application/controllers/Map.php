@@ -5,6 +5,10 @@ class Map extends CI_Controller {
 	{
 		parent::__construct();
 		session_start();
+		
+		if (!isset($_SESSION['user_id'])) {
+			redirect('/login');
+		}
 	}
 
 	function index()
