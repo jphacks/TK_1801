@@ -1,4 +1,5 @@
 {include file="header.tpl" title="Where are Guides?" user=$user}
+{ci_config name="base_url"}
 <style media="screen">
   .message_bar{
     /* position: absolute;
