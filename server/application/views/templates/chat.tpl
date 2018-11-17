@@ -16,7 +16,7 @@
     margin-top: 30px;
   }
   #msg{
-    width: calc(90% - 140px);
+    width: 70%;
     height: 40px;
     border-radius: 5px;
     border: solid 1px;
@@ -32,10 +32,7 @@
     background-color: #FD5637;
     color: #ffffff
   }
-  .btn-gray{
-    background-color: #bbb;
-    color: #ffffff
-  }
+
 </style>
 <section class="u-pd-lr30">
 {*
@@ -45,9 +42,7 @@
   <div id="chatLog">
   </div>
   <div class="message_bar">
-    <input type="text" id="msg" placeholder="message">
-    <button id="send" class="p-button-modal__open">Send</button>
-    <button id="leave" class="p-button-modal__open btn-gray">Exit</button>
+    <input type="text" id="msg" placeholder="message"> <button id="send" class="p-button-modal__open">Send</button>
   </div>
 </section>
     <script type="text/javascript" src="https://cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
@@ -73,12 +68,6 @@ $(setTimeout(function () {
      var msg = $('#msg').val();
      room.send(msg);
      chatlog('You > ' + msg);
-     position = $("#msg").offset().top;
-     $("html,body").animate({
-       scrollTop : position // さっき変数に入れた位置まで
-     }, {
-       queue : false　// どれくらい経過してから、アニメーションを始めるか。キュー[待ち行列]。falseを指定すると、キューに追加されずに即座にアニメーションを実行。
-     });
      $('#msg').val('');
   });
 
@@ -92,7 +81,6 @@ $(setTimeout(function () {
 $('#leave').click(function(){
     room.close();
     chatlog('Left the chat room.');
-    location.href = "{$base_url}review?id={$guidance_id}";
 });
 
 // チャットログに記録するための関数
