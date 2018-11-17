@@ -74,7 +74,7 @@ $(setTimeout(function () {
       message: $('#msg').val()
     });
     room.send(msg);
-    chatlog('You > ' + msg);
+    chatlog('You > ' + $('#msg').val());
     $('#msg').val('');
   });
 
