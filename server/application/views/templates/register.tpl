@@ -37,7 +37,7 @@
     border: 2px solid #ffbd00;
     box-shadow: none;
   }
-  .btn.active {
+  .btn.active, .btn.focus {
     border: 2px solid #ffbd00;
   }
 
