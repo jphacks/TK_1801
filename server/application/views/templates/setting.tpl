@@ -124,6 +124,31 @@
           </div>
         </div>
       </div>
+
+      <!--プロフィール写真更新-->
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#imageChange">Upload your profile image</a>
+          </h4>
+        </div>
+        <div id="imageChange" class="panel-collapse collapse">
+          <div class="panel-body">
+            <form action="{$base_url}setting/upload_image" method="POST" enctype="multipart/form-data">
+              <div class="form-group">
+                <label for="image" class="control-label">Profile image (JPEG, less than 2MB)</label>
+                <div class="input-group">
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></span>
+                  <input name="image" type="file" class="form-control">
+                </div>
+              </div>
+              <div class="u-pt30">
+                  <button class="p-button-main" type="submit" name="button">Upload image</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
