@@ -61,6 +61,10 @@
   border: solid 1px #FD5637;
   margin-bottom: 10px;
 }
+.review-item {
+  background: #eee;
+  margin-bottom: 20px;
+}
 </style>
 
 <!--put the main components of this page-->
@@ -74,7 +78,7 @@
       <div class="panel-body">
         {foreach $reviews as $review}
           <div class="review-item">
-            <p>Date of review</p>
+            <p>{date("F j, Y, g:i a", strtotime($review['created_at']))}</p>
             <img src="{$base_url}/storage/profile_image/{$review['tourist_user_id']}" alt="" class="p-user_icon">
             <p>{$review['tourist_user_name']|escape} wrote:</p>
             <p>{$review['body']}</p>
