@@ -292,7 +292,7 @@ setTimeout(function () {
       case 'accept':
         // ガイド依頼の呼び出し承諾をサーバーから受け取った時(呼び出しモーダルを閉じる)
         if (d.destUserId == {$user['id']}) {
-          location.href = '/chat?room=' + d.destUserId + '&tourist=' + d.userId + '&guide=' + d.destUserId;
+          location.href = '/chat?room=' + d.destUserId + '&tourist=' + d.destUserId + '&guide=' + d.userId;
         }
         break;
       default:
