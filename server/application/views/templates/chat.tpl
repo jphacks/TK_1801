@@ -68,20 +68,15 @@ $(setTimeout(function () {
 
   // チャットを送信
   $('#send').click(function(){
-    var msg = JSON.stringify({
-      user_id: {$guide_user['id']},
-      name: '{$guide_user["name"]|escape}',
-      message: $('#msg').val()
-    });
-    room.send(msg);
-    chatlog('You > ' + msg);
-    $('#msg').val('');
+     var msg = $('#msg').val();
+     room.send(msg);
+     chatlog('You > ' + msg);
+     $('#msg').val('');
   });
 
   // チャットを受信
   room.on('data', function(data){
-    var d = JSON.parse(data.data);
-    chatlog(d.name + ' > ' + d.message); // data.src = 送信者のpeerid, data.data = 送信されたメッセージ
+    chatlog('Guide > ' + data.data); // data.src = 送信者のpeerid, data.data = 送信されたメッセージ
   });
 
   // 相手の退室を受信
