@@ -27,7 +27,7 @@
   padding-top: 100px;
 }
 .head__logo{
-  width: 30%;
+  width: 10%;
   height: auto;
 }
 .catch{
@@ -90,8 +90,20 @@ a{
   cursor: pointer;
 }
 .l-sectionLayout_lp{
-  height: 100vh;
+  height: 1200px;
+  width: 100%;
 }
+@media screen and (max-width: 768px){
+  .l-sectionLayout_lp{
+    height: 100vh;
+    width: 100%;
+  }
+  .head__logo{
+    width: 30%;
+    height: auto;
+  }
+}
+
 .u-pt30{
   padding-top: 30px;
 }
