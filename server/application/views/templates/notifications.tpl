@@ -67,6 +67,7 @@
   color: #000;
   margin-bottom: 20px;
   padding: 20px;
+  border-radius: 10px;
 }
 .review-date {
   margin-bottom: 10px;
