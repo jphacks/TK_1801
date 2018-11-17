@@ -16,7 +16,7 @@
     margin-top: 30px;
   }
   #msg{
-    width: 70%;
+    width: calc(90% - 140px);
     height: 40px;
     border-radius: 5px;
     border: solid 1px;
@@ -42,7 +42,9 @@
   <div id="chatLog">
   </div>
   <div class="message_bar">
-    <input type="text" id="msg" placeholder="message"> <button id="send" class="p-button-modal__open">Send</button>
+    <input type="text" id="msg" placeholder="message">
+    <button id="send" class="p-button-modal__open">Send</button>
+    <button id="leave" class="p-button-modal__open btn-gray">Exit</button>
   </div>
 </section>
     <script type="text/javascript" src="https://cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
@@ -100,7 +102,7 @@ function leave(){
 
 // チャットログに記録するための関数
 function chatlog(msg){
-    $('#chatLog').append('<p>' + msg + '</p>');
+  $('#chatLog').append('<p>' + msg + '</p>');
 }
 </script>
 {include file="footer.tpl"}
