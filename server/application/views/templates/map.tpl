@@ -169,7 +169,7 @@ function sendRequest(destUserId) {
     name: '{$user["name"]|escape|escape:"quotes"}'
   }));
   $('#waiting-modal-message').text('Calling ' + names[destUserId] + ' ...');
-  $('#calling-modal-profile-img').attr('src', '{$base_url}/storage/profile_image/' + destUserId);
+  $('#waiting-modal-profile-img').attr('src', '{$base_url}/storage/profile_image/' + destUserId);
   $('#waiting-modal-btn-cancel').click(function () {
     cancelRequest(destUserId);
   });
