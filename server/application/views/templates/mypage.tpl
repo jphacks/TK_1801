@@ -1,4 +1,5 @@
 {include file="header.tpl" title="My Page" user=$user}
+{ci_config name="base_url"}
 
 <!--add the special style sheet of this page here!-->
 <style media="screen">
@@ -58,7 +59,7 @@
   <!--User Informations-->
   <div class="media u-pt30">
   	<span class="media-left">
-      <img class="p-user_icon" src="../images/user.jpg"> <!--真ん中に持ってきたい-->
+      <img class="p-user_icon" src="{$base_url}storage/profile_image/{$user['id']}">{* TODO: 真ん中に持ってきたい *}
   	</span>
   	<div class="media-body u-pl30">
       <!--Name-->
