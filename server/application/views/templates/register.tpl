@@ -19,7 +19,7 @@
     color: #ffffff
   }
   .btn-primary{
-    background-color: #c78836;
+    background-color: #d8c0ab;
     border: none;
   }
   .btn-primary:hover, .btn-primary:focus,
@@ -32,14 +32,14 @@
   .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover,
   .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus,
   .btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus {
-    background:rgb( 254 , 175 , 69, 1 ); //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
+    background:rgb(255, 132, 54); //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
     color: white; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
     border: 2px solid #FEAF45;
 
   }
 
   .btn-primary.outline {
-      border: 3px solid rgba( 254 , 175 , 69, 1 ); //アウトラインのみのボタンの線の色
+      border: 3px solid rgb(255, 132, 54); //アウトラインのみのボタンの線の色
       color: white ; //アウトラインのみのボタンのテキストの色
   }
 
