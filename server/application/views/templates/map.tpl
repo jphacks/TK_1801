@@ -87,14 +87,14 @@
           <img id="calling-modal-profile-img" class="p-user_icon" src="">
         </span>
         <div class="media-body u-pl30">
-      		<h4 id="waiting-modal-message" class="media-heading u-pt30"></h4>
+      		<h4 id="calling-modal-message" class="media-heading u-pt30"></h4>
         </div>
       </div>
       <div id="calling-modal-menu" class="modal-body text-center">
-        <button id="waiting-modal-btn-cancel" type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">Cancel</button>
+        <button id="calling-modal-btn-cancel" type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">Cancel</button>
       </div>
       <div id="calling-modal-menu-ok" class="modal-body text-center" style="display:none">
-        <button id="waiting-modal-btn-cancel" type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">OK</button>
+        <button id="calling-modal-btn-cancel" type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">OK</button>
       </div>
     </div>
   </div>
