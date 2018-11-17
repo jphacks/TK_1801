@@ -123,7 +123,7 @@ a{
     </div>
     <div class="catch">
         <p class="u-pt50 u-t35"><span class="text_big">F</span>ind a guide,</p>
-        <p class=" u-t35"><span class="text_big">F</span>un your tourism</p>
+        <p class="u-t35"><span class="text_big">H</span>ave fun on your tour</p>
         <p class="u-color-white u-style_oblique u-pt10">A platform connecting tourists and local guides</p>
     </div>
     <div class="button u-pt30">
