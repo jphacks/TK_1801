@@ -95,8 +95,8 @@ class Setting extends CI_Controller {
 			'upload_path' => $upload_path,
 			'allowed_types' => 'jpg',
 			'max_size' => 2048/*KB*/,
-			'max_width' => 1024,
-			'max_height' => 768,
+			//'max_width' => 1024,
+			//'max_height' => 768,
 			'encrypt_name' => true,
 		));
 
