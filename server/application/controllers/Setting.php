@@ -70,7 +70,7 @@ class Setting extends CI_Controller {
 			// フォーム検証エラー
 			$error_message = $this->form_validation->error_string();
 		} else {
-			$user_id = $this->user->update($updates);
+			$user_id = $this->user->update(array('id' => $_SESSION['user_id']), $updates);
 			if ($user_id === false) {
 				// DBエラー
 				$error_message = 'Failed to update your information.';
