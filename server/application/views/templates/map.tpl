@@ -158,9 +158,11 @@ function updateMarker(userId, name, position, type) {
       content: '<div><img class="p-user_icon_sm" src="{$base_url}/storage/profile_image/' + userId + '">' + name + ' <button class="btn btn-sm btn-primary btn-block" onclick="sendRequest(' + userId + ')">Request!</button></div>' // 吹き出しに表示する内容
     });
     names[userId] = name;
-    markers[userId].addListener('click', function() { // マーカーをクリックしたとき
-      infoWindow.open(map, markers[userId]); // 吹き出しの表示
-    });
+    if (userId != {$user['id']}) {
+      markers[userId].addListener('click', function() { // マーカーをクリックしたとき
+        infoWindow.open(map, markers[userId]); // 吹き出しの表示
+      });
+    }
   }
 }
 
