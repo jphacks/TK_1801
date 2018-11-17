@@ -37,7 +37,8 @@
     border: 2px solid #ffbd00;
     box-shadow: none;
   }
-  .btn.active, .btn.focus {
+  .btn.active, .btn.focus,
+  .btn.active:hover, .btn.focus:hover {
     border: 2px solid #ffbd00;
   }
 
