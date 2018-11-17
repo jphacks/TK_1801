@@ -34,8 +34,10 @@
   .btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus {
     background:rgb(255, 132, 54); //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
     color: white; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
-    border: 2px solid #ffbd00 !important;
     box-shadow: none;
+  }
+  btn.active {
+    border: 2px solid #ffbd00;
   }
 
   .btn-primary.outline {
