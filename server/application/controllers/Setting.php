@@ -48,6 +48,8 @@ class Setting extends CI_Controller {
 		);
 		$this->form_validation->set_rules($rules);
 
+		var_dump($_POST);
+
 		// 更新するユーザー情報
 		// (POSTをそのままDB更新に利用すると意図しないカラムが指定された場合に危険なため個別に指定)
 		$updates = array(
@@ -64,6 +66,7 @@ class Setting extends CI_Controller {
 		$updates = array_filter($updates, function($value, $key) {
 			return isset($value);
 		}, ARRAY_FILTER_USE_BOTH);
+		var_dump($updates);
 
 		$error_message = null;
 		if ($this->form_validation->run() === false) {
@@ -85,6 +88,7 @@ class Setting extends CI_Controller {
 			'user' => $this->user->get('*', array('id' => $_SESSION['user_id'])),
 			'error_message' => $error_message,
 		);
+		var_dump($error_message);
 		$this->smarty->view('setting.tpl', $data);
 	}
 }
