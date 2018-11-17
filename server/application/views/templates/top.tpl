@@ -95,7 +95,7 @@ a{
 }
 @media screen and (max-width: 768px){
   .l-sectionLayout_lp{
-    height: 100vh;
+    height: 900px;
     width: 100%;
   }
   .head__logo{
