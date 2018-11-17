@@ -84,7 +84,7 @@ class Review extends CI_Controller {
 		$data['error_message'] = $error_message;
 		$data['user'] = isset($_SESSION['user_id']) ? $this->user->get('*', array('id' => $_SESSION['user_id'])) : null;
 
-		$guidance = $this->guidance->get('*', array('id' => $guidance_id));
+		$guidance = $this->guidance->get('*', array('id' => $this->input->get('id')));
 		$data['guidance'] = $guidance;
 		$data['guide_user'] = $this->user->get('*', array('id' => $guidance['guide_user_id']));
 
