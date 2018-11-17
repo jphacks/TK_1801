@@ -43,6 +43,7 @@
 .p-user_icon{
   width: 125px;
   height: 125px;
+  object-fit: cover;
   border-radius: 250px;
   border: solid 1px #FD5637;
 }
