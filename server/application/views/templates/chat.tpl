@@ -68,6 +68,12 @@ $(setTimeout(function () {
      var msg = $('#msg').val();
      room.send(msg);
      chatlog('You > ' + msg);
+     position = $("#msg").offset().top;
+     $("html,body").animate({
+       scrollTop : position // さっき変数に入れた位置まで
+     }, {
+       queue : false　// どれくらい経過してから、アニメーションを始めるか。キュー[待ち行列]。falseを指定すると、キューに追加されずに即座にアニメーションを実行。
+     });
      $('#msg').val('');
   });
 
