@@ -1,4 +1,5 @@
 {include file="header.tpl" title="Send Reviews" user=$user}
+{ci_config name="base_url"}
 
 <!--add the special style sheet of this page here!-->
 <style media="screen">
@@ -41,10 +42,10 @@
       <h4 class="u-pt30 ">Are you satisfied?</h4>
       <div class="media u-pt30">
         <span class="media-left">
-          <img class="p-user_icon" src="/images/user.jpg">
+          <img class="p-user_icon" src="{$base_url}/storage/profile_image/{$guide_user['id']}">
         </span>
         <div class="media-body u-pl30">
-          <h4 class="media-heading">{$user['name']|escape}</h4>
+          <h4 class="media-heading">{$guide_user['name']|escape}</h4>
             <script>
               $(function() {
                 // RateItの設定 ...（2）
