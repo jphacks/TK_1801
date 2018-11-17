@@ -8,6 +8,6 @@ class Top extends CI_Controller {
 
 	function index()
 	{
-  	$this->smarty->view('Top.tpl');
+  	$this->smarty->view('top.tpl');
 	}
 }
