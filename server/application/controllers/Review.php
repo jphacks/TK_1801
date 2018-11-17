@@ -10,7 +10,7 @@ class Review extends CI_Controller {
 			redirect('/login');
 		}
 
-		/*if ($this->input->get('id') === null)
+		if ($this->input->get('id') === null)
 		{
 			$data = array(
 				'error_message_only' => 'The Guidance ID is not specified.',
@@ -18,7 +18,7 @@ class Review extends CI_Controller {
 			$this->smarty->view('review.tpl', $data);
 		}
 		
-		$guidance = $this->guidance->get('*', array('guidance_id' => $this->input->get('id')));
+		/*$guidance = $this->guidance->get('*', array('guidance_id' => $this->input->get('id')));
 		if ($guidance === false || $guidance['customer_user_id'] !== $_SESSION['user_id']) {
 			$data = array(
 				'error_message_only' => 'You don\'t have rights for posting reviews of this guidance.',
@@ -29,9 +29,13 @@ class Review extends CI_Controller {
 
 	function index()
 	{
+		$guidance_id = $this->input->get('id');
+		$guidance = $this->guidance->get('*', array('id' => $guidance_id));
 		$this->smarty->view('review.tpl', array(
-			'user' => isset($_SESSION['user_id']) ? $this->user->get('*', array('id' => $_SESSION['user_id'])) : null,
-			'guidance_id' => $this->input->get('id'),
+			'user' => $this->user->get('*', array('id' => $_SESSION['user_id'])),
+			'guidance_id' => $guidance_id,
+			'guidance' => $guidance,
+			'guide_user' => $this->user->get('*', array('id' => $guidance['guide_user_id'])),
 		));
 	}
 

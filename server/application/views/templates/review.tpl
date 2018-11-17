@@ -1,4 +1,5 @@
 {include file="header.tpl" title="Send Reviews" user=$user}
+{ci_config name="base_url"}
 
 <!--add the special style sheet of this page here!-->
 <style media="screen">
@@ -41,10 +42,10 @@
       <h4 class="u-pt30 ">Are you satisfied?</h4>
       <div class="media u-pt30">
         <span class="media-left">
-          <img class="p-user_icon" src="/images/user.jpg">
+          <img class="p-user_icon" src="{$base_url}/storage/profile_image/{$guide_user['id']}">
         </span>
         <div class="media-body u-pl30">
-          <h4 class="media-heading">{$user['name']|escape}</h4>
+          <h4 class="media-heading">{$guide_user['name']|escape}</h4>
             <script>
               $(function() {
                 // RateItの設定 ...（2）
@@ -55,7 +56,7 @@
             <div class="rateit" data-rateit-backingfld="#backing5" data-rateit-min="0" data-rateit-max="5" data-rateit-resetable="false"></div>
         </div>
       </div>
-      <p class="u-pt30">Write a review for {$user['name']|escape}:</p>
+      <p class="u-pt30">Send a review to {$guide_user['name']|escape}:</p>
       <!--text box of reviews-->
       <div class="input-group col-xs-12">
         <textarea class="form-control " rows="5" id="comment" name="body">{if isset($body)}{$body}{/if}</textarea>
