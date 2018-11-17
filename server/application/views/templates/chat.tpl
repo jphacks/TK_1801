@@ -69,8 +69,8 @@ $(setTimeout(function () {
   // チャットを送信
   $('#send').click(function(){
     var msg = JSON.stringify({
-      user_id: {$guide_user['id']},
-      name: '{$guide_user["name"]|escape}',
+      user_id: {$user['id']},
+      name: '{$user["name"]|escape}',
       message: $('#msg').val()
     });
     room.send(msg);
