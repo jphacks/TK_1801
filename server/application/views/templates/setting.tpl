@@ -1,4 +1,5 @@
 {include file="header.tpl" title="Setting" user=$user}
+{ci_config name="base_url"}
   <style>
     .u-pd-lr30{
       padding: 0 30px;
@@ -30,7 +31,6 @@
     }
   </style>
 
-  <!--間違って更新しないようにするため，formのactionは無しにしています-->
   <section>
     <h2>Setting</h2>
     <!--おりたたみ-->
@@ -48,7 +48,7 @@
         </div>
         <div id="nameChange" class="panel-collapse collapse">
           <div class="panel-body">
-            <form action="#" method="POST">
+            <form action="{$base_url}setting/submit" method="POST">
               <div class="form-group">
                 <label for="name" class="control-label">Name</label>
                 <div class="input-group">
@@ -73,7 +73,7 @@
         </div>
         <div id="mailChange" class="panel-collapse collapse">
           <div class="panel-body">
-            <form action="#" method="POST">
+            <form action="{$base_url}setting/submit" method="POST">
               <div class="form-group">
                 <label for="email_address" class="control-label">Email Address</label>
                 <div class="input-group">
@@ -98,15 +98,17 @@
         </div>
         <div id="passChange" class="panel-collapse collapse">
           <div class="panel-body">
-            <form action="#" method="POST">
+            <form action="{$base_url}setting/submit" method="POST">
+              {*  TODO: 古いパスワードを受け取って認証成功した場合のみユーザー情報更新
               <!--old password-->
               <div class="form-group">
                 <label for="password" class="control-label">Input your password</label>
                 <div class="input-group">
                     <span class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></span>
-                    <input name="password" type="password" class="form-control" placeholder="Your Password">
+                    <input name="old-password" type="password" class="form-control" placeholder="Your Password">
                 </div>
               </div>
+              *}
               <!--new password-->
               <div class="form-group">
                 <label for="password" class="control-label">Register new password (must be 6 to 32 characters long)</label>
