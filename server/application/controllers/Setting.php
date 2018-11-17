@@ -100,6 +100,9 @@ class Setting extends CI_Controller {
 			'encrypt_name' => true,
 		));
 
+		$user = $this->user->get('profile_image_filename', array('id' => $_SESSION['user_id']));
+		$old_filename = $user['profile_image_filename'];
+
 		if($this->upload->do_upload('image')){
 			$success = $this->user->update(array('id' => $_SESSION['user_id']), array(
 				'profile_image_filename' => $upload_path.$this->upload->data('file_name'),
@@ -107,9 +110,10 @@ class Setting extends CI_Controller {
 			if ($success === false) {
 				// DBエラー
 				$error_message = 'Failed to update your information.';
-				unlink($upload_path.$this->upload->data('file_name'));
+				@unlink($upload_path.$this->upload->data('file_name'));
 			} else {
-				// 画像操作ライブラリの読み込み
+				/*
+				// 画像のリサイズ
 				$this->load->library('image_lib', array(
 					'image_library' => 'imagemagick',
 					'source_image' => $this->upload->data('full_path'),
@@ -119,6 +123,8 @@ class Setting extends CI_Controller {
 					'height' => 400,
 				));
 				$this->image_lib->resize();
+				*/
+				@unlink($old_filename);
 
 				// ユーザー情報の更新に成功
 				redirect('/mypage');
