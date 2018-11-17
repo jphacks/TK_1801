@@ -84,17 +84,17 @@
     <div class="modal-content">
       <div class="modal-header">
         <span class="media-left">
-          <img id="calling-modal-profile-img" class="p-user_icon" src="">
+          <img id="waiting-modal-profile-img" class="p-user_icon" src="">
         </span>
         <div class="media-body u-pl30">
-      		<h4 id="calling-modal-message" class="media-heading u-pt30"></h4>
+      		<h4 id="waiting-modal-message" class="media-heading u-pt30"></h4>
         </div>
       </div>
-      <div id="calling-modal-menu" class="modal-body text-center">
-        <button id="calling-modal-btn-cancel" type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">Cancel</button>
+      <div id="waiting-modal-menu" class="modal-body text-center">
+        <button id="waiting-modal-btn-cancel" type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">Cancel</button>
       </div>
-      <div id="calling-modal-menu-ok" class="modal-body text-center" style="display:none">
-        <button id="calling-modal-btn-cancel" type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">OK</button>
+      <div id="waiting-modal-menu-ok" class="modal-body text-center" style="display:none">
+        <button id="waiting-modal-btn-cancel" type="button" class="p-button-modal__close u-ml30" data-dismiss="modal">OK</button>
       </div>
     </div>
   </div>
@@ -168,14 +168,14 @@ function sendRequest(destUserId) {
     destUserId: destUserId,
     name: '{$user["name"]|escape|escape:"quotes"}'
   }));
-  $('#waiting-modal-message').text('Calling ' + names[destUserId] + ' ...');
-  $('#waiting-modal-profile-img').attr('src', '{$base_url}/storage/profile_image/' + destUserId);
-  $('#waiting-modal-btn-cancel').click(function () {
+  $('#calling-modal-message').text('Calling ' + names[destUserId] + ' ...');
+  $('#calling-modal-profile-img').attr('src', '{$base_url}/storage/profile_image/' + destUserId);
+  $('#calling-modal-btn-cancel').click(function () {
     cancelRequest(destUserId);
   });
-  $('#waiting-modal-menu').show();
-  $('#waiting-modal-menu-ok').hide();
-  $('#btn-waiting-modal').click();
+  $('#calling-modal-menu').show();
+  $('#calling-modal-menu-ok').hide();
+  $('#btn-calling-modal').click();
 }
 
 function cancelRequest(destUserId) {
@@ -248,34 +248,34 @@ setTimeout(function () {
       case 'request':
         // ガイド依頼の呼び出しをサーバーから受け取った時(呼び出しモーダルを表示)
         if (d.destUserId == {$user['id']}) {
-          $('#calling-modal-message').text(d.name + ' scouted you!!');
-          $('#calling-modal-profile-img').attr('src', '{$base_url}/storage/profile_image/' + d.userId);
-          $('#calling-modal-btn-decline').click(function () {
+          $('#waiting-modal-message').text(d.name + ' scouted you!!');
+          $('#waiting-modal-profile-img').attr('src', '{$base_url}/storage/profile_image/' + d.userId);
+          $('#waiting-modal-btn-decline').click(function () {
             declineRequest(d.userId);
           });
-          $('#calling-modal-btn-accept').click(function () {
+          $('#waiting-modal-btn-accept').click(function () {
             acceptRequest(d.userId);
             location.href = '/chat?room=' + d.userId;
           });
-          $('#calling-modal-menu').show();
-          $('#calling-modal-menu-ok').hide();
-          $('#btn-calling-modal').click();
+          $('#waiting-modal-menu').show();
+          $('#waiting-modal-menu-ok').hide();
+          $('#btn-waiting-modal').click();
         }
         break;
       case 'cancel':
         // ガイド依頼の呼び出しキャンセルをサーバーから受け取った時(呼び出しモーダルを閉じる)
         if (d.destUserId == {$user['id']}) {
-          $('#calling-modal-message').text('The request from ' + d.name + ' has been cancelled.');
-          $('#calling-modal-menu').hide();
-          $('#calling-modal-menu-ok').show();
+          $('#waiting-modal-message').text('The request from ' + d.name + ' has been cancelled.');
+          $('#waiting-modal-menu').hide();
+          $('#waiting-modal-menu-ok').show();
         }
         break;
       case 'decline':
-        // ガイド依頼の呼び出しキャンセルをサーバーから受け取った時(呼び出しモーダルを閉じる)
+        // ガイド依頼の呼び出し拒否をサーバーから受け取った時(呼び出しモーダルを閉じる)
         if (d.destUserId == {$user['id']}) {
-          $('#waiting-modal-message').text('Your request has been declined.');
-          $('#waiting-modal-menu').hide();
-          $('#waiting-modal-menu-ok').show();
+          $('#calling-modal-message').text('Your request has been declined.');
+          $('#calling-modal-menu').hide();
+          $('#calling-modal-menu-ok').show();
         }
         break;
       case 'accept':
