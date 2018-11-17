@@ -253,7 +253,7 @@ setTimeout(function () {
           });
           $('#calling-modal-btn-accept').click(function () {
             acceptRequest(d.userId);
-            location.href = '/chat?room=' + d.userId + '&tourist=' + d.userId + '&guide=' + d.destUserId;
+            location.href = '/chat?room=' + d.userId;
           });
           $('#calling-modal-menu').show();
           $('#calling-modal-menu-ok').hide();
@@ -279,7 +279,7 @@ setTimeout(function () {
       case 'accept':
         // ガイド依頼の呼び出し承諾をサーバーから受け取った時(呼び出しモーダルを閉じる)
         if (d.destUserId == {$user['id']}) {
-          location.href = '/chat?room=' + d.destUserId;
+          location.href = '/chat?room=' + d.destUserId + '&tourist=' + d.userId + '&guide=' + d.destUserId;
         }
         break;
       default:

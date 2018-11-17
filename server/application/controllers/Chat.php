@@ -14,18 +14,24 @@ class Chat extends CI_Controller {
 		$guide_user_id = $this->input->get('guide');
 		if (isset($tourist_user_id) && isset($guide_user_id)) {
 			// ガイド依頼の履歴をDBへ蓄積
-			$this->guidance->register(array(
+			$guidance_id = $this->guidance->register(array(
 				'customer_user_id' => $tourist_user_id,
 				'guide_user_id' => $guide_user_id,
 				'status' => 'active',
 				'created_by_ip_address' => ip2long($_SERVER['REMOTE_ADDR']),
 			));
+		} else {
+			$guidance_id = null;
 		}
 		if (!isset($_SESSION['user_id']) || ($this->user->count(array('id' => $_SESSION['user_id'])) === 0)) {
 			redirect('/login');
 		} else {
 			$this->smarty->view('chat.tpl', array(
-				'user' => $this->user->get('*', array('id' => $_SESSION['user_id'], 'chat_id' => $this->input->get('id'))),
+				'user' => $this->user->get('*', array(
+					'id' => $_SESSION['user_id'],
+					'chat_id' => $this->input->get('id'),
+					'guidance_id' => $guidance_id,
+				)),
 				'room_id' => $room_id,
 			));
 		}
